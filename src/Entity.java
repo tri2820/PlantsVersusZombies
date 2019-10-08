@@ -22,7 +22,9 @@ class Entity {
     <T extends Component> void addComponent(Class<T> component_type) {
         if (hasComponent(component_type))
             throw new Error("Cannot addComponent, " + this + " has " + component_type + " already");
+
         var component = ECS_helper.createComponentInstance(component_type);
+        component.setEntity(this);
         this.components.put(component_type, component);
     }
 

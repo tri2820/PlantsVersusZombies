@@ -25,15 +25,14 @@ class CollisionComponent extends Component {
         super();
     }
 
-    static boolean checkCollision(Entity e1, Entity e2) {
+    boolean checkCollision(Entity e) {
         // Get PositionComponent and SizeComponent of entities as requirements
-        var pC1 = e1.getComponent(PositionComponent.class);
-        var pC2 = e2.getComponent(PositionComponent.class);
-        var sC1 = e1.getComponent(SizeComponent.class);
-        var sC2 = e2.getComponent(SizeComponent.class);
+        var pC1 = this.getEntity().getComponent(PositionComponent.class);
+        var pC2 = e.getComponent(PositionComponent.class);
+        var sC1 = this.getEntity().getComponent(SizeComponent.class);
+        var sC2 = e.getComponent(SizeComponent.class);
         var edge_collision =
-                e1.getComponent(CollisionComponent.class).edge_collision |
-                        e2.getComponent(CollisionComponent.class).edge_collision;
+                this.edge_collision | e.getComponent(CollisionComponent.class).edge_collision;
 
         boolean is_collision;
         if (edge_collision)
@@ -49,4 +48,19 @@ class CollisionComponent extends Component {
         return is_collision;
     }
 }
+
+
+class HealthComponent extends Component {
+    public int health = 100;
+    public int on_collision_reduce_health = 5;
+
+    public HealthComponent() {
+        super();
+    }
+
+    void reduceHealth(String event) {
+        if (event == "collision") this.health -= this.on_collision_reduce_health;
+    }
+}
+
 
