@@ -15,6 +15,14 @@ class Entity {
         return new ArrayList<>(components.values());
     }
 
+    <T extends Component> T getComponent(Class<T> component_type) {
+        T component = component_type.cast(this.components.get(component_type));
+        if (component == null)
+            throw new Error("Cannot get component " + component_type + " from " + this);
+        else
+            return component;
+    }
+
     <T extends Component> boolean hasComponent(Class<T> component_type) {
         return components.containsKey(component_type);
     }
@@ -32,11 +40,4 @@ class Entity {
         this.components.remove(component_type);
     }
 
-    <T extends Component> T getComponent(Class<T> component_type) {
-        T component = component_type.cast(this.components.get(component_type));
-        if (component == null)
-            throw new Error("Cannot get component " + component_type + " from " + this);
-        else
-            return component;
-    }
 }
