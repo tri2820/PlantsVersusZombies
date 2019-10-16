@@ -1,4 +1,4 @@
-/* Component consists of data and method
+package Systems;/* ECS.Component consists of data and method
  * which evolves in an aspect of an entity*/
 
 /* Methods could mutate the data in that component */
@@ -13,9 +13,9 @@
 
 /* Data should be assigned when create a child class of Entity (new entity type) */
 
-/* Component could query other components as requirements */
+/* ECS.Component could query other components as requirements */
 
-class Component {
+public class Component {
     private Entity parentEntity;
 
     public <T extends Entity> T getEntity() {
