@@ -16,14 +16,13 @@ package Manager;/* ECS.Component consists of data and method
 /* Component could query other components as requirements */
 
 public class Component {
-    private Entity parentEntity;
+    private Entity owner;
 
-
-    public <T extends Entity> T getEntity() {
-        return (T) parentEntity;
+    public <T extends Entity> T getOwner() {
+        return (T) owner;
     }
 
-    public <T extends Entity> void setEntity(T entity) {
-        this.parentEntity = entity;
+    public <T extends Entity> void setOwner(T entity) {
+        this.owner = entity;
     }
 }

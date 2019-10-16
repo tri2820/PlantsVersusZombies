@@ -36,7 +36,7 @@ public class Entity {
             throw new Error("Cannot addComponent, " + this + " has " + component_type + " already");
 
         var component = Create.ComponentInstance(component_type);
-        component.setEntity(this);
+        component.setOwner(this);
         this.components.put(component_type, component);
     }
 

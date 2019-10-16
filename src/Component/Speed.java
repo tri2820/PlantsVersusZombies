@@ -3,22 +3,21 @@ package Component;
 import Manager.Component;
 
 class Speed extends Component {
-    // step define the delay time between each behavior of an entity
-    public int step = 10;
-    // amount of time added or subtracted on special events
-    public int step_change = 1;
+    int speed = 1; // default speed, implement later in system
 
-    public Speed() {
-        super();
+    public Speed(int speed) {
+        this.speed = speed;
     }
 
-    void SpeedUp(String event) {
-        if (event == "fasten")
-            this.step -= step_change;//less delay -> faster
+    public int getS() {
+        return speed;
     }
 
-    void SpeedDown(String event) {
-        if (event == "slowed")
-            this.step += step_change;//more delay -> longer
+    public void set(int speed) {
+        this.speed = speed;
+    }
+
+    public void change(int amount) {
+        this.speed += amount;
     }
 }

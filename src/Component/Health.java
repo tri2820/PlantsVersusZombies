@@ -3,14 +3,21 @@ package Component;
 import Manager.Component;
 
 public class Health extends Component {
-    public int health = 100;
-    public int on_collision_reduce_health = 5;
+    int health = 100;
 
-    public Health() {
-        super();
+    public Health(int Health) {
+        this.health = Health;
     }
 
-    public void reduceHealth(String event) {
-        if (event == "collision") this.health -= this.on_collision_reduce_health;
+    public int get() {
+        return health;
+    }
+
+    public void set(int health) {
+        this.health = health;
+    }
+
+    public void change(int amount) {
+        this.health += amount;
     }
 }

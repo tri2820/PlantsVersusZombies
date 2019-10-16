@@ -11,18 +11,18 @@ import java.util.List;
 /* Since `System` is a Java keyword, name `ECS.Systema` instead*/
 // TODO: make Systema Singleton
 public class Systema {
-    public List<Entity> entities = new ArrayList<>();
+    public List<Entity> entityList = new ArrayList<>();
 
     public void addEntity(Entity e) {
-        this.entities.add(e);
+        this.entityList.add(e);
     }
 
     public void removeEntity(Entity e) {
-        this.entities.remove(e);
+        this.entityList.remove(e);
     }
 
     public boolean hasEntity(Entity e) {
-        return this.entities.contains(e);
+        return this.entityList.contains(e);
     }
 
     void iterate() {

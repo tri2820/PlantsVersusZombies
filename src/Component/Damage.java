@@ -3,20 +3,21 @@ package Component;
 import Manager.Component;
 
 class Damage extends Component {
-    public int dmg = 1;
-    public int dmg_change = 1;
+    int damage = 1;
 
-    public Damage() {
-        super();
+    public Damage(int damage) {
+        this.damage = damage;
     }
 
-    void SpeedUp(String event) {
-        if (event == "powered")
-            this.dmg -= dmg_change;//less delay -> faster
+    public int get() {
+        return damage;
     }
 
-    void SpeedDown(String event) {
-        if (event == "weaken")
-            this.dmg += dmg_change;//more delay -> longer
+    public void set(int Damage) {
+        this.damage = Damage;
+    }
+
+    public void change(int amount) {
+        this.damage += amount;
     }
 }

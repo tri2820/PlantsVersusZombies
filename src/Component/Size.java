@@ -22,7 +22,16 @@ public class Size extends Component {
         this.h = h;
     }
 
-    public Size() {
-        super();
+    public Size(int w, int h) {
+        this.w = w;
+        this.h = h;
+    }
+
+    public void changeW(int amount) {
+        w += amount;
+    }
+
+    public void changeH(int amount) {
+        h += amount;
     }
 }

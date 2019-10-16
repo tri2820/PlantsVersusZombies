@@ -1,4 +1,4 @@
-import Component.EdgedCollide;
+import Component.Condition.EdgeCollidable;
 import Component.Health;
 import Entity.Zombie;
 import Systema.CollideEffect;
@@ -21,10 +21,10 @@ public class App {
         System.out.println("Check " + zombie + " collision with itself");
         System.out.println("-with edge_detection=false");
         SingletonSystem.iterate();
-        System.out.println("Entities.Zombie's health: " + zombie.getComponent(Health.class).health);
+        System.out.println("Entities.Zombie's health: " + zombie.getComponent(Health.class).get());
         System.out.println("-with edge_detection=true");
-        zombie.getComponent(EdgedCollide.class).setValue(true);
+        zombie.getComponent(EdgeCollidable.class).set(true);
         SingletonSystem.iterate();
-        System.out.println("Entities.Zombie's health: " + zombie.getComponent(Health.class).health);
+        System.out.println("Entities.Zombie's health: " + zombie.getComponent(Health.class).get());
     }
 }
