@@ -2,7 +2,7 @@
 University game project.
 
 The goal is to build a clone of Plants vs. Zombies by PopCap Games in Java language.
-Deadline: The end of December 2019
+* Deadline: The end of December 2019
 
 Link to real-game: bit.ly/PvZ-Expectation
 
