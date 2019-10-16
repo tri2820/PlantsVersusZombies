@@ -1,6 +1,6 @@
-package Components;
+package Component;
 
-import Systems.Component;
+import Manager.Component;
 
 class Speed extends Component {
     // step define the delay time between each behavior of an entity

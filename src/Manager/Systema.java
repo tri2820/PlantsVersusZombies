@@ -1,4 +1,4 @@
-package Systems;
+package Manager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,22 +9,24 @@ import java.util.List;
  */
 
 /* Since `System` is a Java keyword, name `ECS.Systema` instead*/
-// TODO: make ECS.Systema Singleton
-class Systema {
-    List<Entity> entities = new ArrayList<>();
+// TODO: make Systema Singleton
+public class Systema {
+    public List<Entity> entities = new ArrayList<>();
 
     public void addEntity(Entity e) {
         this.entities.add(e);
     }
 
-    void removeEntity(Entity e) {
+    public void removeEntity(Entity e) {
         this.entities.remove(e);
     }
 
-    boolean hasEntity(Entity e) {
+    public boolean hasEntity(Entity e) {
         return this.entities.contains(e);
     }
 
     void iterate() {
     }
+
+
 }

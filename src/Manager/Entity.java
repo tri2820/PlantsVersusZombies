@@ -1,6 +1,6 @@
-package Systems;
+package Manager;
 
-import Helpers.Create;
+import Helper.Create;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,7 +15,7 @@ import java.util.Map;
 public class Entity {
     private Map<Class, Component> components = new HashMap<>();
 
-    public List<Component> getComponents() {
+    public List<Component> ComponentsList() {
         return new ArrayList<>(components.values());
     }
 
@@ -27,7 +27,7 @@ public class Entity {
             return component;
     }
 
-    <T extends Component> boolean hasComponent(Class<T> component_type) {
+    public <T extends Component> boolean hasComponent(Class<T> component_type) {
         return components.containsKey(component_type);
     }
 

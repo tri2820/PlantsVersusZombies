@@ -1,6 +1,6 @@
-package Components;
+package Component;
 
-import Systems.Component;
+import Manager.Component;
 
 class Damage extends Component {
     public int dmg = 1;

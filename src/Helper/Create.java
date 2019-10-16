@@ -1,6 +1,6 @@
-package Helpers;
+package Helper;
 
-import Systems.Component;
+import Manager.Component;
 
 import java.lang.reflect.InvocationTargetException;
 

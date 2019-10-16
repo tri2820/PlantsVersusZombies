@@ -1,10 +1,10 @@
-package Components;
+package Component;
 
-import Systems.Component;
+import Manager.Component;
 
 public class Position extends Component {
-    int x = 0;
-    int y = 0;
+    public int x = 0;
+    public int y = 0;
 
     public Position() {
         super();

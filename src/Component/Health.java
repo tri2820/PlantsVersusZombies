@@ -1,6 +1,6 @@
-package Components;
+package Component;
 
-import Systems.Component;
+import Manager.Component;
 
 public class Health extends Component {
     public int health = 100;
