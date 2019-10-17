@@ -1,8 +1,11 @@
+package helper;
+
+import component.Component;
+
 import java.lang.reflect.InvocationTargetException;
 
-
-class ECS_helper {
-    static <T extends Component> T createComponentInstance(Class<T> component_type) {
+public class ECS {
+    public static <T extends Component> T emptyInstance(Class<T> component_type) {
         T component = null;
         try {
             component = component_type.getConstructor().newInstance();

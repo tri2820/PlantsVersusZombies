@@ -1,25 +1,31 @@
+import component.Health;
+import entity.Zombie;
+import gamesystem.TestGameSystem;
+
+import java.util.stream.Collectors;
+
 public class App {
     public static void main(String[] args) {
         /* Create windows, etc */
-        /* Example where we create a system, put in a Zombie
-        and check for collision between it and itself */
 
-        /* Use a test systema, check file Systema_Test to see implementation */
-        var SingletonSystem = new Systema_Test();
-        /* Use class Zombie, check file Entities to see implementation */
-        var zombie = new Zombie();
+        var game = TestGameSystem.getSingleton();
 
-        SingletonSystem.addEntity(zombie);
+        var z0 = new Zombie();
+        var z1 = new Zombie(0, 0, 0, 0, 30, -3);
+        var z2 = new Zombie(0, 0, 0, 0, 30, -5);
+        game.add(z0);
+        game.add(z1);
+        game.add(z2);
 
-        System.out.println("zombie has :" + zombie.getComponents());
+        game.init();
 
-        System.out.println("Check " + zombie + " collision with itself");
-        System.out.println("-with edge_detection=false");
-        SingletonSystem.iterate();
-        System.out.println("Zombie's health: " + zombie.getComponent(HealthComponent.class).health);
-        System.out.println("-with edge_detection=true");
-        zombie.getComponent(CollisionComponent.class).edge_collision = true;
-        SingletonSystem.iterate();
-        System.out.println("Zombie's health: " + zombie.getComponent(HealthComponent.class).health);
+        while (game.entities().stream().map(entity -> entity.get(Health.class).health()).mapToInt(Integer::intValue).sum() > 0) {
+            System.out.println(game.entities().stream().map(entity -> entity.get(Health.class).health()).collect(Collectors.toList()));
+            game.step();
+        }
+
+        System.out.println("It took " + game.elapsedTime() + " milliseconds and "
+                + game.elapsedStep() + " game steps for all zombies to die due to collision");
+
     }
 }
