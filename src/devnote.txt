@@ -1,0 +1,12 @@
+A GameSystem is composed of Entities
+An Entity is composed of Components
+A Component is composed of
+    data
+    method
+    method settings
+
+
+Methods of a Component should be generic
+If an Entity has a Component
+    It does not have to Override the methods in that component
+    It only needs to change the value of method settings
