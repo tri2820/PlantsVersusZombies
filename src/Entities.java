@@ -36,7 +36,17 @@ class Food extends Entity {
     }
 }
 
-class Map extends Entity { //need to be implemented
+class Map extends Entity { //to be implemented
+    private String file_path;
+
     Map() {
+    }
+
+    public String getFile_path() {
+        return file_path;
+    }
+
+    public void setFile_path(String file_path) {
+        this.file_path = file_path;
     }
 }
