@@ -1,12 +1,11 @@
 class PositionComponent extends Component {
-    int x = 0;
     int y = 0;
+    int x = 0;
 
     public PositionComponent() {
         super();
     }
 }
-
 
 class SizeComponent extends Component {
     int w = 0;
@@ -51,53 +50,104 @@ class CollisionComponent extends Component {
 
 
 class HealthComponent extends Component {
-    public int health = 100;
-    public int on_collision_reduce_health = 5;
+    private int health = 100;
+    private int on_collision_reduce_health = 5;
 
     public HealthComponent() {
         super();
     }
 
     void reduceHealth(String event) {
-        if (event == "collision") this.health -= this.on_collision_reduce_health;
+        if (event.equals("collision"))
+            this.health -= this.on_collision_reduce_health;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public void setOn_collision_reduce_health(int on_collision_reduce_health) {
+        this.on_collision_reduce_health = on_collision_reduce_health;
+    }
+
+    public int getOn_collision_reduce_health() {
+        return on_collision_reduce_health;
     }
 }
 
-class Speed extends Component {
+class SpeedComponent extends Component {
     // step define the delay time between each behavior of an entity
-    public int step = 10;
+    private int step = 10;
     // amount of time added or subtracted on special events
-    public int step_change = 1;
+    private int step_change = 1;
 
-    public Speed() {
+    public SpeedComponent() {
         super();
     }
 
     void SpeedUp(String event) {
-        if (event == "fasten")
+        if (event.equals("fasten"))
             this.step -= step_change;//less delay -> faster
     }
 
     void SpeedDown(String event) {
-        if (event == "slowed")
+        if (event.equals("slowed"))
             this.step += step_change;//more delay -> longer
+    }
+
+    public int getStep() {
+        return step;
+    }
+
+    public void setStep(int step) {
+        this.step = step;
+    }
+
+    public int getStep_change() {
+        return step_change;
+    }
+
+    public void setStep_change(int step_change) {
+        this.step_change = step_change;
     }
 }
 
-class Damage extends Component {
-    public Damage() {
+class DamageComponent extends Component {
+    private int damage = 1;
+    private int damage_change = 1;
+
+    public DamageComponent() {
         super();
     }
-    public int dmg = 1;
-    public int dmg_change = 1;
+
     void SpeedUp(String event) {
-        if (event == "powered")
-            this.dmg -= dmg_change;//less delay -> faster
+        if (event.equals("powered"))
+            this.damage -= this.damage_change;//less delay -> faster
     }
 
     void SpeedDown(String event) {
-        if (event == "weaken")
-            this.dmg += dmg_change;//more delay -> longer
+        if (event.equals("weaken"))
+            this.damage += this.damage_change;//more delay -> longer
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
+    public int getDamage_change() {
+        return damage_change;
+    }
+
+    public void setDamage_change(int damage_change) {
+        this.damage_change = damage_change;
     }
 }
 

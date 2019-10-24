@@ -16,10 +16,10 @@ public class App {
         System.out.println("Check " + zombie + " collision with itself");
         System.out.println("-with edge_detection=false");
         SingletonSystem.iterate();
-        System.out.println("Zombie's health: " + zombie.getComponent(HealthComponent.class).health);
+        System.out.println("Zombie's health: " + zombie.getComponent(HealthComponent.class).getHealth());
         System.out.println("-with edge_detection=true");
         zombie.getComponent(CollisionComponent.class).edge_collision = true;
         SingletonSystem.iterate();
-        System.out.println("Zombie's health: " + zombie.getComponent(HealthComponent.class).health);
+        System.out.println("Zombie's health: " + zombie.getComponent(HealthComponent.class).getHealth());
     }
 }
