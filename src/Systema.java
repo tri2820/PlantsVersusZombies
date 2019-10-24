@@ -11,6 +11,19 @@ import java.util.List;
 class Systema {
     List<Entity> entities = new ArrayList<>();
 
+    //begin Singleton pattern
+    protected Systema() {}
+
+    private static class SingletonClassHolder {
+        static final Systema SINGLE_INSTANCE = new Systema();
+    }
+
+    //access to single instance of Systema using Systema.getInstance()
+    public static Systema getInstance() {
+        return SingletonClassHolder.SINGLE_INSTANCE;
+    }
+    //end Singleton pattern
+
     void addEntity(Entity e) {
         this.entities.add(e);
     }
