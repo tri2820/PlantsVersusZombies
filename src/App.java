@@ -11,8 +11,8 @@ public class App {
         var game = TestGameSystem.getSingleton();
 
         var z0 = new Zombie();
-        var z1 = new Zombie(0, 0, 0, 0, 30, -3);
-        var z2 = new Zombie(0, 0, 0, 0, 30, -5);
+        var z1 = new Zombie(1, 1);
+        var z2 = new Zombie(3, 2);
         game.add(z0);
         game.add(z1);
         game.add(z2);
