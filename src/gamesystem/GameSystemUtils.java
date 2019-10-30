@@ -21,8 +21,6 @@ public class GameSystemUtils {
 
         return result;
     }
-
-
     /* Receive a list of *lists of entities */
     /* For each *list, for each entity, emit ReduceHealthEvent due to collision */
     public static <T extends Entity> void reduceHealthOnCollision(ArrayList<ArrayList<T>> collisions, boolean collision_once) {
@@ -56,5 +54,4 @@ public class GameSystemUtils {
                 pC1.y() + sC1.height() > pC2.y();
         return is_collision;
     }
-
 }

@@ -30,15 +30,16 @@ public class Position extends Component {
         this.y = y;
     }
 
-    public boolean compareTo(Position e) {
-        if (this.x < e.x) return true;
-        return this.x == e.x && this.y < e.y;
-    }
+//   The following methods are to be removed
 
-    public int compare(Position p) {
-        if (this.x() == p.x()) {
-            return this.y() - p.y();
-        } else return this.x() - p.x();
-    }
+//    public boolean compareTo(Position e) {
+//        if (this.x < e.x) return true;
+//        return this.x == e.x && this.y < e.y;
+//    }
+//
+//    public int compare(Position p) {
+//        if (this.x() == p.x()) {
+//            return this.y() - p.y();
+//        } else return this.x() - p.x();
+//    }
 }
-
