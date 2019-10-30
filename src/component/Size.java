@@ -14,19 +14,19 @@ public class Size extends Component {
         this.height = height;
     }
 
-    public int width() {
+    public int getWidth() {
         return this.width;
     }
 
-    public void width(int width) {
+    public void setWidth(int width) {
         this.width = width;
     }
 
-    public int height() {
+    public int getHeight() {
         return this.height;
     }
 
-    public void height(int height) {
+    public void setHeight(int height) {
         this.height = height;
     }
 }

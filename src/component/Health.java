@@ -16,11 +16,11 @@ public class Health extends Component {
         this.on_collision_health_change = on_collision_health_change;
     }
 
-    public int health() {
+    public int getHealth() {
         return this.health;
     }
 
-    public void health(int health) {
+    public void setHealth(int health) {
         this.health = health;
     }
 
