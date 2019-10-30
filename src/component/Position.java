@@ -30,6 +30,8 @@ public class Position extends Component {
         this.y = y;
     }
 
+    //  The 2 following methods are not really clear and set to be modified
+//  The main idea are to compare the position of entities
     public boolean compareTo(Position e) {
         if (this.x < e.x) return true;
         return this.x == e.x && this.y < e.y;
