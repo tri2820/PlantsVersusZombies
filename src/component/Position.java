@@ -14,31 +14,32 @@ public class Position extends Component {
         this.y = y;
     }
 
-    public int getX() {
+    public int x() {
         return this.x;
     }
 
-    public void setX(int x) {
+    public void x(int x) {
         this.x = x;
     }
 
-    public int getY() {
+    public int y() {
         return this.y;
     }
 
-    public void setY(int y) {
+    public void y(int y) {
         this.y = y;
     }
 
-    public boolean compareTo(Position e) {
-        if (this.x < e.x) return true;
-        return this.x == e.x && this.y < e.y;
-    }
+//   The following methods are to be removed
 
-    public int compare(Position p) {
-        if (this.getX() == p.getX()) {
-            return this.getY() - p.getY();
-        } else return this.getX() - p.getX();
-    }
+//    public boolean compareTo(Position e) {
+//        if (this.x < e.x) return true;
+//        return this.x == e.x && this.y < e.y;
+//    }
+//
+//    public int compare(Position p) {
+//        if (this.x() == p.x()) {
+//            return this.y() - p.y();
+//        } else return this.x() - p.x();
+//    }
 }
-
