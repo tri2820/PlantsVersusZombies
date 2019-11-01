@@ -27,31 +27,31 @@ public class GameSystemUtils {
         for (var collision : collisions)
             for (var e : collision)
                 if (collision_once)
-                    e.get(Health.class).changeHealth(Health.Event.OnCollision);
+                    e.getSingleComponent(Health.class).changeHealth(Health.Event.OnCollision);
                 else
                     /* entity e will collide n times, n is the number of all other entities in that collision*/
                     for (int i = 1; i < collision.size(); i++)
-                        e.get(Health.class).changeHealth(Health.Event.OnCollision);
+                        e.getSingleComponent(Health.class).changeHealth(Health.Event.OnCollision);
     }
 
 
     public static boolean checkCollision(Entity e, Entity e1) {
-        var e_collide_e1 = e.get(Collision.class).allow(e1.getClass());
-        var e1_collide_e = e1.get(Collision.class).allow(e.getClass());
+        var e_collide_e1 = e.getSingleComponent(Collision.class).allow(e1.getClass());
+        var e1_collide_e = e1.getSingleComponent(Collision.class).allow(e.getClass());
         if (!(e_collide_e1 && e1_collide_e))
             return false;
 
 
-        var pC1 = e1.get(Position.class);
-        var pC2 = e.get(Position.class);
-        var sC1 = e1.get(Size.class);
-        var sC2 = e.get(Size.class);
+        var pC1 = e1.getSingleComponent(Position.class);
+        var pC2 = e.getSingleComponent(Position.class);
+        var sC1 = e1.getSingleComponent(Size.class);
+        var sC2 = e.getSingleComponent(Size.class);
 
         boolean is_collision;
-        is_collision = pC1.x() < pC2.x() + sC2.width() &&
-                pC1.x() + sC1.width() > pC2.x() &&
-                pC1.y() < pC2.y() + sC2.height() &&
-                pC1.y() + sC1.height() > pC2.y();
+        is_collision = pC1.getX() < pC2.getX() + sC2.getWidth() &&
+                pC1.getX() + sC1.getWidth() > pC2.getX() &&
+                pC1.getY() < pC2.getY() + sC2.getHeight() &&
+                pC1.getY() + sC1.getHeight() > pC2.getY();
         return is_collision;
     }
 }
