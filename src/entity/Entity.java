@@ -1,12 +1,13 @@
 package entity;
 
 import component.Component;
+import component.Render;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class Entity {
+public abstract class Entity implements Render {
     private HashMap<Class, Component> components = new HashMap<>();
 
     /* Getter for components */
