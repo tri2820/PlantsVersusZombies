@@ -1,17 +1,20 @@
 package entity;
 
+import component.Component;
 import component.Move;
+import component.Position;
+
+import java.awt.*;
 
 public class Sun extends Entity implements Move {
-    private String sprite_path;
 
-    public Sun(String sprite_path) {
-        this.sprite_path = sprite_path;
+    public Sun(int x, int y) {
+        this.addComponent(new Position(x, y));
     }
 
     public void move() {
-    }
-
-    public void render() {
+        //assume that the sun has speed of 1
+        Position pos = getSingleComponent(Position.class);
+        pos.setX(pos.getY() - 1);
     }
 }

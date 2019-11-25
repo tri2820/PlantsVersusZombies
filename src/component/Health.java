@@ -1,8 +1,6 @@
 package component;
 
 public class Health extends Component {
-    /* Method settings for reduceHealth (on Collision Event) */
-    private int on_collision_health_change = -5;
     /* Data */
     private int health = 100;
 
@@ -10,10 +8,9 @@ public class Health extends Component {
         super();
     }
 
-    public Health(int health, int on_collision_health_change) {
+    public Health(int health) {
         super();
         this.health = health;
-        this.on_collision_health_change = on_collision_health_change;
     }
 
     public int getHealth() {
@@ -24,14 +21,11 @@ public class Health extends Component {
         this.health = health;
     }
 
-    public void changeHealth(Event e) {
-        if (e == Event.OnCollision)
-            this.health += this.on_collision_health_change;
+    /*
+     * when damaged by enemies, change health by a value,
+     * it should be negative
+     */
+    public void reduceHealthOnDamaged(int on_collision_health_change) {
+        this.health += on_collision_health_change;
     }
-
-    public enum Event {
-        OnCollision
-
-    }
-
 }
