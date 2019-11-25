@@ -1,15 +1,20 @@
 package entity;
 
-public class FreezePeaShooter extends Plant {
+import component.Position;
+import component.Shoot;
 
-    public FreezePeaShooter(String sprite_path) {
-        super(sprite_path);
+import java.io.PipedOutputStream;
+
+public class FreezePeaShooter extends Plant implements Shoot {
+
+    public FreezePeaShooter(int x, int y, int health) {
+        super(x, y, health);
     }
 
-    public FreezePeaShooter(String sprite_path, int x, int y) {
-        super(sprite_path, x, y);
-    }
-
-    public void render() {
+    @Override
+    public Pea shoot() {
+        Position pos = this.getSingleComponent(Position.class);
+        FreezePea pea = new FreezePea(pos.getX(), pos.getY(), 1, 7);
+        return pea;
     }
 }

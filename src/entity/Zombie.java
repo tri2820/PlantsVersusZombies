@@ -7,31 +7,22 @@ import java.util.List;
 
 public abstract class Zombie extends Entity implements Move {
     private int speed;
-    private String sprite_path;
-
-    /*
-     * Initialize with sprite folder path given
-     */
-    public Zombie(String sprite_path) {
-        this.sprite_path = sprite_path;
-
-        this.addComponent(new Collision(
-                new ArrayList<>(List.of(Zombie.class, Plant.class, Pea.class))
-        ));
-
-        this.addComponent(new Position(0, 0));
-        this.addComponent(new Size(10, 10));
-        this.addComponent(new Health(50, -7));
-    }
 
     /*
      * Initialize a bullet with a given position
      * This is used to initialize the bullet when it is first spawn from a Plant
      */
-    public Zombie(String sprite_path, int x, int y) {
-        this(sprite_path);
-        this.removeComponent(Position.class);
+    public Zombie(int x, int y, int health, int speed, int damage) {
+        this.speed = speed;
+
         this.addComponent(new Position(x, y));
+        this.addComponent(new Collision(
+                new ArrayList<>(List.of(Zombie.class, Plant.class, Pea.class))
+        ));
+
+        this.addComponent(new Size(10, 10));
+        this.addComponent(new Health(health));
+        this.addComponent(new Damage(damage));
     }
 
     //move by decreasing x, assume that the map x-coordinate is numbered from left to right,
@@ -39,6 +30,12 @@ public abstract class Zombie extends Entity implements Move {
     public void move() {
         Position pos = getSingleComponent(Position.class);
         pos.setX(pos.getX() - speed);
+    }
+
+    //the beauty of polymorphism
+    public void attack(Entity opponent) {
+        int damage = this.getSingleComponent(Damage.class).getOn_collision_cause_damage();
+        opponent.getSingleComponent(Health.class).reduceHealthOnDamaged(-Math.abs(damage));
     }
 
     public int getSpeed() {
