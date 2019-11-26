@@ -16,13 +16,13 @@
 /* Component could query other components as requirements */
 
 class Component {
-    private Entity parentEntity;
+  private Entity parentEntity;
 
-    public <T extends Entity> T getEntity() {
-        return (T) parentEntity;
-    }
+  public <T extends Entity> T getEntity() {
+    return (T) parentEntity;
+  }
 
-    public <T extends Entity> void setEntity(T entity) {
-        this.parentEntity = entity;
-    }
+  public <T extends Entity> void setEntity(T entity) {
+    this.parentEntity = entity;
+  }
 }
