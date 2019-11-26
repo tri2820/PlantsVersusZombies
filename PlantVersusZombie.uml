@@ -3,146 +3,60 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="0.0" y="432.0">entity.FreezePeaShooter</node>
-    <node x="434.00000000000006" y="650.0">component.Position</node>
-    <node x="1165.0" y="443.5">entity.FreezePea</node>
-    <node x="407.00000000000006" y="432.0">entity.SunFlower</node>
-    <node x="322.522435897436" y="288.0">entity.Plant</node>
-    <node x="636.3830128205129" y="276.5">entity.Sun</node>
-    <node x="1154.5" y="254.0">entity.Pea</node>
-    <node x="795.6121794871797" y="254.0">entity.Zombie</node>
-    <node x="208.00000000000006" y="672.0">component.Collision</node>
-    <node x="899.25" y="67.0">component.Move</node>
-    <node x="920.0" y="443.5">entity.NormalZombie</node>
-    <node x="659.0" y="443.5">entity.ConeHeadZombie</node>
-    <node x="0.0" y="694.5">component.Damage</node>
-    <node x="522.4375" y="0.0">entity.Entity</node>
-    <node x="783.0" y="672.0">component.Health</node>
-    <node x="480.50000000000006" y="550.0">component.Component</node>
-    <node x="68.48397435897436" y="288.0">component.Shoot</node>
-    <node x="221.00000000000006" y="432.0">entity.PeaShooter</node>
-    <node x="655.0" y="672.5">component.Size</node>
+    <node x="0.0" y="101.0">component.Position</node>
+    <node x="821.0" y="124.0">component.Collision</node>
+    <node x="130.0" y="314.0">component.Move</node>
+    <node x="617.0" y="147.5">component.Damage</node>
+    <node x="362.0" y="124.0">component.Health</node>
+    <node x="425.0" y="0.0">component.Component</node>
+    <node x="0.0" y="314.0">component.Shoot</node>
+    <node x="56.25" y="415.0">entity</node>
+    <node x="229.0" y="124.5">component.Size</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="entity.ConeHeadZombie" target="entity.Zombie">
-      <point x="0.0" y="-25.0" />
-      <point x="779.5" y="412.0" />
-      <point x="841.8621794871797" y="412.0" />
-      <point x="-46.25" y="59.0" />
-    </edge>
-    <edge source="entity.NormalZombie" target="entity.Zombie">
-      <point x="0.0" y="-25.0" />
-      <point x="1032.5" y="412.0" />
-      <point x="934.3621794871797" y="412.0" />
-      <point x="46.25" y="59.0" />
-    </edge>
     <edge source="component.Position" target="component.Component">
-      <point x="0.0" y="-81.0" />
-      <point x="0.0" y="25.0" />
-    </edge>
-    <edge source="entity.Pea" target="component.Move">
-      <point x="49.75" y="-59.0" />
-      <point x="1303.75" y="204.0" />
-      <point x="987.5833333333333" y="204.0" />
-      <point x="35.33333333333326" y="25.0" />
-    </edge>
-    <edge source="entity.Zombie" target="entity.Entity">
-      <point x="-46.25" y="-59.0" />
-      <point x="841.8621794871797" y="224.0" />
-      <point x="691.8125" y="224.0" />
-      <point x="33.875" y="92.0" />
-    </edge>
-    <edge source="entity.Sun" target="component.Move">
-      <point x="26.5" y="-36.5" />
-      <point x="715.8830128205129" y="234.0" />
-      <point x="916.9166666666667" y="234.0" />
-      <point x="-35.33333333333326" y="25.0" />
-    </edge>
-    <edge source="entity.Zombie" target="component.Move">
-      <point x="46.25" y="-59.0" />
-      <point x="934.3621794871797" y="234.0" />
-      <point x="952.25" y="234.0" />
-      <point x="0.0" y="25.0" />
+      <point x="0.0" y="-84.0" />
+      <point x="104.5" y="71.0" />
+      <point x="435.9" y="71.0" />
+      <point x="-43.60000000000002" y="25.5" />
     </edge>
     <edge source="component.Collision" target="component.Component">
-      <point x="0.0" y="-59.0" />
-      <point x="311.00000000000006" y="630.0" />
-      <point x="512.9000000000001" y="630.0" />
-      <point x="-21.600000000000023" y="25.0" />
-    </edge>
-    <edge source="entity.Sun" target="entity.Entity">
-      <point x="-26.5" y="-36.5" />
-      <point x="662.8830128205129" y="234.0" />
-      <point x="624.0625" y="234.0" />
-      <point x="-33.875" y="92.0" />
-    </edge>
-    <edge source="entity.SunFlower" target="entity.Plant">
-      <point x="0.0" y="-36.5" />
-      <point x="523.0" y="412.0" />
-      <point x="432.522435897436" y="412.0" />
-      <point x="44.0" y="25.0" />
+      <point x="0.0" y="-61.0" />
+      <point x="927.5" y="71.0" />
+      <point x="523.0999999999999" y="71.0" />
+      <point x="43.599999999999966" y="25.5" />
     </edge>
     <edge source="component.Size" target="component.Component">
-      <point x="0.0" y="-58.5" />
-      <point x="709.0" y="630.0" />
-      <point x="556.1000000000001" y="630.0" />
-      <point x="21.600000000000023" y="25.0" />
-    </edge>
-    <edge source="entity.PeaShooter" target="component.Shoot">
-      <point x="-41.5" y="-36.5" />
-      <point x="262.50000000000006" y="392.0" />
-      <point x="144.98397435897436" y="392.0" />
-      <point x="25.5" y="25.0" />
+      <point x="0.0" y="-60.5" />
+      <point x="285.5" y="81.0" />
+      <point x="457.7" y="81.0" />
+      <point x="-21.80000000000001" y="25.5" />
     </edge>
     <edge source="component.Damage" target="component.Component">
-      <point x="0.0" y="-36.5" />
-      <point x="94.0" y="620.0" />
-      <point x="491.30000000000007" y="620.0" />
-      <point x="-43.19999999999999" y="25.0" />
+      <point x="0.0" y="-37.5" />
+      <point x="709.0" y="81.0" />
+      <point x="501.29999999999995" y="81.0" />
+      <point x="21.799999999999955" y="25.5" />
     </edge>
-    <edge source="entity.Pea" target="entity.Entity">
-      <point x="-49.75" y="-59.0" />
-      <point x="1204.25" y="214.0" />
-      <point x="759.5625" y="214.0" />
-      <point x="101.625" y="92.0" />
+    <edge source="entity" target="component.Move">
+      <point x="32.0" y="-13.0" />
+      <point x="152.25" y="390.0" />
+      <point x="185.5" y="390.0" />
+      <point x="0.0" y="25.5" />
     </edge>
-    <edge source="entity.FreezePea" target="entity.Pea">
-      <point x="0.0" y="-25.0" />
-      <point x="0.0" y="59.0" />
-    </edge>
-    <edge source="entity.FreezePeaShooter" target="component.Shoot">
-      <point x="-50.25" y="-36.5" />
-      <point x="50.25" y="412.0" />
-      <point x="93.98397435897436" y="412.0" />
-      <point x="-25.5" y="25.0" />
-    </edge>
-    <edge source="entity.Plant" target="entity.Entity">
-      <point x="0.0" y="-25.0" />
-      <point x="388.522435897436" y="234.0" />
-      <point x="556.3125" y="234.0" />
-      <point x="-101.625" y="92.0" />
+    <edge source="entity" target="component.Shoot">
+      <point x="-32.0" y="-13.0" />
+      <point x="88.25" y="390.0" />
+      <point x="55.0" y="390.0" />
+      <point x="0.0" y="25.5" />
     </edge>
     <edge source="component.Health" target="component.Component">
-      <point x="0.0" y="-59.0" />
-      <point x="897.5" y="620.0" />
-      <point x="577.7" y="620.0" />
-      <point x="43.19999999999999" y="25.0" />
-    </edge>
-    <edge source="entity.FreezePeaShooter" target="entity.Plant">
-      <point x="50.25" y="-36.5" />
-      <point x="150.75" y="402.0" />
-      <point x="344.522435897436" y="402.0" />
-      <point x="-44.0" y="25.0" />
-    </edge>
-    <edge source="entity.PeaShooter" target="entity.Plant">
-      <point x="41.5" y="-36.5" />
-      <point x="345.50000000000006" y="412.0" />
-      <point x="388.522435897436" y="412.0" />
-      <point x="0.0" y="25.0" />
+      <point x="0.0" y="-61.0" />
+      <point x="0.0" y="25.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.7000000000000001" x="600.0" y="458.5714285714285" />
+  <settings layout="Hierarchic Group" zoom="0.7000000000000001" x="712.9999999999999" y="374.71428571428567" />
   <SelectedNodes />
   <Categories>
     <Category>Fields</Category>
