@@ -1,4 +1,4 @@
-package gamesystem;
+package system;
 
 public class TestGameSystem extends GameSystem {
 

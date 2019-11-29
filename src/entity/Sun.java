@@ -3,7 +3,7 @@ package entity;
 import component.Move;
 import component.Position;
 
-public class Sun extends Entity implements Move {
+public class Sun extends RootEntity implements Move {
 
   public Sun(int x, int y) {
     this.addComponent(new Position(x, y));

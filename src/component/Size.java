@@ -1,6 +1,6 @@
 package component;
 
-public class Size extends Component {
+public class Size extends BaseComponent {
 
   private int width = 0;
   private int height = 0;
