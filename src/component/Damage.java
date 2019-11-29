@@ -1,6 +1,6 @@
 package component;
 
-public class Damage extends Component {
+public class Damage extends BaseComponent {
 
   private int on_collision_cause_damage;
 

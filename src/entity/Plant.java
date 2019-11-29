@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 ///Not all plants move => plant base class will not implement Move interface
-public abstract class Plant extends Entity {
+public abstract class Plant extends RootEntity {
 
   /*
    * Initialize a bullet with a given position

@@ -9,7 +9,7 @@ import component.Size;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pea extends Entity implements Move {
+public class Pea extends RootEntity implements Move {
 
   private int speed;
 
@@ -32,7 +32,7 @@ public class Pea extends Entity implements Move {
     pos.setX(pos.getX() + speed);
   }
 
-  public void attackOnCollision(Entity opponent) {
+  public void attackOnCollision(RootEntity opponent) {
     int damage = this.getSingleComponent(Damage.class).getOn_collision_cause_damage();
     opponent.getSingleComponent(Health.class).reduceHealthOnDamaged(-Math.abs(damage));
   }

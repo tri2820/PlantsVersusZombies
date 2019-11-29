@@ -1,6 +1,6 @@
-package gamesystem;
+package system;
 
-import entity.Entity;
+import entity.RootEntity;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ public abstract class GameSystem {
 
   int elapsed_step;
   private Instant start_time;
-  private ArrayList<Entity> entities = new ArrayList<>();
+  private ArrayList<RootEntity> entities = new ArrayList<>();
 
   /* Init the game before stepping */
   public void init() {
@@ -19,19 +19,19 @@ public abstract class GameSystem {
   }
 
   /* entities-list-relevant methods */
-  public ArrayList<Entity> entities() {
+  public ArrayList<RootEntity> entities() {
     return new ArrayList<>(this.entities);
   }
 
-  public void add(Entity e) {
+  public void add(RootEntity e) {
     this.entities.add(e);
   }
 
-  public void remove(Entity e) {
+  public void remove(RootEntity e) {
     this.entities.remove(e);
   }
 
-  public boolean has(Entity e) {
+  public boolean has(RootEntity e) {
     return this.entities.contains(e);
   }
 

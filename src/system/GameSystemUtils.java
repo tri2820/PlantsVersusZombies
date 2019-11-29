@@ -1,10 +1,9 @@
-package gamesystem;
+package system;
 
 import component.Collision;
-import component.Health;
 import component.Position;
 import component.Size;
-import entity.Entity;
+import entity.RootEntity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +11,7 @@ public class GameSystemUtils {
 
   /* Return list of lists of entities */
   /* Entities in a list collide with each other */
-  public static <T extends Entity> ArrayList<ArrayList<T>> getCollisions(ArrayList<T> entities) {
+  public static <T extends RootEntity> ArrayList<ArrayList<T>> getCollisions(ArrayList<T> entities) {
     var result = new ArrayList<ArrayList<T>>();
     for (var e : entities) {
       for (var e1 : entities) {
@@ -27,16 +26,16 @@ public class GameSystemUtils {
 
   /* Receive a list of *lists of entities */
   /* For each *list, for each entity, emit ReduceHealthEvent due to collision */
-  public static <T extends Entity> void reduceHealthOnCollision(ArrayList<ArrayList<T>> collisions,
+  public static <T extends RootEntity> void reduceHealthOnCollision(ArrayList<ArrayList<T>> collisions,
       boolean collision_once) {
     for (var collision : collisions) {
       for (var e : collision) {
         if (collision_once) {
-          e.getSingleComponent(Health.class).changeHealth(Health.Event.OnCollision);
+//          e.getSingleComponent(Health.class).changeHealth(Health.Event.OnCollision);
         } else
           /* entity e will collide n times, n is the number of all other entities in that collision*/ {
           for (int i = 1; i < collision.size(); i++) {
-            e.getSingleComponent(Health.class).changeHealth(Health.Event.OnCollision);
+//            e.getSingleComponent(Health.class).changeHealth(Health.Event.OnCollision);
           }
         }
       }
@@ -44,7 +43,7 @@ public class GameSystemUtils {
   }
 
 
-  public static boolean checkCollision(Entity e, Entity e1) {
+  public static boolean checkCollision(RootEntity e, RootEntity e1) {
     var e_collide_e1 = e.getSingleComponent(Collision.class).allow(e1.getClass());
     var e1_collide_e = e1.getSingleComponent(Collision.class).allow(e.getClass());
     if (!(e_collide_e1 && e1_collide_e)) {

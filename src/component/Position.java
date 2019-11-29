@@ -1,6 +1,6 @@
 package component;
 
-public class Position extends Component {
+public class Position extends BaseComponent {
 
   private int x = 0;
   private int y = 0;

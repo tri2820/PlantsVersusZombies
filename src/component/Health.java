@@ -1,6 +1,6 @@
 package component;
 
-public class Health extends Component {
+public class Health extends BaseComponent {
 
   /* Data */
   private int health = 100;
