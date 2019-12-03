@@ -2,7 +2,6 @@ package system;
 
 import components.Collision;
 import components.Position;
-import components.Size;
 import entities.Base.Entity;
 import java.util.ArrayList;
 import java.util.List;

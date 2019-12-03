@@ -3,7 +3,6 @@ package entities.Base;
 import components.Collision;
 import components.Health;
 import components.Position;
-import components.Size;
 import components.Visual;
 import java.util.ArrayList;
 import java.util.List;

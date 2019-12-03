@@ -5,7 +5,6 @@ import components.Damage;
 import components.Health;
 import components.Interfaces.Move;
 import components.Position;
-import components.Size;
 import entities.Base.Entity;
 import entities.Base.Zombie;
 import java.util.ArrayList;
