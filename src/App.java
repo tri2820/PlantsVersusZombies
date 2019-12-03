@@ -1,5 +1,5 @@
 //import component.Health;
-//import entity.Zombie;
+//import entity.Base.Zombie;
 //import gamesystem.TestGameSystem;
 //import java.util.stream.Collectors;
 //import javax.swing.JPanel;

@@ -1,6 +1,8 @@
-package component;
+package components;
 
-public class Damage extends BaseComponent {
+import components.Base.Component;
+
+public class Damage extends Component {
 
   private int on_collision_cause_damage;
 

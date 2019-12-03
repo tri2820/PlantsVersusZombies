@@ -1,9 +1,10 @@
-package component;
+package components;
 
-import entity.RootEntity;
+import components.Base.Component;
+import entities.Base.Entity;
 import java.util.ArrayList;
 
-public class Collision extends BaseComponent {
+public class Collision extends Component {
 
   /* Method settings for checkCollision */
   public ArrayList<Class> allow_entities = new ArrayList<>();
@@ -24,7 +25,7 @@ public class Collision extends BaseComponent {
 
   /* Method to check if a class belongs to the allowed list
    * created above. */
-  public <T extends RootEntity> boolean allow(Class<T> cls) {
+  public <T extends Entity> boolean allow(Class<T> cls) {
     for (var c : this.allow_entities) {
       if (c == cls) {
         return true;

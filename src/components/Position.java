@@ -1,6 +1,8 @@
-package component;
+package components;
 
-public class Position extends BaseComponent {
+import components.Base.Component;
+
+public class Position extends Component {
 
   private int x = 0;
   private int y = 0;

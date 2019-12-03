@@ -1,26 +1,29 @@
-package entity;
+package entities.Base;
 
-import component.BaseComponent;
+import components.Base.Component;
+import components.Health;
+import components.Position;
+import components.Visual;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public abstract class RootEntity {
+public abstract class Entity {
 
-  private HashMap<Class, BaseComponent> components = new HashMap<>();
+  private HashMap<Class, Component> components = new HashMap<>();
 
   /* Getter for components */
-  public ArrayList<BaseComponent> getAllComponents() {
+  public ArrayList<Component> getAllComponents() {
     return new ArrayList<>(components.values());
   }
 
   /* Check if entity is having a component of given type */
-  public <T extends BaseComponent> boolean hasComponent(Class<T> component_type) {
+  public <T extends Component> boolean hasComponent(Class<T> component_type) {
     return components.containsKey(component_type);
   }
 
   /* Add component using its type*/
-  public <T extends BaseComponent> void addComponent(Class<T> component_type) {
+  public <T extends Component> void addComponent(Class<T> component_type) {
     if (hasComponent(component_type)) {
       throw new RuntimeException(
           "Cannot addComponent, " + this + " has " + component_type + " already");
@@ -31,7 +34,7 @@ public abstract class RootEntity {
   }
 
   /* Add component using an instance*/
-  public <T extends BaseComponent> void addComponent(T component) {
+  public <T extends Component> void addComponent(T component) {
     if (hasComponent(component.getClass())) {
       throw new RuntimeException(
           "Cannot addComponent, " + this + " has " + component.getClass() + " already");
@@ -41,16 +44,31 @@ public abstract class RootEntity {
   }
 
   /* Remove component by using its type */
-  public <T extends BaseComponent> void removeComponent(Class<T> component_type) {
+  public <T extends Component> void removeComponent(Class<T> component_type) {
     this.components.remove(component_type);
   }
 
   /* Get component using its type */
-  public <T extends BaseComponent> T getSingleComponent(Class<T> component_type) {
+  public <T extends Component> T getSingleComponent(Class<T> component_type) {
     T component = component_type.cast(this.components.get(component_type));
     if (component == null) {
       throw new RuntimeException("Cannot get component " + component_type + " from " + this);
     }
     return component;
+  }
+
+  public Entity() {
+  }
+
+  public void setImage(String path) {
+    addComponent(new Visual(path));
+  }
+
+  public void setPosition(int x, int y) {
+    addComponent(new Position(x, y));
+  }
+
+  public void setHeath(int baseHealth) {
+    addComponent(new Health(baseHealth));
   }
 }

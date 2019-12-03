@@ -1,15 +1,17 @@
-package entity;
+package entities.Bullets;
 
-import component.Collision;
-import component.Damage;
-import component.Health;
-import component.Move;
-import component.Position;
-import component.Size;
+import components.Collision;
+import components.Damage;
+import components.Health;
+import components.Interfaces.Move;
+import components.Position;
+import components.Size;
+import entities.Base.Entity;
+import entities.Base.Zombie;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pea extends RootEntity implements Move {
+public class Pea extends Entity implements Move {
 
   private int speed;
 
@@ -32,7 +34,7 @@ public class Pea extends RootEntity implements Move {
     pos.setX(pos.getX() + speed);
   }
 
-  public void attackOnCollision(RootEntity opponent) {
+  public void attackOnCollision(Entity opponent) {
     int damage = this.getSingleComponent(Damage.class).getOn_collision_cause_damage();
     opponent.getSingleComponent(Health.class).reduceHealthOnDamaged(-Math.abs(damage));
   }

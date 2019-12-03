@@ -1,15 +1,16 @@
-package entity;
+package entities.Base;
 
-import component.Collision;
-import component.Damage;
-import component.Health;
-import component.Move;
-import component.Position;
-import component.Size;
+import components.Collision;
+import components.Damage;
+import components.Health;
+import components.Interfaces.Move;
+import components.Position;
+import components.Size;
+import entities.Bullets.Pea;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Zombie extends RootEntity implements Move {
+public abstract class Zombie extends Entity implements Move {
 
   private int speed;
 
@@ -38,7 +39,7 @@ public abstract class Zombie extends RootEntity implements Move {
   }
 
   //the beauty of polymorphism
-  public void attack(RootEntity opponent) {
+  public void attack(Entity opponent) {
     int damage = this.getSingleComponent(Damage.class).getOn_collision_cause_damage();
     opponent.getSingleComponent(Health.class).reduceHealthOnDamaged(-Math.abs(damage));
   }

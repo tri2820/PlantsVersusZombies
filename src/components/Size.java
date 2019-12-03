@@ -1,6 +1,8 @@
-package component;
+package components;
 
-public class Size extends BaseComponent {
+import components.Base.Component;
+
+public class Size extends Component {
 
   private int width = 0;
   private int height = 0;

@@ -1,9 +1,10 @@
-package entity;
+package entities.Bullets;
 
-import component.Move;
-import component.Position;
+import components.Interfaces.Move;
+import components.Position;
+import entities.Base.Entity;
 
-public class Sun extends RootEntity implements Move {
+public class Sun extends Entity implements Move {
 
   public Sun(int x, int y) {
     this.addComponent(new Position(x, y));

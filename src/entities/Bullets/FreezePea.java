@@ -1,4 +1,4 @@
-package entity;
+package entities.Bullets;
 
 public class FreezePea extends Pea {
 

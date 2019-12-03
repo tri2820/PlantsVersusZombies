@@ -1,4 +1,6 @@
-package entity;
+package entities.Zombies;
+
+import entities.Base.Zombie;
 
 public class NormalZombie extends Zombie {
 

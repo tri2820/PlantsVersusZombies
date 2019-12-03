@@ -1,4 +1,4 @@
-package component;
+package components.Interfaces;
 
 public interface Move {
 

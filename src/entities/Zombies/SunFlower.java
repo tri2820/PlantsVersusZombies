@@ -1,11 +1,13 @@
-package entity;
+package entities.Zombies;
 
-import component.Position;
+import components.Position;
+import entities.Base.Plant;
+import entities.Bullets.Sun;
 
 public class SunFlower extends Plant {
 
-  public SunFlower(int x, int y, int health) {
-    super(x, y, health);
+  public SunFlower(int x, int y, int health, String imagePath) {
+    super(x, y, health, imagePath);
   }
 
   /*

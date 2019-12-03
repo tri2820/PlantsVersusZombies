@@ -1,6 +1,8 @@
-package component;
+package components;
 
-public class Health extends BaseComponent {
+import components.Base.Component;
+
+public class Health extends Component {
 
   /* Data */
   private int health = 100;

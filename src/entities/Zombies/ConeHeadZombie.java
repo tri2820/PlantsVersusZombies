@@ -1,4 +1,6 @@
-package entity;
+package entities.Zombies;
+
+import entities.Base.Zombie;
 
 //maybe ConeHeadZombie will implement another attack method which cause opponent to reduce more health
 public class ConeHeadZombie extends Zombie {
