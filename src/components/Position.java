@@ -12,7 +12,6 @@ public class Position extends Component {
   }
 
   public Position(int x, int y) {
-    super();
     this.x = x;
     this.y = y;
   }
@@ -31,23 +30,6 @@ public class Position extends Component {
 
   public void setY(int y) {
     this.y = y;
-  }
-
-  //  The 2 following methods are not really clear and set to be modified
-//  The main idea are to compare the position of entities
-  public boolean compareTo(Position e) {
-    if (this.x < e.x) {
-      return true;
-    }
-    return this.x == e.x && this.y < e.y;
-  }
-
-  public int compare(Position p) {
-    if (this.getX() == p.getX()) {
-      return this.getY() - p.getY();
-    } else {
-      return this.getX() - p.getX();
-    }
   }
 }
 

@@ -2,7 +2,6 @@ package entities.Base;
 
 import components.Base.Component;
 import components.Health;
-import components.Position;
 import components.Visual;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -57,18 +56,17 @@ public abstract class Entity {
     return component;
   }
 
-  public Entity() {
-  }
-
-  public void setImage(String path) {
-    addComponent(new Visual(path));
-  }
-
-  public void setPosition(int x, int y) {
-    addComponent(new Position(x, y));
-  }
-
-  public void setHeath(int baseHealth) {
-    addComponent(new Health(baseHealth));
-  }
+//  public Entity() { }
+//
+//  public void initImage(String path) {
+//    addComponent(new Visual(path));
+//  }
+//
+//  public void initPosition(Point p) {
+//    addComponent(p);
+//  }
+//
+//  public void initHeath(int baseHealth) {
+//    addComponent(new Health(baseHealth));
+//  }
 }

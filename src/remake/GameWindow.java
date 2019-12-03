@@ -1,4 +1,4 @@
-package system;
+package remake;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
@@ -20,7 +20,7 @@ public class GameWindow extends JFrame {
   }
 
   private void initUI() {
-    add(new Game());
+    add(new Game_Old());
     pack();
     setTitle("Plants Versus Zombies Clone");
     setResizable(false);

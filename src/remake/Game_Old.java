@@ -1,4 +1,4 @@
-package system;
+package remake;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -13,7 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class Game extends JPanel implements Runnable, MouseListener, MouseMotionListener {
+public class Game_Old extends JPanel implements Runnable, MouseListener, MouseMotionListener {
 
   private static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
   private final int DELAY = 25;
@@ -35,7 +35,7 @@ public class Game extends JPanel implements Runnable, MouseListener, MouseMotion
   private Thread animator;
 
 
-  public Game() {
+  public Game_Old() {
     initGame();
     addMouseListener(this);
     addMouseMotionListener(this);
@@ -58,8 +58,8 @@ public class Game extends JPanel implements Runnable, MouseListener, MouseMotion
     bg = new ImageIcon(resourceDir + "bg.png").getImage();
     pea = new ImageIcon(resourceDir + "pea.png").getImage();
     sun = new ImageIcon(resourceDir + "sun.png").getImage();
-    zom1 = new ImageIcon(resourceDir + "zombies/zom1.png").getImage();
-    zom2 = new ImageIcon(resourceDir + "zombies/zom2.png").getImage();
+    zom1 = new ImageIcon(resourceDir + "zombies/normal.png").getImage();
+    zom2 = new ImageIcon(resourceDir + "zombies/conehead.png").getImage();
     freezepeashooter = new ImageIcon(resourceDir + "plants/freezepeashooter.gif").getImage();
 //    peashooter = new ImageIcon("/home/tidu-t1/Downloads/ezgif.com-resize.gif").getImage();
     peashooter = new ImageIcon(resourceDir + "plants/peashooter.gif").getImage();

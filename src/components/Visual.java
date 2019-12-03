@@ -7,8 +7,8 @@ import javax.swing.ImageIcon;
 
 public class Visual extends Component {
   Image visual;
-  public Visual(String relativeLink) {
-    this.visual = new ImageIcon(Dir.project + relativeLink).getImage();
+  public Visual(String relativePath) {
+    this.visual = new ImageIcon(Dir.project + relativePath).getImage();
   }
 
   public Image getVisual() {
