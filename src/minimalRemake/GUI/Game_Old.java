@@ -1,4 +1,4 @@
-package remake;
+package minimalRemake.GUI;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -55,19 +55,19 @@ public class Game_Old extends JPanel implements Runnable, MouseListener, MouseMo
   }
 
   private void initGame() {
-    bg = new ImageIcon(resourceDir + "bg.png").getImage();
-    pea = new ImageIcon(resourceDir + "pea.png").getImage();
-    sun = new ImageIcon(resourceDir + "sun.png").getImage();
-    zom1 = new ImageIcon(resourceDir + "zombies/normal.png").getImage();
-    zom2 = new ImageIcon(resourceDir + "zombies/conehead.png").getImage();
-    freezepeashooter = new ImageIcon(resourceDir + "plants/freezepeashooter.gif").getImage();
+    bg = new ImageIcon(resourceDir + "Background.png").getImage();
+    pea = new ImageIcon(resourceDir + "Pea.png").getImage();
+    sun = new ImageIcon(resourceDir + "Sun.png").getImage();
+    zom1 = new ImageIcon(resourceDir + "zombies/NormalZombie.png").getImage();
+    zom2 = new ImageIcon(resourceDir + "zombies/ConeHeadZombie.png").getImage();
+    freezepeashooter = new ImageIcon(resourceDir + "plants/FreezePeaShooter.gif").getImage();
 //    peashooter = new ImageIcon("/home/tidu-t1/Downloads/ezgif.com-resize.gif").getImage();
-    peashooter = new ImageIcon(resourceDir + "plants/peashooter.gif").getImage();
-    sunflower = new ImageIcon(resourceDir + "plants/sunflower.gif").getImage();
+    peashooter = new ImageIcon(resourceDir + "plants/PeaShooter.gif").getImage();
+    sunflower = new ImageIcon(resourceDir + "plants/SunFlower.gif").getImage();
     card_cherrybomb = new ImageIcon(resourceDir + "/cards/card_cherrybomb.png");
-    card_freezepeashooter = new ImageIcon(resourceDir + "/cards/card_freezepeashooter.png");
-    card_peashooter = new ImageIcon(resourceDir + "/cards/card_peashooter.png");
-    card_sunflower = new ImageIcon(resourceDir + "/cards/card_sunflower.png");
+    card_freezepeashooter = new ImageIcon(resourceDir + "/cards/FreezePeaShooterCard.png");
+    card_peashooter = new ImageIcon(resourceDir + "/cards/PeaShooterCard.png");
+    card_sunflower = new ImageIcon(resourceDir + "/cards/SunFlowerCard.png");
     card_wallnut = new ImageIcon(resourceDir + "/cards/card_wallnut.png");
 
     // Set Game dimension based on the background image
@@ -196,15 +196,15 @@ public class Game_Old extends JPanel implements Runnable, MouseListener, MouseMo
   }
 
   @Override
-  public void mouseDragged(MouseEvent m) {
-    cardPeaShooterClicked = m.getSource() == peashooterBT;
+  public void mouseDragged(MouseEvent mouseEvent) {
+    cardPeaShooterClicked = mouseEvent.getSource() == peashooterBT;
 
-    cardSunFlowerClicked = m.getSource() == sunflowerBT;
+    cardSunFlowerClicked = mouseEvent.getSource() == sunflowerBT;
 
-    cardFreezePeaShooterClicked = m.getSource() == freezepeaseshooterBT;
+    cardFreezePeaShooterClicked = mouseEvent.getSource() == freezepeaseshooterBT;
 
-    mouseX = m.getX();
-    mouseY = m.getY();
+    mouseX = mouseEvent.getX();
+    mouseY = mouseEvent.getY();
     repaint();
   }
 

@@ -1,11 +1,12 @@
-package remake;
+package minimalRemake;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
+import minimalRemake.GUI.Game;
 
-public class GameWindow extends JFrame {
+public class PlantsVsZombies extends JFrame {
 
-  public GameWindow() {
+  public PlantsVsZombies() {
     initUI();
   }
 
@@ -13,14 +14,14 @@ public class GameWindow extends JFrame {
     SwingUtilities.invokeLater(new Runnable() {
       @Override
       public void run() {
-        GameWindow ex = new GameWindow();
-        ex.setVisible(true);
+        PlantsVsZombies game = new PlantsVsZombies();
+        game.setVisible(true);
       }
     });
   }
 
   private void initUI() {
-    add(new Game_Old());
+    add(new Game());
     pack();
     setTitle("Plants Versus Zombies Clone");
     setResizable(false);

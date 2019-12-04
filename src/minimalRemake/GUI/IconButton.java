@@ -1,4 +1,4 @@
-package remake;
+package minimalRemake.GUI;
 
 import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;

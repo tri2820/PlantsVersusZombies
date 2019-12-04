@@ -26,7 +26,7 @@ public class Board extends JPanel {
 
   private void loadImage() {
 
-    ImageIcon ii = new ImageIcon("/home/tidu-t1/IdeaProjects/PlantsVersusZombies/resource/bg.png");
+    ImageIcon ii = new ImageIcon("/home/tidu-t1/IdeaProjects/PlantsVersusZombies/resource/Background.png");
     bardejov = ii.getImage();
   }
 
