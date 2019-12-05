@@ -2,35 +2,31 @@ package minimalRemake.GUI;
 
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import minimalRemake.Base.Commons;
 import minimalRemake.Base.GameEntities;
-import minimalRemake.Plants.Pea;
 import minimalRemake.Plants.PeaShooter;
 import minimalRemake.Plants.Sun;
 
 public class Game extends JPanel implements Runnable, MouseListener, MouseMotionListener {
+
   // GUI components
   JLabel sunCountLabel;
-  JButton FreezePeaShooterBt;
-  JButton PeaShooterBT;
-  JButton SunFlowerBT;
-  JButton digBT;
+  IconButton FreezePeaShooterBT;
+  IconButton PeaShooterBT;
+  IconButton SunFlowerBT;
+  IconButton digBT;
+  IconButton[] buttons = new IconButton[3];
 
   // flags
-  boolean cardPeaShooterDragged;
-  boolean cardFreezePeaShooterDragged;
-  boolean cardSunFlowerDragged;
 
   // Some control numbers
   int sunCount = 0;
@@ -46,7 +42,6 @@ public class Game extends JPanel implements Runnable, MouseListener, MouseMotion
     addMouseListener(this);
     addMouseMotionListener(this);
     setLayout(null);
-    System.out.println(Commons.GameDim);
     setPreferredSize(Commons.GameDim);
     setUpShop();
   }
@@ -66,36 +61,23 @@ public class Game extends JPanel implements Runnable, MouseListener, MouseMotion
   }
 
   private void setUpShop() {
-    add(
-        SunFlowerBT =
-            new IconButton(
-                Commons.SunFlowerCard,
-                Commons.GameDim.width * 10 / 90,
-                Commons.GameDim.height / 67,
-                this));
-    add(
-        PeaShooterBT =
-            new IconButton(
-                Commons.PeaShooterCard,
-                Commons.GameDim.width * 16 / 90,
-                Commons.GameDim.height / 67,
-                this));
-    add(
-        FreezePeaShooterBt =
-            new IconButton(
-                Commons.FreezePeaShooterCard,
-                Commons.GameDim.width * 22 / 90,
-                Commons.GameDim.height / 67,
-                this));
+    buttons[0] = new IconButton(Commons.SunFlowerCard, Commons.GameDim.width * 10 / 90, Commons.GameDim.height / 67, Commons.SunFlower, this);
+    buttons[1] = new IconButton(Commons.PeaShooterCard, Commons.GameDim.width * 16 / 90, Commons.GameDim.height / 67, Commons.PeaShooter, this);
+    buttons[2] = new IconButton(Commons.FreezePeaShooterCard, Commons.GameDim.width * 22 / 90, Commons.GameDim.height / 67, Commons.FreezePeaShooter,
+        this);
+
+    for (IconButton ib : buttons) {
+      if (ib != null) {
+        add(ib);
+        ib.addMouseMotionListener(this);
+      }
+    }
 
     add(sunCountLabel = new JLabel(String.valueOf(sunCount)));
     sunCountLabel.setBounds(
         Commons.GameDim.width * 4 / 90, Commons.GameDim.height * 4 / 67, 100, 100);
     sunCountLabel.setFont(new Font("Verdana", Font.PLAIN, 18));
 
-    PeaShooterBT.addMouseMotionListener(this);
-    SunFlowerBT.addMouseMotionListener(this);
-    FreezePeaShooterBt.addMouseMotionListener(this);
   }
 
   // Do every step of the game here
@@ -109,26 +91,24 @@ public class Game extends JPanel implements Runnable, MouseListener, MouseMotion
   public void paintComponent(Graphics g) {
     g.drawImage(Commons.Background, 0, 0, null);
     for (GameEntities e : entities) {
-      g.drawImage(e.getImage(), e.position.x, e.position.y, null);
-      Rectangle r = e.getBounds();
-      g.drawRect(r.x, r.y, r.width, r.height);
+      if (e.visible) {
+        g.drawImage(e.getImage(), e.position.x, e.position.y, null);
+        Rectangle r = e.getBounds();
+        g.drawRect(r.x, r.y, r.width, r.height);
+      }
     }
-    if (cardSunFlowerDragged) {
-            g.drawImage(Commons.SunFlower, mouseX + Commons.GameDim.width * 8 / 90, mouseY, null);
+
+    for (IconButton ib : buttons) {
+      if (ib.dragged) {
+        g.drawImage(ib.dragTarget, mouseX - ib.dragTarget.getWidth(null) / 2, mouseY - ib.dragTarget.getHeight(null) / 2, null);
+      }
     }
-        if (cardPeaShooterDragged) {
-          g.drawImage(Commons.PeaShooter, mouseX + Commons.GameDim.width * 14 / 90, mouseY, null);
-        }
-        if (cardFreezePeaShooterDragged) {
-          g.drawImage(Commons.FreezePeaShooter, mouseX + Commons.GameDim.width * 20 / 90, mouseY, null);
-     }
   }
 
   @Override
   public void mouseClicked(MouseEvent mouseEvent) {
-        Point p = mouseEvent.getPoint();
         for (var e : entities) {
-          if (e.getBounds().contains(p)) {
+          if (e.getBounds().contains(mouseEvent.getPoint())) {
             if (e instanceof Sun) {
               sunCountLabel.setText(String.valueOf(sunCount += 25));
             }
@@ -140,7 +120,22 @@ public class Game extends JPanel implements Runnable, MouseListener, MouseMotion
   public void mousePressed(MouseEvent mouseEvent) {}
 
   @Override
-  public void mouseReleased(MouseEvent mouseEvent) {}
+  public void mouseReleased(MouseEvent mouseEvent) {
+    if (mouseEvent.getSource() instanceof IconButton) {
+      for (GameEntities e : entities) {
+        if (e.getBounds().contains(mouseX, mouseY)) {
+          if (e instanceof PeaShooter) {
+            e.visible = true;
+            try {
+              mouseEvent.getSource().getClass().getField("dragged").set(mouseEvent.getSource(), false);
+            } catch (NoSuchFieldException | IllegalAccessException ex) {
+              ex.printStackTrace();
+            }
+          }
+        }
+      }
+    }
+  }
 
   @Override
   public void mouseEntered(MouseEvent mouseEvent) {}
@@ -150,14 +145,12 @@ public class Game extends JPanel implements Runnable, MouseListener, MouseMotion
 
   @Override
   public void mouseDragged(MouseEvent mouseEvent) {
-    cardPeaShooterDragged = mouseEvent.getSource() == PeaShooterBT;
+    for (IconButton ib : buttons) {
+      ib.dragged = mouseEvent.getSource() == ib;
+    }
 
-    cardSunFlowerDragged = mouseEvent.getSource() == SunFlowerBT;
-
-    cardFreezePeaShooterDragged = mouseEvent.getSource() == FreezePeaShooterBt;
-
-    mouseX = mouseEvent.getX();
-    mouseY = mouseEvent.getY();
+    mouseX = mouseEvent.getX() + mouseEvent.getComponent().getX();
+    mouseY = mouseEvent.getY() + mouseEvent.getComponent().getY();
     repaint();
   }
 

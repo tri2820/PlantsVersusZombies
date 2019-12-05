@@ -3,12 +3,10 @@ package minimalRemake.Plants;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
-import java.util.Random;
 import minimalRemake.Base.Commons;
 import minimalRemake.Base.GameEntities;
 
 public class Sun extends GameEntities {
-  Random random = new Random();
   int dx = 1;
   int dy = 1;
 
@@ -24,12 +22,12 @@ public class Sun extends GameEntities {
 
   private void genPos() {
     position =
-        new Point(random.nextInt(Commons.GameDim.width), random.nextInt(Commons.GameDim.height));
+        new Point(Commons.luck.nextInt(Commons.GameDim.width), Commons.luck.nextInt(Commons.GameDim.height));
   }
 
   private void genDir() {
-    dx = random.nextInt(5) - 2;
-    dy = random.nextInt(5) - 2;
+    dx = Commons.luck.nextInt(5) - 2;
+    dy = Commons.luck.nextInt(5) - 2;
   }
 
   @Override

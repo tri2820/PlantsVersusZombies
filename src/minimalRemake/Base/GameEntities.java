@@ -6,7 +6,7 @@ import java.awt.Rectangle;
 
 public abstract class GameEntities {
   public Point position;
-  public boolean visible = false;
+  public boolean visible = true;
 
   public abstract void actions();
   public abstract Rectangle getBounds();

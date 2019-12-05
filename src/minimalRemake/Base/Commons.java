@@ -2,9 +2,9 @@ package minimalRemake.Base;
 
 import java.awt.Dimension;
 import java.awt.Image;
-import java.awt.Point;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Random;
 import javax.swing.ImageIcon;
 
 public interface Commons {
@@ -36,6 +36,8 @@ public interface Commons {
   ImageIcon PeaShooterCard = new ImageIcon(PEASHOOTER_CARD);
   ImageIcon FreezePeaShooterCard = new ImageIcon(FREEZE_PEASHOOTER_CARD);
 
+  Random luck = new Random();
+
   // Set Game dimension based on the background image
   Dimension GameDim = new Dimension(Background.getWidth(null), Background.getHeight(null));
   ArrayList<Image> images = new ArrayList<>();
@@ -44,7 +46,7 @@ public interface Commons {
   int[] cols = new int[9];
   int[] lanes = new int[5];
 
-  public static void init() {
+  static void init() {
     // Set coefficient to find each lane relative to the background
     lanes[0] = GameDim.height * 12 / 67;
     lanes[1] = GameDim.height * 23 / 67;
