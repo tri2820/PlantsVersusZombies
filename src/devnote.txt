@@ -1,3 +1,0 @@
-Notice when rebuilding the project on your machine:
-1. Please change the ProjectDir string to your machine path.
-2. Run and validate TestScreenSize.
