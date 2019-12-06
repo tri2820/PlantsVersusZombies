@@ -121,7 +121,7 @@ public class Game extends JPanel implements Runnable, MouseListener, MouseMotion
 
     add(Sun.CountLabel = new JLabel(String.valueOf(Sun.Count), SwingConstants.CENTER));
     Sun.CountLabel.setBounds(GameDim.width * 5 / 200, GameDim.height * 7 / 67, 75, 30);
-    if (lv.testMode) {
+    if (testMode) {
       Sun.CountLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
     }
     Sun.CountLabel.setFont(new Font(SUN_COUNT_FONT, Font.BOLD, 20));
@@ -141,7 +141,7 @@ public class Game extends JPanel implements Runnable, MouseListener, MouseMotion
     for (GameEntities e : entities) {
       if (e.visible) {
         g.drawImage(e.getImage(), e.position.x, e.position.y, null);
-        if (lv.testMode) {
+        if (testMode) {
           Rectangle r = e.getBounds();
           g.drawRect(r.x, r.y, r.width, r.height);
         }

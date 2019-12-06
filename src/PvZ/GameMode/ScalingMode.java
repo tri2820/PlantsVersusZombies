@@ -1,15 +1,15 @@
-package PvZ.Base;
+package PvZ.GameMode;
 
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 
-public interface ScalingMode extends Directories {
+public class ScalingMode extends VisualMode {
 
   // Set Game dimension based on the background image
-  Image BackgroundImageOriginal = new ImageIcon(BACKGROUND).getImage();
-  double ScaleFactor =
+  static Image BackgroundImageOriginal = new ImageIcon(BACKGROUND).getImage();
+  static double ScaleFactor =
       (double) Toolkit.getDefaultToolkit().getScreenSize().height
           / BackgroundImageOriginal.getHeight(null);
   Dimension GameDim =
@@ -28,7 +28,7 @@ public interface ScalingMode extends Directories {
   Image ConeHeadZombieImage = getScaledImage(CONE_HEAD_ZOMBIE);
   Image ShovelImage = getScaledImage(SHOVEL, 0.65);
 
-  ImageIcon ShovelButtonImage = new ImageIcon(getScaledImage(SHOVEL_BUTTON, 0.65));
+  ImageIcon ShovelButtonIcon = new ImageIcon(getScaledImage(SHOVEL_BUTTON, 0.65));
   ImageIcon SunFlowerCardIcon = new ImageIcon(getScaledImage(SUNFLOWER_CARD));
   ImageIcon PeaShooterCardIcon = new ImageIcon(getScaledImage(PEASHOOTER_CARD));
   ImageIcon FreezePeaShooterCardIcon = new ImageIcon(getScaledImage(FREEZE_PEASHOOTER_CARD));

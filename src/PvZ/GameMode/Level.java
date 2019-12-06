@@ -3,9 +3,7 @@ package PvZ.GameMode;
 import PvZ.Base.Commons;
 
 public abstract class Level implements Commons {
-
   // Control variables
-  public boolean testMode = true;
   public int numOfSuns;
   public int numOfZombies;
   public int Price_SunFlower;

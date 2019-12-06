@@ -1,5 +1,7 @@
 package PvZ.Base;
 
+import PvZ.GameMode.NoScalingMode;
+import PvZ.GameMode.VisualMode;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Point;
@@ -7,14 +9,34 @@ import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.ImageIcon;
 
-public interface Commons extends NoScalingMode {
+public interface Commons extends Directories {
 
   Random luck = new Random();
+  VisualMode visualMode = new NoScalingMode();
+  boolean testMode = visualMode.testMode;
 
   /***** Default actions *****/
   ArrayList<Image> images = new ArrayList<>();
   ArrayList<ImageIcon> icons = new ArrayList<>();
   ArrayList<Dimension> sizes = new ArrayList<>();
+
+  Image BackgroundImage = visualMode.BackgroundImage;
+  Image SunFlowerImage = visualMode.SunFlowerImage;
+  Image PeaShooterImage = visualMode.PeaShooterImage;
+  Image FreezePeaShooterImage = visualMode.FreezePeaShooterImage;
+  Image SunImage = visualMode.SunImage;
+  Image PeaImage = visualMode.PeaImage;
+  Image FreezePeaImage = visualMode.FreezePeaImage;
+  Image NormalZombieImage = visualMode.NormalZombieImage;
+  Image ConeHeadZombieImage = visualMode.ConeHeadZombieImage;
+  Image ShovelImage = visualMode.ShovelImage;
+
+  ImageIcon ShovelButtonIcon = visualMode.ShovelButtonIcon;
+  ImageIcon SunFlowerCardIcon = visualMode.SunFlowerCardIcon;
+  ImageIcon PeaShooterCardIcon = visualMode.PeaShooterCardIcon;
+  ImageIcon FreezePeaShooterCardIcon = visualMode.FreezePeaShooterCardIcon;
+
+  Dimension GameDim = visualMode.GameDim;
 
   int[] cols = new int[9];
   int[] lanes = new int[5];
