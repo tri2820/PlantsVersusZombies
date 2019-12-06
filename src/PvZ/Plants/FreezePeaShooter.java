@@ -1,26 +1,24 @@
-package minimalRemake.Plants;
+package PvZ.Plants;
 
+import PvZ.Base.GameEntities;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
-import minimalRemake.Base.Commons;
-import minimalRemake.Base.GameEntities;
 
-public class PeaShooter extends GameEntities {
+public class FreezePeaShooter extends GameEntities {
 
-  public Pea[] peas = new Pea[1];
-  //  Instant start;
+  public FreezePea[] freezePeas = new FreezePea[1];
   Point gun = new Point(getBounds().width * 5 / 7, getBounds().height / 10);
 
-  public PeaShooter(int x, int y) {
+  public FreezePeaShooter(int x, int y) {
     super(x, y);
     initBullet();
-    visible = false;
+    price = lv.Price_FreezePeaShooter;
   }
 
   public void initBullet() {
-    for (int i = 0; i < peas.length; i++) {
-      peas[i] = new Pea(getGun().x, getGun().y, this);
+    for (int i = 0; i < freezePeas.length; i++) {
+      freezePeas[i] = new FreezePea(getGun().x, getGun().y, this);
     }
   }
 
@@ -35,9 +33,10 @@ public class PeaShooter extends GameEntities {
 
   @Override
   public Image getImage() {
-    return Commons.PeaShooter;
+    return FreezePeaShooterImage;
   }
 
   @Override
-  public void actions() {}
+  public void actions() {
+  }
 }

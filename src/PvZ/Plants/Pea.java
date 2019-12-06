@@ -1,22 +1,21 @@
-package minimalRemake.Plants;
+package PvZ.Plants;
 
+import PvZ.Base.GameEntities;
 import java.awt.Image;
 import java.awt.Rectangle;
-import minimalRemake.Base.Commons;
-import minimalRemake.Base.GameEntities;
 
 public class Pea extends GameEntities {
 
   boolean wasInvisible = false;
-  PeaShooter owner = null;
+  GameEntities owner = null;
 
-  int dx = 3;
-  int dy = 0;
+  int dx = lv.BulletSpeedX;
+  int dy = lv.BulletSpeedY;
 
   int x_initial = 0;
   int y_initial = 0;
 
-  public Pea(int x, int y, PeaShooter owner) {
+  public Pea(int x, int y, GameEntities owner) {
     super(x, y);
     x_initial = x;
     y_initial = y;
@@ -30,28 +29,23 @@ public class Pea extends GameEntities {
 
   @Override
   public void actions() {
+    position.x += dx;
+    position.y += dy;
     if (owner.visible) {
       if (!visible) {
         wasInvisible = true;
-        if (Commons.luck.nextBoolean()) {
-          visible = true;
-        }
-      } else {
-        position.x += dx;
-        position.y += dy;
+        visible = luck.nextBoolean();
       }
       if (visible && wasInvisible) {
         reset();
         wasInvisible = false;
       }
-      if (position.x > Commons.GameDim.width
-          || position.y > Commons.GameDim.height
-          || position.y < 0) {
-        visible = false;
-        reset();
-      }
     } else {
       visible = false;
+    }
+    if (position.x > GameDim.width || position.y > GameDim.height || position.y < 0) {
+      visible = false;
+      reset();
     }
   }
 
@@ -63,6 +57,6 @@ public class Pea extends GameEntities {
 
   @Override
   public Image getImage() {
-    return Commons.Pea;
+    return PeaImage;
   }
 }

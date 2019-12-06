@@ -1,8 +1,8 @@
-package minimalRemake;
+package PvZ;
 
+import PvZ.GUI.Game;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
-import minimalRemake.GUI.Game;
 
 public class PlantsVsZombies extends JFrame {
 
@@ -21,7 +21,7 @@ public class PlantsVsZombies extends JFrame {
   }
 
   private void initUI() {
-    add(new Game());
+    add(Game.getInstance());
     pack();
     setTitle("Plants Versus Zombies Clone");
     setResizable(false);

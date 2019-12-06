@@ -1,11 +1,10 @@
-package minimalRemake.Plants;
+package PvZ.Zombies;
 
+import PvZ.Base.GameEntities;
 import java.awt.Image;
 import java.awt.Rectangle;
-import minimalRemake.Base.Commons;
-import minimalRemake.Base.GameEntities;
 
-public class SunFlower extends GameEntities {
+public class NormalZombie extends GameEntities {
 
   @Override
   public void actions() {
@@ -19,8 +18,6 @@ public class SunFlower extends GameEntities {
 
   @Override
   public Image getImage() {
-    return Commons.SunFlower;
+    return NormalZombieImage;
   }
-
-
 }
