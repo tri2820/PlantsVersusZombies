@@ -13,7 +13,7 @@ public class SunFlower extends GameEntities {
   public SunFlower(int x, int y) {
     super(x, y);
     initSun();
-    price = lv.Price_SunFlower;
+    price = level.Price_SunFlower;
   }
 
   public void initSun() {
@@ -38,6 +38,6 @@ public class SunFlower extends GameEntities {
 
   @Override
   public Image getImage() {
-    return SunFlowerImage;
+    return visual.SunFlowerImage;
   }
 }

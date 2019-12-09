@@ -1,4 +1,4 @@
-package PvZ.GameMode;
+package remake.GameMode.Visuals;
 
 import java.awt.Dimension;
 import java.awt.Image;

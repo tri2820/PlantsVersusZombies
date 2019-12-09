@@ -1,8 +1,8 @@
-package PvZ.Base;
+package remake.etc;
 
 import java.io.File;
 
-public interface Directories {
+public interface Constants {
 
   String PROJECT_DIR = new File("").getAbsolutePath();
   String RESOURCE_DIR = PROJECT_DIR + "/resource";
@@ -20,5 +20,7 @@ public interface Directories {
   String FREEZE_PEASHOOTER_CARD = RESOURCE_DIR + "/cards/FreezePeaShooterCard.png";
   String SHOVEL = RESOURCE_DIR + "/Shovel.png";
   String SHOVEL_BUTTON = RESOURCE_DIR + "/ShovelButton.jpg";
-  String SUN_COUNT_FONT = "Sol";
+  String LAWNMOWER = RESOURCE_DIR + "/Lawnmower.png";
+  String SOL_FONT = "Sol";
+  int DELAY = 25;
 }

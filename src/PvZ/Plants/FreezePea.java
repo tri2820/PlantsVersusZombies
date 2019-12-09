@@ -9,8 +9,8 @@ public class FreezePea extends GameEntities {
   boolean wasInvisible = false;
   GameEntities owner = null;
 
-  int dx = lv.BulletSpeedX;
-  int dy = lv.BulletSpeedY;
+  int dx = level.BulletSpeedX;
+  int dy = level.BulletSpeedY;
 
   int x_initial = 0;
   int y_initial = 0;
@@ -43,7 +43,9 @@ public class FreezePea extends GameEntities {
         reset();
         wasInvisible = false;
       }
-      if (position.x > GameDim.width || position.y > GameDim.height || position.y < 0) {
+      if (position.x > visual.GameDim.width
+          || position.y > visual.GameDim.height
+          || position.y < 0) {
         visible = false;
         reset();
       }
@@ -60,6 +62,6 @@ public class FreezePea extends GameEntities {
 
   @Override
   public Image getImage() {
-    return FreezePeaImage;
+    return visual.FreezePeaImage;
   }
 }

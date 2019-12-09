@@ -8,13 +8,13 @@ import javax.swing.JLabel;
 
 public class Sun extends GameEntities {
 
-  public static int Count = 0;
+  public static int Count = 1000;
   public static JLabel CountLabel;
-  private static Point SunCollector = new Point(GameDim.width / 90, GameDim.height / 67);
+  private static Point SunCollector = new Point(visual.GameDim.width / 90, visual.GameDim.height / 67);
   public GameEntities owner = null;
   public boolean collected = false;
-  int dx = lv.SunSpeedBoundX;
-  int dy = lv.SunSpeedBoundY;
+  int dx = level.SunSpeedBoundX;
+  int dy = level.SunSpeedBoundY;
   int SUN_BOUND = 333;
   int SUN_LUCKY_NUM = 33;
   int x_initial = 0;
@@ -35,7 +35,7 @@ public class Sun extends GameEntities {
   }
 
   private void genPos() {
-    position = new Point(luck.nextInt(GameDim.width), luck.nextInt(GameDim.height));
+    position = new Point(luck.nextInt(visual.GameDim.width), luck.nextInt(visual.GameDim.height));
   }
 
   private void genPos(int x, int y) {
@@ -45,8 +45,8 @@ public class Sun extends GameEntities {
 
   private void genDir() {
     do {
-      dx = luck.nextInt(lv.SunSpeedBoundX) - ((lv.SunSpeedBoundX) / 2);
-      dy = luck.nextInt(lv.SunSpeedBoundY) - ((lv.SunSpeedBoundY) / 2);
+      dx = luck.nextInt(level.SunSpeedBoundX) - ((level.SunSpeedBoundX) / 2);
+      dy = luck.nextInt(level.SunSpeedBoundY) - ((level.SunSpeedBoundY) / 2);
     } while (dx == 0 || dy == 0);
   }
 
@@ -74,8 +74,8 @@ public class Sun extends GameEntities {
 
     if (position.x < -100
         || position.y < -100
-        || position.x > GameDim.width + 100
-        || position.y > GameDim.height + 100) {
+        || position.x > visual.GameDim.width + 100
+        || position.y > visual.GameDim.height + 100) {
       visible = false;
       if (owner != null) {
         genPos(x_initial, y_initial);
@@ -106,6 +106,6 @@ public class Sun extends GameEntities {
 
   @Override
   public Image getImage() {
-    return SunImage;
+    return visual.SunImage;
   }
 }

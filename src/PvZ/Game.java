@@ -1,6 +1,5 @@
-package PvZ.GUI;
+package PvZ;
 
-import PvZ.Base.Commons;
 import PvZ.Base.GameEntities;
 import PvZ.GameMode.Level;
 import PvZ.GameMode.Round1;
@@ -8,14 +7,13 @@ import PvZ.Plants.FreezePeaShooter;
 import PvZ.Plants.PeaShooter;
 import PvZ.Plants.Sun;
 import PvZ.Plants.SunFlower;
+import PvZ.Zombies.NormalZombie;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.BorderFactory;
@@ -23,17 +21,21 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.event.MouseInputListener;
+import remake.GUI.IconButton;
+import remake.GUI.SimpleMessagePane;
 
-public class Game extends JPanel implements Runnable, MouseListener, MouseMotionListener, Commons {
+public class Game extends JPanel implements Runnable, MouseInputListener, Commons {
+
+  Level level = new Round1();
+
 
   private static volatile Game game;
   private final int DELAY = 25;
   // GUI components
   IconButton[] buttons = new IconButton[4];
-  // Set level using Strategy Design Pattern
-  Level lv = new Round1();
 
-  ArrayList<GameEntities> entities = new ArrayList<>(30);
+  ArrayList<GameEntities> entities = new ArrayList<>(50);
   // Some control numbers
   private int mouseX, mouseY;
 
@@ -42,7 +44,7 @@ public class Game extends JPanel implements Runnable, MouseListener, MouseMotion
     addMouseListener(this);
     addMouseMotionListener(this);
     setLayout(null);
-    setPreferredSize(GameDim);
+    setPreferredSize(visual.GameDim);
     setUpShop();
   }
 
@@ -62,8 +64,7 @@ public class Game extends JPanel implements Runnable, MouseListener, MouseMotion
 
   private void initGame() {
     Commons.initAll();
-    GameEntities.setLevel(lv);
-
+    GameEntities.setLevel(level);
     for (Point cell : cells) {
       PeaShooter peaShooter = new PeaShooter(cell.x, cell.y);
       entities.add(peaShooter);
@@ -77,9 +78,15 @@ public class Game extends JPanel implements Runnable, MouseListener, MouseMotion
       entities.add(sunFlower);
       entities.addAll(Arrays.asList(sunFlower.suns));
     }
-    for (int i = 0; i < lv.numOfSuns; i++) {
+
+    for (int i = 0; i < level.numOfSuns; i++) {
       entities.add(new Sun());
     }
+
+    for (int i = 0; i < level.numOfZombies; i++) {
+      entities.add(new NormalZombie());
+    }
+
   }
 
   // check if a cell contains a visible entity
@@ -95,22 +102,22 @@ public class Game extends JPanel implements Runnable, MouseListener, MouseMotion
   private void setUpShop() {
     buttons[0] =
         new IconButton(
-            SunFlowerCardIcon, GameDim.width * 10 / 90, GameDim.height / 67, SunFlowerImage, this);
+            visual.SunFlowerCardIcon, visual.GameDim.width * 10 / 90, visual.GameDim.height / 67, visual.SunFlowerImage, this);
     buttons[1] =
         new IconButton(
-            PeaShooterCardIcon,
-            GameDim.width * 16 / 90,
-            GameDim.height / 67,
-            PeaShooterImage,
+            visual.PeaShooterCardIcon,
+            visual.GameDim.width * 16 / 90,
+            visual.GameDim.height / 67,
+            visual.PeaShooterImage,
             this);
     buttons[2] =
         new IconButton(
-            FreezePeaShooterCardIcon,
-            GameDim.width * 22 / 90,
-            GameDim.height / 67,
-            FreezePeaShooterImage,
+            visual.FreezePeaShooterCardIcon,
+            visual.GameDim.width * 22 / 90,
+            visual.GameDim.height / 67,
+            visual.FreezePeaShooterImage,
             this);
-    buttons[3] = new IconButton(ShovelButtonIcon, GameDim.width * 57 / 100, 0, ShovelImage, this);
+    buttons[3] = new IconButton(visual.ShovelButtonIcon, visual.GameDim.width * 57 / 100, 0, visual.ShovelImage, this);
 
     for (IconButton ib : buttons) {
       if (ib != null) {
@@ -120,11 +127,11 @@ public class Game extends JPanel implements Runnable, MouseListener, MouseMotion
     }
 
     add(Sun.CountLabel = new JLabel(String.valueOf(Sun.Count), SwingConstants.CENTER));
-    Sun.CountLabel.setBounds(GameDim.width * 5 / 200, GameDim.height * 7 / 67, 75, 30);
-    if (testMode) {
+    Sun.CountLabel.setBounds(visual.GameDim.width * 5 / 200, visual.GameDim.height * 7 / 67, 75, 30);
+    if (visual.testMode) {
       Sun.CountLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
     }
-    Sun.CountLabel.setFont(new Font(SUN_COUNT_FONT, Font.BOLD, 20));
+    Sun.CountLabel.setFont(new Font(SOL_FONT, Font.BOLD, 20));
   }
 
   // Do every step of the game here
@@ -137,11 +144,11 @@ public class Game extends JPanel implements Runnable, MouseListener, MouseMotion
   // Draw the game
   @Override
   public void paintComponent(Graphics g) {
-    g.drawImage(BackgroundImage, 0, 0, null);
+    g.drawImage(visual.BackgroundImage, 0, 0, null);
     for (GameEntities e : entities) {
       if (e.visible) {
         g.drawImage(e.getImage(), e.position.x, e.position.y, null);
-        if (testMode) {
+        if (visual.testMode) {
           Rectangle r = e.getBounds();
           g.drawRect(r.x, r.y, r.width, r.height);
         }
@@ -180,13 +187,13 @@ public class Game extends JPanel implements Runnable, MouseListener, MouseMotion
       IconButton source = (IconButton) mouseEvent.getSource();
       GameEntities owner = getCellOwner(mouseX, mouseY);
       if (owner != null) {
-        owner.visible = source.dragTarget != ShovelImage;
+        owner.visible = source.dragTarget != visual.ShovelImage;
       } else {
         for (GameEntities e : entities) {
           if (e.getBounds().contains(mouseX, mouseY) && e.getImage().equals(source.dragTarget)) {
             if (Sun.Count < e.price) {
               new SimpleMessagePane(
-                  "Poor you! You don't have enough sun.", this, SUN_COUNT_FONT, Font.BOLD, 20);
+                  "Poor you! You don't have enough sun.", this, SOL_FONT, Font.BOLD, 20);
             } else {
               e.visible = true;
               Sun.CountLabel.setText(String.valueOf(Sun.Count -= e.price));

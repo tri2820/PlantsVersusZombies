@@ -7,13 +7,13 @@ import java.awt.Rectangle;
 public class Pea extends GameEntities {
 
   boolean wasInvisible = false;
-  GameEntities owner = null;
+  GameEntities owner;
 
-  int dx = lv.BulletSpeedX;
-  int dy = lv.BulletSpeedY;
+  int dy = level.BulletSpeedY;
+  int dx = level.BulletSpeedX;
 
-  int x_initial = 0;
-  int y_initial = 0;
+  int x_initial;
+  int y_initial;
 
   public Pea(int x, int y, GameEntities owner) {
     super(x, y);
@@ -43,7 +43,7 @@ public class Pea extends GameEntities {
     } else {
       visible = false;
     }
-    if (position.x > GameDim.width || position.y > GameDim.height || position.y < 0) {
+    if (position.x > visual.GameDim.width || position.y > visual.GameDim.height || position.y < 0) {
       visible = false;
       reset();
     }
@@ -57,6 +57,6 @@ public class Pea extends GameEntities {
 
   @Override
   public Image getImage() {
-    return PeaImage;
+    return visual.PeaImage;
   }
 }

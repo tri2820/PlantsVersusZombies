@@ -13,7 +13,7 @@ public class FreezePeaShooter extends GameEntities {
   public FreezePeaShooter(int x, int y) {
     super(x, y);
     initBullet();
-    price = lv.Price_FreezePeaShooter;
+    price = level.Price_FreezePeaShooter;
   }
 
   public void initBullet() {
@@ -33,7 +33,7 @@ public class FreezePeaShooter extends GameEntities {
 
   @Override
   public Image getImage() {
-    return FreezePeaShooterImage;
+    return visual.FreezePeaShooterImage;
   }
 
   @Override

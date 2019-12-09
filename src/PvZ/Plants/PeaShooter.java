@@ -13,7 +13,7 @@ public class PeaShooter extends GameEntities {
   public PeaShooter(int x, int y) {
     super(x, y);
     initBullet();
-    price = lv.Price_PeaShooter;
+    price = level.Price_PeaShooter;
   }
 
   public void initBullet() {
@@ -33,7 +33,7 @@ public class PeaShooter extends GameEntities {
 
   @Override
   public Image getImage() {
-    return PeaShooterImage;
+    return visual.PeaShooterImage;
   }
 
   @Override

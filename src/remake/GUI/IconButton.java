@@ -1,24 +1,26 @@
-package PvZ.GUI;
+package remake.GUI;
 
 import java.awt.Image;
-import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.event.MouseInputListener;
 
 public class IconButton extends JButton {
 
   public boolean dragged = false;
   public boolean clicked = false;
-  public Image dragTarget = null;
+  public Image dragTarget;
 
-  IconButton(ImageIcon ii, int x, int y, Image dragTarget, MouseListener ml) {
+  public IconButton(
+      ImageIcon ii, int x, int y, Image dragTarget, MouseInputListener mouseInputListener) {
     setIcon(ii);
     setOpaque(false);
     setContentAreaFilled(false);
     setBorderPainted(false);
     setVisible(true);
     setBounds(x, y, ii.getIconWidth(), ii.getIconHeight());
-    addMouseListener(ml);
+    addMouseListener(mouseInputListener);
+    addMouseMotionListener(mouseInputListener);
     this.dragTarget = dragTarget;
   }
 }
