@@ -1,0 +1,57 @@
+package root.entities.plants;
+
+import java.awt.Point;
+import java.util.LinkedList;
+import root.entities.GameEntity;
+import root.entities.stuffs.Stuff;
+import root.entities.zombies.Zombie;
+
+public abstract class Plant extends GameEntity {
+
+  public int price;
+  public int health;
+  public LinkedList<Stuff> stuffs = new LinkedList<>();
+  public Point stuffShooter = new Point(getBounds().width * 5 / 7, getBounds().height / 10);
+
+  public Plant(int x, int y) {
+    super(x, y);
+  }
+
+  public void dealWithZom() {
+  }
+
+  public LinkedList<Zombie> zomOnLane() {
+    LinkedList<Zombie> ZomOnLane = new LinkedList<>();
+    for (Zombie zombie : gamePanel.level.zombies) {
+      if (zombie.getX() > position.x && zombie.getX() <= visualMode.GameDim.width && position.y == zombie.getY()) {
+        ZomOnLane.add(zombie);
+      }
+    }
+    return ZomOnLane;
+  }
+
+  public Zombie closestZom(LinkedList<Zombie> ZomOnLane) {
+    Zombie closestZomOnLane = ZomOnLane.getFirst();
+    for (Zombie zombie : ZomOnLane) {
+      if (zombie.getX() < closestZomOnLane.getX()) {
+        closestZomOnLane = zombie;
+      }
+    }
+
+    return closestZomOnLane;
+  }
+
+  public void shoot() {
+  }
+
+  @Override
+  public void actions() {
+    LoopCounter++;
+    if (!zomOnLane().isEmpty()) {
+      if (stuffs.isEmpty() && LoopCounter % 20 == 0) {
+        shoot();
+      }
+      dealWithZom();
+    }
+  }
+}

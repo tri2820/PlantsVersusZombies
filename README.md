@@ -8,11 +8,13 @@ Deadline: The end of December 2019
 Goal achieved:
 * GUI
 * Using git
+* Finished game : BETA Version
+* Design pattern : Strategy Design Pattern
 
 Upcomming:
-* Playable game
 * Report: docs, slides, UML diagram
 * Extra features
-* Apply design patterns
+* Make jar executable
+* Sounds
 
 Link to real-game: bit.ly/PvZ-Expectation
