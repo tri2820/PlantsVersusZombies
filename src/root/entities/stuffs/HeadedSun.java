@@ -21,7 +21,7 @@ public class HeadedSun extends Sun {
   public void SpecialMoves() {
     if (position.y <= (-visualMode.GameDim.height / 20 + initialY) && dy < 0) {
       dy = -initial_dY;
-    } else if (position.y >= initialY && dy > 0) {
+    } else if (position.y >= initialY && dy >= 0) {
       dy = 0;
       LoopCounter++;
     }

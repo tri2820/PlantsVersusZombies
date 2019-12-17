@@ -10,7 +10,7 @@ public class Pea extends Stuff {
 
   public Pea(int x, int y) {
     super(x, y);
-    dx = 5;
+    dx = 10;
     dy = 0;
   }
 

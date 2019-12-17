@@ -30,7 +30,7 @@ import root.etc.Constants;
 public class GamePanel extends JPanel implements Runnable, MouseInputListener, CellsManager, Constants {
 
   /* ----------VARS---------- */
-  final int DELAY = 5;
+  final int DELAY = 25;
   public boolean testMode = false;
   int mouseX, mouseY;
   int LoopCounter = 0;
@@ -66,7 +66,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
   /* ----------UTILITIES FUNCTIONS---------- */
   private void resetToLevel(int levelNumber) {
     LoopCounter = 0;
-    tmp_loop_counter = 0;
+    tmp_loop_counter = 1000;
     this.levelNumber = levelNumber;
     level = Level.getRound(this.levelNumber, this);
     message.setText("");
@@ -133,7 +133,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
     }
 
     if (!level.end()) {
-      if (LoopCounter > 1000 && LoopCounter % 200 == 0) {
+      if (LoopCounter > 1000 && LoopCounter % 500 == 0) {
         level.addZombie(visualMode);
       }
     } else {

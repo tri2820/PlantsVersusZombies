@@ -16,7 +16,7 @@ public abstract class Zombie extends GameEntity {
 
   public Zombie(int x, int y) {
     super(x, y);
-    dx = -2;
+    dx = -1;
     dy = 0;
   }
 
@@ -32,7 +32,7 @@ public abstract class Zombie extends GameEntity {
   }
 
   public static void updateStatus() {
-    String status = String.format("%d/%d", gamePanel.level.MAX_ZOMBIES - gamePanel.level.zombies.size(), gamePanel.level.MAX_ZOMBIES);
+    String status = String.format("%d/%d", gamePanel.level.MAX_ZOMBIES - gamePanel.level.zombieCount, gamePanel.level.MAX_ZOMBIES);
     Status.setText(status);
   }
 
@@ -46,7 +46,6 @@ public abstract class Zombie extends GameEntity {
       if (!stunt) {
         position.x += dx;
       } else {
-        position.x += dx / 2;
         if (LoopCounter % 80 == 0) {
           stunt = false;
         }
