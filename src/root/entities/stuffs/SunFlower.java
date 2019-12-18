@@ -2,6 +2,7 @@ package root.entities.stuffs;
 
 import java.awt.Image;
 import root.entities.plants.Plant;
+import root.entities.plants.PlantAttackable;
 
 public class SunFlower extends Plant {
 

@@ -5,7 +5,7 @@ import root.entities.stuffs.Pea;
 import root.entities.stuffs.Stuff;
 import root.entities.zombies.Zombie;
 
-public class PeaShooter extends Plant {
+public class PeaShooter extends Plant implements PlantAttackable {
 
   public PeaShooter(int x, int y) {
     super(x, y);
@@ -34,5 +34,16 @@ public class PeaShooter extends Plant {
   @Override
   public Image getImage() {
     return visualMode.PeaShooterImage;
+  }
+
+  @Override
+  public void actions() {
+    LoopCounter++;
+    if (!zomOnLane().isEmpty()) {
+      if (stuffs.isEmpty() && LoopCounter % 20 == 0) {
+        shoot();
+      }
+      dealWithZom();
+    }
   }
 }

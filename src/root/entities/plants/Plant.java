@@ -17,9 +17,6 @@ public abstract class Plant extends GameEntity {
     super(x, y);
   }
 
-  public void dealWithZom() {
-  }
-
   public LinkedList<Zombie> zomOnLane() {
     LinkedList<Zombie> ZomOnLane = new LinkedList<>();
     for (Zombie zombie : gamePanel.level.zombies) {
@@ -41,17 +38,14 @@ public abstract class Plant extends GameEntity {
     return closestZomOnLane;
   }
 
-  public void shoot() {
-  }
-
-  @Override
-  public void actions() {
-    LoopCounter++;
-    if (!zomOnLane().isEmpty()) {
-      if (stuffs.isEmpty() && LoopCounter % 20 == 0) {
-        shoot();
-      }
-      dealWithZom();
-    }
-  }
+//  @Override
+//  public void actions() {
+//    LoopCounter++;
+//    if (!zomOnLane().isEmpty()) {
+//      if (stuffs.isEmpty() && LoopCounter % 20 == 0) {
+//        shoot();
+//      }
+//      dealWithZom();
+//    }
+//  }
 }
