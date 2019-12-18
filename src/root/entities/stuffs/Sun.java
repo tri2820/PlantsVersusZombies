@@ -54,8 +54,7 @@ public abstract class Sun extends Stuff {
     }
   }
 
-  public void SpecialMoves() {
-  }
+  public abstract void SpecialMoves();
 
   @Override
   public void actions() {
