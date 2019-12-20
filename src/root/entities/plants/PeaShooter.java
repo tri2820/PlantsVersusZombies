@@ -1,16 +1,17 @@
 package root.entities.plants;
 
-import java.awt.Image;
 import root.entities.stuffs.Pea;
 import root.entities.stuffs.Stuff;
 import root.entities.zombies.Zombie;
+
+import java.awt.*;
 
 public class PeaShooter extends Plant implements PlantAttackable {
 
   public PeaShooter(int x, int y) {
     super(x, y);
     price = 100;
-    health = 100;
+    health = 200;
   }
 
 
@@ -36,11 +37,11 @@ public class PeaShooter extends Plant implements PlantAttackable {
     return visualMode.PeaShooterImage;
   }
 
-  @Override
+ @Override
   public void actions() {
     LoopCounter++;
     if (!zomOnLane().isEmpty()) {
-      if (stuffs.isEmpty() && LoopCounter % 20 == 0) {
+      if (stuffs.isEmpty() && LoopCounter % 80 == 0) {
         shoot();
       }
       dealWithZom();

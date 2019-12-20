@@ -1,7 +1,7 @@
 package root.entities.stuffs;
 
 public class HeadedSun extends Sun {
-
+  //sun that comes from sunflower
   protected int initialX;
   protected int initialY;
   protected int initial_dY;

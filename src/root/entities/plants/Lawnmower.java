@@ -1,6 +1,6 @@
 package root.entities.plants;
 
-import java.awt.Image;
+import java.awt.*;
 import java.util.LinkedList;
 import root.entities.zombies.Zombie;
 

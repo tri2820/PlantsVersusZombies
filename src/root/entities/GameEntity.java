@@ -1,9 +1,7 @@
 package root.entities;
 
-import java.awt.Dimension;
-import java.awt.Image;
-import java.awt.Point;
-import java.awt.Rectangle;
+import java.awt.*;
+
 import root.GUI.GamePanel;
 import root.GameMode.Visuals.VisualMode;
 import root.etc.Constants;

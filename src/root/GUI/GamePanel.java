@@ -19,10 +19,7 @@ import root.GameMode.Visuals.NoScalingMode;
 import root.GameMode.Visuals.VisualMode;
 import root.entities.plants.Lawnmower;
 import root.entities.plants.Plant;
-import root.entities.stuffs.HeadlessSun;
-import root.entities.stuffs.Pea;
-import root.entities.stuffs.Stuff;
-import root.entities.stuffs.Sun;
+import root.entities.stuffs.*;
 import root.entities.zombies.Zombie;
 import root.etc.CellsManager;
 import root.etc.Constants;
@@ -97,20 +94,22 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
       value.actions();
       value.stuffs.forEach(Stuff::actions);
       value.stuffs.removeIf(
-          stuff -> (stuff instanceof Sun && (stuff.LoopCounter == Sun.existLoop || ((Sun) stuff).doneCollected) || ((stuff instanceof Pea) && (
-              (((Pea) stuff).hitted) || ((Pea) stuff).outOfGame))));
+          stuff -> ((stuff instanceof Sun && (stuff.LoopCounter == Sun.existLoop || ((Sun) stuff).doneCollected))
+                  || (stuff instanceof Pea && ((((Pea) stuff).hitted) || ((Pea) stuff).outOfGame))
+                  || (stuff instanceof KillSun && (stuff.LoopCounter == KillSun.existLoop || ((KillSun) stuff).doneCollected))));
     });
 
 
     /* ---- Check for removals ---- */
     level.zombies.removeIf(zombie -> zombie.health <= 0 || zombie.getX() + zombie.getImage().getWidth(null) == 0);
     level.stuffs
-        .removeIf(stuff -> (stuff instanceof Sun && (stuff.LoopCounter == Sun.existLoop || ((Sun) stuff).doneCollected)));
+        .removeIf(stuff -> ((stuff instanceof Sun && (stuff.LoopCounter == Sun.existLoop || ((Sun) stuff).doneCollected))
+                || (stuff instanceof KillSun && (stuff.LoopCounter == KillSun.existLoop || ((KillSun) stuff).doneCollected))));
     CellsManager.cellMaps.values().removeIf(plant -> plant.health == 0);
     level.lawnmowers.removeIf(lawnmower -> lawnmower.getX() > visualMode.GameDim.width);
+
     /* ----- Tasks that need timer ----- */
     LoopCounter++;
-
     if (LoopCounter == 50) {
       message.setText("ROUND " + levelNumber);
     } else if (LoopCounter == 100) {
@@ -132,8 +131,17 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
       level.stuffs.add(new HeadlessSun((new Random().nextInt(visualMode.GameDim.width - edge)), 0));
     }
 
+    if (LoopCounter % 250 == 0) {
+      int edge = visualMode.KillSunImage.getWidth(null);
+      level.stuffs.add(new KillSun((new Random().nextInt(visualMode.GameDim.width - edge)), 0));
+    }
+
     if (!level.end()) {
-      if (LoopCounter > 1000 && LoopCounter % 500 == 0) {
+      if (LoopCounter > 1024 && LoopCounter % 512 == 0) {
+        level.addZombie(visualMode);
+      } else if (LoopCounter > 2048 && LoopCounter % 100 == 0) {
+        level.addZombie(visualMode);
+      } else if (LoopCounter > 4096 && LoopCounter % 50 == 0) {
         level.addZombie(visualMode);
       }
     } else {
@@ -250,6 +258,12 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
         }
       }
 
+      if (stuff instanceof KillSun) {
+        if (stuff.getBounds().contains(mouseEvent.getPoint())) {
+          ((KillSun) stuff).collected = true;
+        }
+      }
+
       if (mouseEvent.getSource().equals(message)) {
         if (message.getText().equals("GAME OVER")) {
           int opt = 0;
@@ -282,6 +296,8 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
           ((Sun) stuff).collected = true;
         }
       }
+
+//j
     }));
   }
 

@@ -1,8 +1,8 @@
 package root.entities.stuffs;
 
-import java.awt.Image;
 import root.entities.plants.Plant;
-import root.entities.plants.PlantAttackable;
+
+import java.awt.*;
 
 public class SunFlower extends Plant {
 
@@ -15,7 +15,7 @@ public class SunFlower extends Plant {
   @Override
   public void actions() {
     LoopCounter++;
-    if (LoopCounter % 250 == 0) {
+    if (LoopCounter % 500 == 0) {
       stuffs.add(new HeadedSun(position.x + stuffShooter.x, position.y + stuffShooter.y));
     }
   }

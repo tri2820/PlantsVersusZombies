@@ -1,7 +1,7 @@
 package root.entities.stuffs;
 
 public class HeadlessSun extends Sun {
-
+  //sun that comes from sun
   public HeadlessSun(int x, int y) {
     super(x, y);
   }

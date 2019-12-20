@@ -1,19 +1,14 @@
 package root.entities.stuffs;
 
-import java.awt.Color;
-import java.awt.Image;
-import java.awt.Point;
-import javax.swing.BorderFactory;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
+import java.awt.*;
+import javax.swing.*;
 
 public abstract class Sun extends Stuff {
 
-  public static int Count = 0;
+  public static int Count = 100000;                                                           //initial sun in game
   public static JLabel CountLabel = new JLabel(String.valueOf(Count), SwingConstants.CENTER);
-  public static int existLoop = 80;
-  private static Point SunCollector =
-      new Point(visualMode.GameDim.width / 90, visualMode.GameDim.height / 67);
+  public static int existLoop = 120;                                                          //lasting time of the sun
+  private static Point SunCollector = new Point(visualMode.GameDim.width / 90, visualMode.GameDim.height / 67);
   public boolean collected = false;
   public boolean doneCollected = false;
 
@@ -24,11 +19,8 @@ public abstract class Sun extends Stuff {
   }
 
   public static JLabel initCountLabel() {
-    CountLabel.setBounds(
-        visualMode.GameDim.width * 5 / 200, visualMode.GameDim.height * 7 / 67, 75, 30);
-    if (gamePanel.testMode) {
-      CountLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-    }
+    CountLabel.setBounds(visualMode.GameDim.width * 5 / 200, visualMode.GameDim.height * 7 / 67, 75, 30);
+    if (gamePanel.testMode) { CountLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK)); }
     CountLabel.setFont(visualMode.SOL_FONT.deriveFont(20f));
     CountLabel.setHorizontalAlignment(SwingConstants.CENTER);
     return CountLabel;
@@ -59,7 +51,6 @@ public abstract class Sun extends Stuff {
   @Override
   public void actions() {
     move();
-
     if (collected) {
       CollectedAction();
     } else {

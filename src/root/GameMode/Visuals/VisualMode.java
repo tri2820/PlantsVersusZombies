@@ -19,6 +19,8 @@ public abstract class VisualMode implements Constants {
   public Image SunFlowerImage;
   public Image FreezePeaShooterImage;
   public Image SunImage;
+  public Image KillSunImage;
+
   public Image PeaImage;
   public Image FreezePeaImage;
   public Image NormalZombieImage;
@@ -32,6 +34,11 @@ public abstract class VisualMode implements Constants {
   public ImageIcon SunFlowerCardIcon;
   public ImageIcon PeaShooterCardIcon;
   public ImageIcon FreezePeaShooterCardIcon;
+
+  public Image Walnut1;
+  public Image Walnut2;
+  public Image Walnut3;
+  public ImageIcon WalnutCardIcon;
 
   public Dimension GameDim = new Dimension(BackgroundImage.getWidth(null), BackgroundImage.getHeight(null));
   public Dimension cellSize = new Dimension(PeaShooterImage.getWidth(null), PeaShooterImage.getHeight(null));

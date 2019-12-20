@@ -1,6 +1,6 @@
 package root.entities.zombies;
 
-import java.awt.Image;
+import java.awt.*;
 
 public class NormalZombie extends Zombie {
 

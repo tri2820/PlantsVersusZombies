@@ -18,12 +18,17 @@ public class ScalingMode extends VisualMode {
           (int) (BackgroundImageOriginal.getHeight(null) * ScaleFactor));
 
   Image BackgroundImage = getScaledImage(BACKGROUND);
+
   Image SunFlowerImage = getScaledImage(SUNFLOWER);
-  Image PeaShooterImage = getScaledImage(PEASHOOTER);
-  Image FreezePeaShooterImage = getScaledImage(FREEZE_PEASHOOTER);
   Image SunImage = getScaledImage(SUN);
+  Image KillSunImage = getScaledImage(KILLSUN);
+
+  Image PeaShooterImage = getScaledImage(PEASHOOTER);
   Image PeaImage = getScaledImage(PEA);
+
+  Image FreezePeaShooterImage = getScaledImage(FREEZE_PEASHOOTER);
   Image FreezePeaImage = getScaledImage(FREEZE_PEA);
+
   Image NormalZombieImage = getScaledImage(NORMAL_ZOMBIE);
   Image ConeHeadZombieImage = getScaledImage(CONE_HEAD_ZOMBIE);
   Image ShovelImage = getScaledImage(SHOVEL, 0.65);
@@ -33,14 +38,18 @@ public class ScalingMode extends VisualMode {
   ImageIcon PeaShooterCardIcon = new ImageIcon(getScaledImage(PEASHOOTER_CARD));
   ImageIcon FreezePeaShooterCardIcon = new ImageIcon(getScaledImage(FREEZE_PEASHOOTER_CARD));
 
+  ImageIcon WalnutCardIcon = new ImageIcon(getScaledImage(WALNUT_CARD));
+  Image Walnut1 = getScaledImage(WALNUT1);
+  Image Walnut2 = getScaledImage(WALNUT2);
+  Image Walnut3 = getScaledImage(WALNUT3);
+
   static Image getScaledImage(String path) {
     Image originalImage = new ImageIcon(path).getImage();
     return new ImageIcon(
         originalImage.getScaledInstance(
             (int) (originalImage.getWidth(null) * ScaleFactor),
             (int) (originalImage.getHeight(null) * ScaleFactor),
-            Image.SCALE_DEFAULT))
-        .getImage();
+            Image.SCALE_DEFAULT)).getImage();
   }
 
   static Image getScaledImage(String path, double specialAdjustment) {

@@ -1,6 +1,6 @@
 package root.entities.stuffs;
 
-import java.awt.Image;
+import java.awt.*;
 
 public class FreezePea extends Pea {
 

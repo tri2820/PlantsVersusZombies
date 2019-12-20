@@ -1,9 +1,10 @@
 package root.entities.plants;
 
-import java.awt.Image;
 import root.entities.stuffs.FreezePea;
 import root.entities.stuffs.Stuff;
 import root.entities.zombies.Zombie;
+
+import java.awt.*;
 
 public class FreezePeaShooter extends PeaShooter {
 

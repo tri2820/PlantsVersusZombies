@@ -32,7 +32,6 @@ public abstract class Level {
     CellsManager.init(gamePanel.visualMode);
     GameEntity.setGamePanel(gamePanel);
     GameEntity.setVisualMode();
-
   }
 
   public static Level getRound(int levelNumber, GamePanel gamePanel) {
