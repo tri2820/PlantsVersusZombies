@@ -9,7 +9,7 @@ public class SunFlower extends Plant {
   public SunFlower(int x, int y) {
     super(x, y);
     price = 50;
-    health = 50;
+    health = 200;
   }
 
   @Override

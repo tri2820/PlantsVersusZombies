@@ -13,6 +13,7 @@ public abstract class Zombie extends GameEntity {
   public static JLabel Status = new JLabel();
   public int health;
   public boolean stunt = false;
+  public boolean collided = false;
 
   public Zombie(int x, int y) {
     super(x, y);
@@ -43,19 +44,18 @@ public abstract class Zombie extends GameEntity {
 
     Plant collidedPlant = collidedPlant();
     if (collidedPlant == null) {
-      if (!stunt) {
-        position.x += dx;
-      } else {
-        if (LoopCounter % 80 == 0) {
-          stunt = false;
-        }
+      collided = false;
+      if (!stunt) { position.x += dx; }
+      else {
+        if (LoopCounter % 256 == 0) { stunt = false; }
       }
     } else {
       collidedPlant.health -= 1;
+      collided = true;
     }
   }
 
-  private Plant collidedPlant() {
+  protected Plant collidedPlant() {
     if (!CellsManager.cellMaps.isEmpty()) {
       for (Plant p : CellsManager.cellMaps.values()) {
         if (position.y == p.getY()) {

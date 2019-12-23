@@ -21,14 +21,23 @@ public abstract class VisualMode implements Constants {
   public Image SunImage;
   public Image KillSunImage;
 
+  public Image RepeaterImage;
+  public ImageIcon RepeaterCardIcon;
+
   public Image PeaImage;
   public Image FreezePeaImage;
-  public Image NormalZombieImage;
-  public Image HeadlessZombieImage;
-  public Image ConeHeadZombieImage;
+  public Image NormalZombieWalkImage;
+  public Image NormalZombieEatImage;
+  public Image NormalZombieLostHeadWalkImage;
+  public Image NormalZombieLostHeadEatImage;
+
+  public Image ConeHeadZombieWalkImage;
+  public Image ConeHeadZombieEatImage;
+
   public Image ShovelImage;
   public Image ShovelButtonImage;
   public Image LawnmowerImage;
+  public Image LawnmowerMovingImage;
 
   public ImageIcon ShovelButtonIcon;
   public ImageIcon SunFlowerCardIcon;

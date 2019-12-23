@@ -34,6 +34,10 @@ public class Lawnmower extends Plant {
 
   @Override
   public Image getImage() {
-    return visualMode.LawnmowerImage;
+    if (move) {
+      return visualMode.LawnmowerMovingImage;
+    } else {
+      return visualMode.LawnmowerImage;
+    }
   }
 }

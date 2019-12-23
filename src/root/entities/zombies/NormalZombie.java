@@ -1,21 +1,24 @@
 package root.entities.zombies;
 
+import root.entities.plants.Plant;
 import java.awt.*;
 
 public class NormalZombie extends Zombie {
 
   public NormalZombie(int x, int y) {
     super(x, y);
-    health = 100;
+    health = 150;
   }
 
 
   @Override
   public Image getImage() {
-    if (health >= 50) {
-      return visualMode.NormalZombieImage;
+    if (collided) {
+      if (health >= 60) return visualMode.NormalZombieEatImage;
+      else return visualMode.NormalZombieLostHeadEatImage;
     } else {
-      return visualMode.HeadlessZombieImage;
+      if (health >= 60) return visualMode.NormalZombieWalkImage;
+      else return visualMode.NormalZombieLostHeadWalkImage;
     }
   }
 }

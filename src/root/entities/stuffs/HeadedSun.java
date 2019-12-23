@@ -2,9 +2,9 @@ package root.entities.stuffs;
 
 public class HeadedSun extends Sun {
   //sun that comes from sunflower
-  protected int initialX;
-  protected int initialY;
-  protected int initial_dY;
+  protected double initialX;
+  protected double initialY;
+  protected double initial_dY;
   private boolean topped = false;
 
   public HeadedSun(int x, int y) {

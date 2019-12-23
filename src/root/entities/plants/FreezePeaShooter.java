@@ -11,7 +11,7 @@ public class FreezePeaShooter extends PeaShooter {
   public FreezePeaShooter(int x, int y) {
     super(x, y);
     price = 175;
-    health = 150;
+    health = 200;
   }
 
   @Override
@@ -21,7 +21,7 @@ public class FreezePeaShooter extends PeaShooter {
       if (closestZom.getX() - stuff.getX() < closestZom.getImage().getWidth(null) / 4) {
         ((FreezePea) stuff).hitted = true;
         closestZom.stunt = true;
-        closestZom.health -= 12;
+        closestZom.health -= 15;
       }
     }
   }

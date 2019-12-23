@@ -6,17 +6,19 @@ public class ConeHeadZombie extends Zombie {
 
   public ConeHeadZombie(int x, int y) {
     super(x, y);
-    health = 200;
+    health = 250;
   }
 
   @Override
   public Image getImage() {
-    if (health >= 100) {
-      return visualMode.ConeHeadZombieImage;
-    } else if (health >= 50) {
-      return visualMode.NormalZombieImage;
+    if (collided) {
+      if (health >= 150) return visualMode.ConeHeadZombieEatImage;
+      else if (health >= 60) return visualMode.NormalZombieEatImage;
+      else return visualMode.NormalZombieLostHeadEatImage;
     } else {
-      return visualMode.HeadlessZombieImage;
+      if (health >= 150) return visualMode.ConeHeadZombieWalkImage;
+      else if (health >= 60) return visualMode.NormalZombieWalkImage;
+      else return visualMode.NormalZombieLostHeadWalkImage;
     }
   }
 }

@@ -29,8 +29,17 @@ public class ScalingMode extends VisualMode {
   Image FreezePeaShooterImage = getScaledImage(FREEZE_PEASHOOTER);
   Image FreezePeaImage = getScaledImage(FREEZE_PEA);
 
-  Image NormalZombieImage = getScaledImage(NORMAL_ZOMBIE);
-  Image ConeHeadZombieImage = getScaledImage(CONE_HEAD_ZOMBIE);
+  Image RepeaterImage = getScaledImage(REPEATER);
+  Image RepreaterCardIcon = getScaledImage(REPEATER_CARD);
+
+  Image NormalZombieWalkImage = getScaledImage(NORMAL_ZOMBIE_WALK);
+  Image NormalZombieEatImage = getScaledImage(NORMAL_ZOMBIE_EAT);
+  Image NormalZombieLostHeadWalkImage = getScaledImage(NORMAL_ZOMBIE_LOST_HEAD_WALK);
+  Image NormalZombieLostHeadEatImage = getScaledImage(NORMAL_ZOMBIE_LOST_HEAD_EAT);
+
+  Image ConeHeadZombieWalkImage = getScaledImage(CONE_HEAD_ZOMBIE_WALK);
+  Image ConeHeadZombieEatImage = getScaledImage(CONE_HEAD_ZOMBIE_EAT);
+
   Image ShovelImage = getScaledImage(SHOVEL, 0.65);
 
   ImageIcon ShovelButtonIcon = new ImageIcon(getScaledImage(SHOVEL_BUTTON, 0.65));

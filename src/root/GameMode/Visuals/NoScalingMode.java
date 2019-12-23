@@ -1,5 +1,7 @@
 package root.GameMode.Visuals;
 
+import root.entities.plants.Repeater;
+
 import javax.swing.ImageIcon;
 
 public class NoScalingMode extends VisualMode {
@@ -11,14 +13,24 @@ public class NoScalingMode extends VisualMode {
     SunImage = new ImageIcon(SUN).getImage();
     KillSunImage = new ImageIcon(KILLSUN).getImage();
 
+    RepeaterImage = new ImageIcon(REPEATER).getImage();
+    RepeaterCardIcon = new ImageIcon(REPEATER_CARD);
+
     PeaImage = new ImageIcon(PEA).getImage();
     FreezePeaImage = new ImageIcon(FREEZE_PEA).getImage();
-    NormalZombieImage = new ImageIcon(NORMAL_ZOMBIE).getImage();
-    ConeHeadZombieImage = new ImageIcon(CONE_HEAD_ZOMBIE).getImage();
-    HeadlessZombieImage = new ImageIcon(HEAD_LESS_ZOMBIE).getImage();
+
+    NormalZombieWalkImage = new ImageIcon(NORMAL_ZOMBIE_WALK).getImage();
+    NormalZombieEatImage = new ImageIcon(NORMAL_ZOMBIE_EAT).getImage();
+    NormalZombieLostHeadWalkImage = new ImageIcon(NORMAL_ZOMBIE_LOST_HEAD_WALK).getImage();
+    NormalZombieLostHeadEatImage = new ImageIcon(NORMAL_ZOMBIE_LOST_HEAD_EAT).getImage();
+
+    ConeHeadZombieWalkImage = new ImageIcon(CONE_HEAD_ZOMBIE_WALK).getImage();
+    ConeHeadZombieEatImage = new ImageIcon(CONE_HEAD_ZOMBIE_EAT).getImage();
+
     ShovelImage = new ImageIcon(SHOVEL).getImage();
     ShovelButtonImage = new ImageIcon(SHOVEL_BUTTON).getImage();
     LawnmowerImage = new ImageIcon(LAWNMOWER).getImage();
+    LawnmowerMovingImage = new ImageIcon(LAWNMOWER_MOVING).getImage();
 
     ShovelButtonIcon = new ImageIcon(ShovelButtonImage);
     SunFlowerCardIcon = new ImageIcon(SUNFLOWER_CARD);

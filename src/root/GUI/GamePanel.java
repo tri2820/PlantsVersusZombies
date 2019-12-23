@@ -27,7 +27,7 @@ import root.etc.Constants;
 public class GamePanel extends JPanel implements Runnable, MouseInputListener, CellsManager, Constants {
 
   /* ----------VARS---------- */
-  final int DELAY = 25;
+  final int DELAY = 32;
   public boolean testMode = false;
   int mouseX, mouseY;
   int LoopCounter = 0;
@@ -101,7 +101,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
 
 
     /* ---- Check for removals ---- */
-    level.zombies.removeIf(zombie -> zombie.health <= 0 || zombie.getX() + zombie.getImage().getWidth(null) == 0);
+    level.zombies.removeIf(zombie -> zombie.health == 0 || zombie.getX() + zombie.getImage().getWidth(null) == 0);
     level.stuffs
         .removeIf(stuff -> ((stuff instanceof Sun && (stuff.LoopCounter == Sun.existLoop || ((Sun) stuff).doneCollected))
                 || (stuff instanceof KillSun && (stuff.LoopCounter == KillSun.existLoop || ((KillSun) stuff).doneCollected))));
@@ -113,35 +113,35 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
     if (LoopCounter == 50) {
       message.setText("ROUND " + levelNumber);
     } else if (LoopCounter == 100) {
-      message.setText("Collect suns to buy plants");
+      message.setText("Collect suns to buy plants.");
     } else if (LoopCounter == 150) {
-      message.setText("Plants can defend your house");
+      message.setText("Plants can defend your house.");
     } else if (LoopCounter == 200) {
       message.setText("");
     } else if (LoopCounter == 900) {
       message.setText("Watch out! Zombies are coming");
     } else if (LoopCounter == 950) {
       message.setText("Good luck ^-^");
+    } else if (LoopCounter == 4096) {
+      message.setText("The zombie wave is comming!");
     } else if (LoopCounter > tmp_loop_counter + 50 && !message.getText().equals("")) {
       message.setText("");
     }
 
-    if (LoopCounter % 250 == 0) {
+    if (LoopCounter % 256 == 0) {
       int edge = visualMode.SunImage.getWidth(null);
       level.stuffs.add(new HeadlessSun((new Random().nextInt(visualMode.GameDim.width - edge)), 0));
-    }
-
-    if (LoopCounter % 250 == 0) {
+    } else if (LoopCounter % 1024 == 0) {
       int edge = visualMode.KillSunImage.getWidth(null);
       level.stuffs.add(new KillSun((new Random().nextInt(visualMode.GameDim.width - edge)), 0));
     }
 
     if (!level.end()) {
-      if (LoopCounter > 1024 && LoopCounter % 512 == 0) {
+      if (LoopCounter > 1024 && LoopCounter % 256 == 0) {
         level.addZombie(visualMode);
-      } else if (LoopCounter > 2048 && LoopCounter % 100 == 0) {
+      } else if (LoopCounter > 2048 && LoopCounter % 128 == 0) {
         level.addZombie(visualMode);
-      } else if (LoopCounter > 4096 && LoopCounter % 50 == 0) {
+      } else if (LoopCounter > 4096 && LoopCounter % 64 == 0) {
         level.addZombie(visualMode);
       }
     } else {

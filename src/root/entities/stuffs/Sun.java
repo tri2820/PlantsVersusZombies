@@ -5,7 +5,7 @@ import javax.swing.*;
 
 public abstract class Sun extends Stuff {
 
-  public static int Count = 100000;                                                           //initial sun in game
+  public static int Count = 50000000;                                                           //initial sun in game
   public static JLabel CountLabel = new JLabel(String.valueOf(Count), SwingConstants.CENTER);
   public static int existLoop = 120;                                                          //lasting time of the sun
   private static Point SunCollector = new Point(visualMode.GameDim.width / 90, visualMode.GameDim.height / 67);

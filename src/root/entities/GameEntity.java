@@ -10,8 +10,8 @@ public abstract class GameEntity implements Constants {
 
   protected static VisualMode visualMode;
   protected static GamePanel gamePanel;
-  public int dx;
-  public int dy;
+  public double dx;
+  public double dy;
   public int LoopCounter = 0;
   protected Point position;
 

@@ -27,7 +27,7 @@ public class PeaShooter extends Plant implements PlantAttackable {
     for (Stuff stuff : stuffs) {
       if (closestZom.getX() - stuff.getX() < closestZom.getImage().getWidth(null) / 4) {
         ((Pea) stuff).hitted = true;
-        closestZom.health -= 10;
+        closestZom.health -= 15;
       }
     }
   }
@@ -41,9 +41,7 @@ public class PeaShooter extends Plant implements PlantAttackable {
   public void actions() {
     LoopCounter++;
     if (!zomOnLane().isEmpty()) {
-      if (stuffs.isEmpty() && LoopCounter % 80 == 0) {
-        shoot();
-      }
+      if (stuffs.isEmpty() && LoopCounter % 100 == 0) { shoot(); }
       dealWithZom();
     }
   }
