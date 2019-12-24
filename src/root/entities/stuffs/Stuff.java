@@ -9,10 +9,6 @@ public abstract class Stuff extends GameEntity implements Actable {
     super(x, y);
   }
 
-  public Stuff() {
-    super();
-  }
-
   public void move() {
     position.x += dx;
     position.y += dy;

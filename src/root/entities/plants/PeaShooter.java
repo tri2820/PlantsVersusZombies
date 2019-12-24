@@ -8,7 +8,7 @@ import root.entities.zombies.Zombie;
 
 import java.awt.*;
 
-public class PeaShooter extends Plant implements PlantAttackable, Actable {
+public class PeaShooter extends Plant implements PlantAttackable {
 
   public PeaShooter(int x, int y) {
     super(x, y);

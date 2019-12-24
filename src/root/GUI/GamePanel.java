@@ -101,7 +101,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
 
 
     /* ---- Check for removals ---- */
-    level.zombies.removeIf(zombie -> zombie.health == 0 || zombie.getX() + zombie.getImage().getWidth(null) == 0);
+    level.zombies.removeIf(zombie -> zombie.health <= 0 || zombie.getX() + zombie.getImage().getWidth(null) == 0);
     level.stuffs
         .removeIf(stuff -> ((stuff instanceof Sun && (stuff.LoopCounter == Sun.existLoop || ((Sun) stuff).doneCollected))
                 || (stuff instanceof KillSun && (stuff.LoopCounter == KillSun.existLoop || ((KillSun) stuff).doneCollected))));

@@ -15,9 +15,6 @@ public abstract class GameEntity implements Constants {
   public int LoopCounter = 0;
   protected Point position;
 
-  public GameEntity() {
-  }
-
   public GameEntity(int x, int y) {
     position = new Point(x, y);
   }
