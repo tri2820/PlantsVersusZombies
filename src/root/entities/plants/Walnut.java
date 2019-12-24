@@ -20,4 +20,9 @@ public class Walnut extends Plant {
             return visualMode.Walnut3;
         }
     }
+
+    @Override
+    public void actions() {
+        //unable to fix now
+    }
 }

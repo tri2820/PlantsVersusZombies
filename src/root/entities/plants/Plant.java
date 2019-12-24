@@ -2,11 +2,13 @@ package root.entities.plants;
 
 import java.awt.Point;
 import java.util.LinkedList;
+
+import root.entities.Actable;
 import root.entities.GameEntity;
 import root.entities.stuffs.Stuff;
 import root.entities.zombies.Zombie;
 
-public abstract class Plant extends GameEntity {
+public abstract class Plant extends GameEntity implements Actable {
 
   public int price;
   public int health;

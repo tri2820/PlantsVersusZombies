@@ -1,5 +1,6 @@
 package root.entities.stuffs;
 
+import root.entities.Actable;
 import root.entities.zombies.Zombie;
 import java.awt.*;
 

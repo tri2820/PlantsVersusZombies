@@ -1,10 +1,11 @@
 package root.entities.stuffs;
 
+import root.entities.Actable;
 import root.entities.plants.Plant;
 
 import java.awt.*;
 
-public class SunFlower extends Plant {
+public class SunFlower extends Plant implements Actable {
 
   public SunFlower(int x, int y) {
     super(x, y);

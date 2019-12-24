@@ -1,5 +1,7 @@
 package root.entities.stuffs;
 
+import root.entities.Actable;
+
 import java.awt.*;
 import javax.swing.*;
 

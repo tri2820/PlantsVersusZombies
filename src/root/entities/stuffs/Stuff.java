@@ -1,8 +1,9 @@
 package root.entities.stuffs;
 
+import root.entities.Actable;
 import root.entities.GameEntity;
 
-public abstract class Stuff extends GameEntity {
+public abstract class Stuff extends GameEntity implements Actable {
 
   public Stuff(int x, int y) {
     super(x, y);

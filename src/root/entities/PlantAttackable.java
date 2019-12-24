@@ -1,4 +1,4 @@
-package root.entities.plants;
+package root.entities;
 
 public interface PlantAttackable {
     void dealWithZom();

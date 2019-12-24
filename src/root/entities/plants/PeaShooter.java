@@ -1,6 +1,7 @@
 package root.entities.plants;
 
 import root.entities.Actable;
+import root.entities.PlantAttackable;
 import root.entities.stuffs.Pea;
 import root.entities.stuffs.Stuff;
 import root.entities.zombies.Zombie;
