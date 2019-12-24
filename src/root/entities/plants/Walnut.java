@@ -11,11 +11,6 @@ public class Walnut extends Plant {
     }
 
     @Override
-    public void actions() {
-
-    }
-
-    @Override
     public Image getImage() {
         if (health >= 300) {
             return visualMode.Walnut1;

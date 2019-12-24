@@ -44,7 +44,5 @@ public abstract class GameEntity implements Constants {
         position, new Dimension(getImage().getWidth(null), getImage().getHeight(null)));
   }
 
-  public abstract void actions();
-
   public abstract Image getImage();
 }

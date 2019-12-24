@@ -1,12 +1,13 @@
 package root.entities.plants;
 
+import root.entities.Actable;
 import root.entities.stuffs.Pea;
 import root.entities.stuffs.Stuff;
 import root.entities.zombies.Zombie;
 
 import java.awt.*;
 
-public class PeaShooter extends Plant implements PlantAttackable {
+public class PeaShooter extends Plant implements PlantAttackable, Actable {
 
   public PeaShooter(int x, int y) {
     super(x, y);

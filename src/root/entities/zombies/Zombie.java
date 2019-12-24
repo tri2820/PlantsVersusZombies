@@ -5,10 +5,11 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import root.entities.GameEntity;
+import root.entities.Actable;
 import root.entities.plants.Plant;
 import root.etc.CellsManager;
 
-public abstract class Zombie extends GameEntity {
+public abstract class Zombie extends GameEntity implements Actable {
 
   public static JLabel Status = new JLabel();
   public int health;

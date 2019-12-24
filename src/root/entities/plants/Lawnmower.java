@@ -2,9 +2,11 @@ package root.entities.plants;
 
 import java.awt.*;
 import java.util.LinkedList;
+
+import root.entities.Actable;
 import root.entities.zombies.Zombie;
 
-public class Lawnmower extends Plant {
+public class Lawnmower extends Plant implements Actable {
 
   private static final int SPEED = 5;
   private boolean move = false;
