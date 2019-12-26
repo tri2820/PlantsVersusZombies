@@ -19,7 +19,7 @@ import root.GameMode.Visuals.NoScalingMode;
 import root.GameMode.Visuals.VisualMode;
 import root.entities.plants.Lawnmower;
 import root.entities.plants.Plant;
-import root.entities.stuffs.*;
+import root.entities.moveable.*;
 import root.entities.zombies.Zombie;
 import root.etc.CellsManager;
 import root.etc.ResourcesPath;

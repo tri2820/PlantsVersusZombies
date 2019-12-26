@@ -1,4 +1,4 @@
-package root.entities.stuffs;
+package root.entities.moveable;
 
 public class HeadedSun extends Sun {
   //sun that comes from sunflower

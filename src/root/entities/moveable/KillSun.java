@@ -1,4 +1,4 @@
-package root.entities.stuffs;
+package root.entities.moveable;
 
 import root.entities.zombies.Zombie;
 import java.awt.*;

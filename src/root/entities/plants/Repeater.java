@@ -1,7 +1,7 @@
 package root.entities.plants;
 
-import root.entities.stuffs.Pea;
-import root.entities.stuffs.MoveableObjects;
+import root.entities.moveable.Pea;
+import root.entities.moveable.MoveableObjects;
 import root.entities.zombies.Zombie;
 
 import java.awt.*;

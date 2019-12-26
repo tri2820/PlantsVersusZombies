@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 import root.entities.Actable;
 import root.entities.GameEntity;
-import root.entities.stuffs.MoveableObjects;
+import root.entities.moveable.MoveableObjects;
 import root.entities.zombies.Zombie;
 
 public abstract class Plant extends GameEntity implements Actable {

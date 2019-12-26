@@ -11,7 +11,7 @@ import root.GameMode.Visuals.VisualMode;
 import root.entities.GameEntity;
 import root.entities.plants.Lawnmower;
 import root.entities.plants.Plant;
-import root.entities.stuffs.MoveableObjects;
+import root.entities.moveable.MoveableObjects;
 import root.entities.zombies.Zombie;
 import root.etc.CellsManager;
 

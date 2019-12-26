@@ -1,4 +1,4 @@
-package root.entities.stuffs;
+package root.entities.moveable;
 
 import java.awt.*;
 import javax.swing.*;

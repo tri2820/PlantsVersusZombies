@@ -1,6 +1,5 @@
-package root.entities.stuffs;
+package root.entities.moveable;
 
-import root.entities.Actable;
 import root.entities.plants.Plant;
 
 import java.awt.*;

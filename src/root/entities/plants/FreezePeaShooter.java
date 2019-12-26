@@ -1,8 +1,8 @@
 package root.entities.plants;
 
 import root.entities.PlantAttackable;
-import root.entities.stuffs.FreezePea;
-import root.entities.stuffs.MoveableObjects;
+import root.entities.moveable.FreezePea;
+import root.entities.moveable.MoveableObjects;
 import root.entities.zombies.Zombie;
 
 import java.awt.*;
