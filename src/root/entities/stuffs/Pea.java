@@ -2,7 +2,7 @@ package root.entities.stuffs;
 
 import java.awt.*;
 
-public class Pea extends MoveableEntity {
+public class Pea extends MoveableObjects {
 
   public boolean hitted = false;
   public boolean outOfGame = false;

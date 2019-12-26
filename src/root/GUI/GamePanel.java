@@ -84,7 +84,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
   /* ---------- LOOP ---------- */
   private void cycle() {
     /* ----- Make certain things do their step ----- */
-    level.moveableEntities.forEach(MoveableEntity::actions);
+    level.moveableEntities.forEach(MoveableObjects::actions);
     level.zombies.forEach(Zombie::actions);
     Zombie.updateStatus();
     level.lawnmowers.forEach(Lawnmower::actions);
@@ -92,7 +92,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
     /* ----- Setting for the cells ----- */
     cellMaps.forEach((Point, value) -> {
       value.actions();
-      value.moveableEntities.forEach(MoveableEntity::actions);
+      value.moveableEntities.forEach(MoveableObjects::actions);
       value.moveableEntities.removeIf(
           stuff -> ((stuff instanceof Sun && (stuff.LoopCounter == Sun.existLoop || ((Sun) stuff).doneCollected))
                   || (stuff instanceof Pea && ((((Pea) stuff).hitted) || ((Pea) stuff).outOfGame))
@@ -251,16 +251,16 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
   /* ----------ACTION HANDLERS---------- */
   @Override
   public void mouseClicked(MouseEvent mouseEvent) {
-    for (MoveableEntity moveableEntity : level.moveableEntities) {
-      if (moveableEntity instanceof Sun) {
-        if (moveableEntity.getBounds().contains(mouseEvent.getPoint())) {
-          ((Sun) moveableEntity).collected = true;
+    for (MoveableObjects moveableObjects : level.moveableEntities) {
+      if (moveableObjects instanceof Sun) {
+        if (moveableObjects.getBounds().contains(mouseEvent.getPoint())) {
+          ((Sun) moveableObjects).collected = true;
         }
       }
 
-      if (moveableEntity instanceof KillSun) {
-        if (moveableEntity.getBounds().contains(mouseEvent.getPoint())) {
-          ((KillSun) moveableEntity).collected = true;
+      if (moveableObjects instanceof KillSun) {
+        if (moveableObjects.getBounds().contains(mouseEvent.getPoint())) {
+          ((KillSun) moveableObjects).collected = true;
         }
       }
 

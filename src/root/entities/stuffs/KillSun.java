@@ -3,7 +3,7 @@ package root.entities.stuffs;
 import root.entities.zombies.Zombie;
 import java.awt.*;
 
-public class KillSun extends MoveableEntity {
+public class KillSun extends MoveableObjects {
     //kill all the zombie on the gamepanel
     public static int existLoop = 20;
     public boolean collected = false;

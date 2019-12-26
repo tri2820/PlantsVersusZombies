@@ -3,7 +3,7 @@ package root.entities.stuffs;
 import java.awt.*;
 import javax.swing.*;
 
-public abstract class Sun extends MoveableEntity {
+public abstract class Sun extends MoveableObjects {
 
   public static int Count = 50000000;                                                           //initial sun in game
   public static JLabel CountLabel = new JLabel(String.valueOf(Count), SwingConstants.CENTER);

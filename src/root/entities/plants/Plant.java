@@ -5,14 +5,14 @@ import java.util.LinkedList;
 
 import root.entities.Actable;
 import root.entities.GameEntity;
-import root.entities.stuffs.MoveableEntity;
+import root.entities.stuffs.MoveableObjects;
 import root.entities.zombies.Zombie;
 
 public abstract class Plant extends GameEntity implements Actable {
 
   public int price;
   public int health;
-  public LinkedList<MoveableEntity> moveableEntities = new LinkedList<>();
+  public LinkedList<MoveableObjects> moveableEntities = new LinkedList<>();
   public Point stuffShooter = new Point(getBounds().width * 5 / 7, getBounds().height / 10);
 
   public Plant(int x, int y) {
