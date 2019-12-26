@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import root.entities.Actable;
 import root.entities.zombies.Zombie;
 
-public class Lawnmower extends Plant implements Actable {
+public class Lawnmower extends Plant {
 
   private static final int SPEED = 5;
   private boolean move = false;

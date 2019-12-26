@@ -1,10 +1,8 @@
 package root.entities.stuffs;
 
-import root.entities.Actable;
-
 import java.awt.*;
 
-public class Pea extends Stuff {
+public class Pea extends MoveableEntity {
 
   public boolean hitted = false;
   public boolean outOfGame = false;

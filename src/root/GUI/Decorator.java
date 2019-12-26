@@ -5,13 +5,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.event.MouseInputListener;
 
-public class IconButton extends JButton {
+public class Decorator extends JButton {
 
   public boolean dragged = false;
   public boolean clicked = false;
   public Image dragTarget;
 
-  public IconButton(
+  public Decorator(
       ImageIcon ii, int x, int y, Image dragTarget, MouseInputListener mouseInputListener) {
     setIcon(ii);
     setOpaque(false);

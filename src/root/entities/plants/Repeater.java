@@ -1,7 +1,7 @@
 package root.entities.plants;
 
 import root.entities.stuffs.Pea;
-import root.entities.stuffs.Stuff;
+import root.entities.stuffs.MoveableEntity;
 import root.entities.zombies.Zombie;
 
 import java.awt.*;
@@ -22,9 +22,9 @@ public class Repeater extends PeaShooter {
     @Override
     public void dealWithZom() {
         Zombie closestZom = closestZom(zomOnLane());
-        for (Stuff stuff : stuffs) {
-            if (closestZom.getX() - stuff.getX() < closestZom.getImage().getWidth(null) / 4) {
-                ((Pea) stuff).hitted = true;
+        for (MoveableEntity moveableEntity : moveableEntities) {
+            if (closestZom.getX() - moveableEntity.getX() < closestZom.getImage().getWidth(null) / 4) {
+                ((Pea) moveableEntity).hitted = true;
                 closestZom.health -= 30;
             }
         }
@@ -32,7 +32,7 @@ public class Repeater extends PeaShooter {
 
     @Override
     public void shoot() {
-        stuffs.add(new Pea(position.x + stuffShooter.x, position.y + stuffShooter.y));
-        stuffs.add(new Pea(position.x + stuffShooter.x + 40, position.y + stuffShooter.y));
+        moveableEntities.add(new Pea(position.x + stuffShooter.x, position.y + stuffShooter.y));
+        moveableEntities.add(new Pea(position.x + stuffShooter.x + 40, position.y + stuffShooter.y));
     }
 }

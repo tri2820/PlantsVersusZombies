@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="150.0" y="79.0">root.entities.GameEntity</node>
+    <node x="152.0" y="237.0">root.entities.zombies.ConeHeadZombie</node>
+    <node x="139.5" y="0.0">root.etc.ResourcesPath</node>
+    <node x="34.0" y="79.0">root.entities.Actable</node>
+    <node x="0.0" y="237.0">root.entities.zombies.NormalZombie</node>
+    <node x="101.0" y="158.0">root.entities.zombies.Zombie</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="root.entities.zombies.NormalZombie" target="root.entities.zombies.Zombie">
+      <point x="0.0" y="-14.5" />
+      <point x="66.0" y="212.0" />
+      <point x="123.25" y="212.0" />
+      <point x="-22.25" y="14.5" />
+    </edge>
+    <edge source="root.entities.zombies.ConeHeadZombie" target="root.entities.zombies.Zombie">
+      <point x="0.0" y="-14.5" />
+      <point x="225.0" y="212.0" />
+      <point x="167.75" y="212.0" />
+      <point x="22.25" y="14.5" />
+    </edge>
+    <edge source="root.entities.zombies.Zombie" target="root.entities.Actable">
+      <point x="-22.25" y="-14.5" />
+      <point x="123.25" y="133.0" />
+      <point x="82.0" y="133.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="root.entities.zombies.Zombie" target="root.entities.GameEntity">
+      <point x="22.25" y="-14.5" />
+      <point x="167.75" y="133.0" />
+      <point x="209.0" y="133.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="root.entities.GameEntity" target="root.etc.ResourcesPath">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="287.5" y="298.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

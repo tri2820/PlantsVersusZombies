@@ -2,7 +2,7 @@ package root.etc;
 
 import java.io.File;
 
-public interface Constants {
+public interface ResourcesPath {
   //game basic element
   String PROJECT_DIR = new File("").getAbsolutePath();
   String RESOURCE_DIR = PROJECT_DIR + "/resource";

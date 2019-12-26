@@ -6,12 +6,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 import root.GUI.GamePanel;
-import root.GUI.IconButton;
+import root.GUI.Decorator;
 import root.GameMode.Visuals.VisualMode;
 import root.entities.GameEntity;
 import root.entities.plants.Lawnmower;
 import root.entities.plants.Plant;
-import root.entities.stuffs.Stuff;
+import root.entities.stuffs.MoveableEntity;
 import root.entities.zombies.Zombie;
 import root.etc.CellsManager;
 
@@ -19,11 +19,11 @@ public abstract class Level {
 
   // Add new rounds to this
   public static LinkedList<Class<? extends Level>> rounds = new LinkedList<>(List.of(Level.class, Round1.class, Round2.class));
-  public ArrayList<Stuff> stuffs = new ArrayList<>();
+  public ArrayList<MoveableEntity> moveableEntities = new ArrayList<>();
   public ArrayList<Zombie> zombies = new ArrayList<>();
   public ArrayList<Class<? extends Plant>> plantClasses = new ArrayList<>();
   public ArrayList<Class<? extends Zombie>> zombieClasses = new ArrayList<>();
-  public ArrayList<IconButton> cards = new ArrayList<>(5);
+  public ArrayList<Decorator> cards = new ArrayList<>(5);
   public ArrayList<Lawnmower> lawnmowers = new ArrayList<>(5);
   public int MAX_ZOMBIES;
   public int zombieCount = 0;

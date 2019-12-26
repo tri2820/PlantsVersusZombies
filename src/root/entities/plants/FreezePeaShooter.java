@@ -1,9 +1,8 @@
 package root.entities.plants;
 
-import root.entities.Actable;
 import root.entities.PlantAttackable;
 import root.entities.stuffs.FreezePea;
-import root.entities.stuffs.Stuff;
+import root.entities.stuffs.MoveableEntity;
 import root.entities.zombies.Zombie;
 
 import java.awt.*;
@@ -19,9 +18,9 @@ public class FreezePeaShooter extends PeaShooter implements PlantAttackable {
   @Override
   public void dealWithZom() {
     Zombie closestZom = closestZom(zomOnLane());
-    for (Stuff stuff : stuffs) {
-      if (closestZom.getX() - stuff.getX() < closestZom.getImage().getWidth(null) / 4) {
-        ((FreezePea) stuff).hitted = true;
+    for (MoveableEntity moveableEntity : moveableEntities) {
+      if (closestZom.getX() - moveableEntity.getX() < closestZom.getImage().getWidth(null) / 4) {
+        ((FreezePea) moveableEntity).hitted = true;
         closestZom.stunt = true;
         closestZom.health -= 15;
       }
@@ -30,7 +29,7 @@ public class FreezePeaShooter extends PeaShooter implements PlantAttackable {
 
   @Override
   public void shoot() {
-    stuffs.add(new FreezePea(position.x + stuffShooter.x, position.y + stuffShooter.y));
+    moveableEntities.add(new FreezePea(position.x + stuffShooter.x, position.y + stuffShooter.y));
   }
 
   @Override

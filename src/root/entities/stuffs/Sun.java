@@ -1,11 +1,9 @@
 package root.entities.stuffs;
 
-import root.entities.Actable;
-
 import java.awt.*;
 import javax.swing.*;
 
-public abstract class Sun extends Stuff {
+public abstract class Sun extends MoveableEntity {
 
   public static int Count = 50000000;                                                           //initial sun in game
   public static JLabel CountLabel = new JLabel(String.valueOf(Count), SwingConstants.CENTER);

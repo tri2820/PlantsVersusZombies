@@ -22,9 +22,9 @@ import root.entities.plants.Plant;
 import root.entities.stuffs.*;
 import root.entities.zombies.Zombie;
 import root.etc.CellsManager;
-import root.etc.Constants;
+import root.etc.ResourcesPath;
 
-public class GamePanel extends JPanel implements Runnable, MouseInputListener, CellsManager, Constants {
+public class GamePanel extends JPanel implements Runnable, MouseInputListener, CellsManager, ResourcesPath {
 
   /* ----------VARS---------- */
   final int DELAY = 32;
@@ -84,7 +84,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
   /* ---------- LOOP ---------- */
   private void cycle() {
     /* ----- Make certain things do their step ----- */
-    level.stuffs.forEach(Stuff::actions);
+    level.moveableEntities.forEach(MoveableEntity::actions);
     level.zombies.forEach(Zombie::actions);
     Zombie.updateStatus();
     level.lawnmowers.forEach(Lawnmower::actions);
@@ -92,8 +92,8 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
     /* ----- Setting for the cells ----- */
     cellMaps.forEach((Point, value) -> {
       value.actions();
-      value.stuffs.forEach(Stuff::actions);
-      value.stuffs.removeIf(
+      value.moveableEntities.forEach(MoveableEntity::actions);
+      value.moveableEntities.removeIf(
           stuff -> ((stuff instanceof Sun && (stuff.LoopCounter == Sun.existLoop || ((Sun) stuff).doneCollected))
                   || (stuff instanceof Pea && ((((Pea) stuff).hitted) || ((Pea) stuff).outOfGame))
                   || (stuff instanceof KillSun && (stuff.LoopCounter == KillSun.existLoop || ((KillSun) stuff).doneCollected))));
@@ -102,7 +102,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
 
     /* ---- Check for removals ---- */
     level.zombies.removeIf(zombie -> zombie.health <= 0 || zombie.getX() + zombie.getImage().getWidth(null) == 0);
-    level.stuffs
+    level.moveableEntities
         .removeIf(stuff -> ((stuff instanceof Sun && (stuff.LoopCounter == Sun.existLoop || ((Sun) stuff).doneCollected))
                 || (stuff instanceof KillSun && (stuff.LoopCounter == KillSun.existLoop || ((KillSun) stuff).doneCollected))));
     CellsManager.cellMaps.values().removeIf(plant -> plant.health == 0);
@@ -130,10 +130,10 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
 
     if (LoopCounter % 256 == 0) {
       int edge = visualMode.SunImage.getWidth(null);
-      level.stuffs.add(new HeadlessSun((new Random().nextInt(visualMode.GameDim.width - edge)), 0));
+      level.moveableEntities.add(new HeadlessSun((new Random().nextInt(visualMode.GameDim.width - edge)), 0));
     } else if (LoopCounter % 1024 == 0) {
       int edge = visualMode.KillSunImage.getWidth(null);
-      level.stuffs.add(new KillSun((new Random().nextInt(visualMode.GameDim.width - edge)), 0));
+      level.moveableEntities.add(new KillSun((new Random().nextInt(visualMode.GameDim.width - edge)), 0));
     }
 
     if (!level.end()) {
@@ -213,7 +213,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
 
     cellMaps.forEach((key, value) -> {
       g.drawImage(value.getImage(), key.x, key.y, null);
-      value.stuffs.forEach(stuff -> {
+      value.moveableEntities.forEach(stuff -> {
         g.drawImage(stuff.getImage(), stuff.getX(), stuff.getY(), null);
         if (testMode) {
           g.drawRect(stuff.getBounds().x, stuff.getBounds().y, stuff.getBounds().width, stuff.getBounds().height);
@@ -221,7 +221,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
       });
     });
 
-    level.stuffs.forEach((stuff) -> {
+    level.moveableEntities.forEach((stuff) -> {
       g.drawImage(stuff.getImage(), stuff.getX(), stuff.getY(), null);
       if (testMode) {
         g.drawRect(stuff.getBounds().x, stuff.getBounds().y, stuff.getBounds().width, stuff.getBounds().height);
@@ -251,16 +251,16 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
   /* ----------ACTION HANDLERS---------- */
   @Override
   public void mouseClicked(MouseEvent mouseEvent) {
-    for (Stuff stuff : level.stuffs) {
-      if (stuff instanceof Sun) {
-        if (stuff.getBounds().contains(mouseEvent.getPoint())) {
-          ((Sun) stuff).collected = true;
+    for (MoveableEntity moveableEntity : level.moveableEntities) {
+      if (moveableEntity instanceof Sun) {
+        if (moveableEntity.getBounds().contains(mouseEvent.getPoint())) {
+          ((Sun) moveableEntity).collected = true;
         }
       }
 
-      if (stuff instanceof KillSun) {
-        if (stuff.getBounds().contains(mouseEvent.getPoint())) {
-          ((KillSun) stuff).collected = true;
+      if (moveableEntity instanceof KillSun) {
+        if (moveableEntity.getBounds().contains(mouseEvent.getPoint())) {
+          ((KillSun) moveableEntity).collected = true;
         }
       }
 
@@ -290,7 +290,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
       }
     }
 
-    cellMaps.forEach((point, plant) -> plant.stuffs.forEach(stuff -> {
+    cellMaps.forEach((point, plant) -> plant.moveableEntities.forEach(stuff -> {
       if (stuff instanceof Sun) {
         if (stuff.getBounds().contains(mouseEvent.getPoint())) {
           ((Sun) stuff).collected = true;
@@ -303,8 +303,8 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
 
   @Override
   public void mouseReleased(MouseEvent mouseEvent) {
-    if (mouseEvent.getSource() instanceof IconButton) {
-      IconButton source = (IconButton) mouseEvent.getSource();
+    if (mouseEvent.getSource() instanceof Decorator) {
+      Decorator source = (Decorator) mouseEvent.getSource();
       source.dragged = false;
 
       for (Rectangle cell : cells) {
@@ -357,7 +357,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
 
   @Override
   public void mouseDragged(MouseEvent mouseEvent) {
-    for (IconButton card : level.cards) {
+    for (Decorator card : level.cards) {
       card.dragged = mouseEvent.getSource() == card;
     }
 

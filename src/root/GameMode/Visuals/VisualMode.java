@@ -8,9 +8,9 @@ import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 import javax.swing.ImageIcon;
-import root.etc.Constants;
+import root.etc.ResourcesPath;
 
-public abstract class VisualMode implements Constants {
+public abstract class VisualMode implements ResourcesPath {
 
   public boolean testMode = false;
 
@@ -58,7 +58,7 @@ public abstract class VisualMode implements Constants {
     //create the font
     try {
       //create the font to use. Specify the size!
-      SOL_FONT = Font.createFont(Font.TRUETYPE_FONT, new File(Constants.SOL_FONT)).deriveFont(50f);
+      SOL_FONT = Font.createFont(Font.TRUETYPE_FONT, new File(ResourcesPath.SOL_FONT)).deriveFont(50f);
       GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
       //register the font
       ge.registerFont(SOL_FONT);

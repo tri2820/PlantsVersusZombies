@@ -4,9 +4,9 @@ import java.awt.*;
 
 import root.GUI.GamePanel;
 import root.GameMode.Visuals.VisualMode;
-import root.etc.Constants;
+import root.etc.ResourcesPath;
 
-public abstract class GameEntity implements Constants {
+public abstract class GameEntity implements ResourcesPath {
 
   protected static VisualMode visualMode;
   protected static GamePanel gamePanel;

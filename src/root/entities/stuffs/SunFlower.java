@@ -5,7 +5,7 @@ import root.entities.plants.Plant;
 
 import java.awt.*;
 
-public class SunFlower extends Plant implements Actable {
+public class SunFlower extends Plant {
 
   public SunFlower(int x, int y) {
     super(x, y);
@@ -17,7 +17,7 @@ public class SunFlower extends Plant implements Actable {
   public void actions() {
     LoopCounter++;
     if (LoopCounter % 500 == 0) {
-      stuffs.add(new HeadedSun(position.x + stuffShooter.x, position.y + stuffShooter.y));
+      moveableEntities.add(new HeadedSun(position.x + stuffShooter.x, position.y + stuffShooter.y));
     }
   }
 

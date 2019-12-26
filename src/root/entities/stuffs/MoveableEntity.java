@@ -3,9 +3,9 @@ package root.entities.stuffs;
 import root.entities.Actable;
 import root.entities.GameEntity;
 
-public abstract class Stuff extends GameEntity implements Actable {
+public abstract class MoveableEntity extends GameEntity implements Actable {
 
-  public Stuff(int x, int y) {
+  public MoveableEntity(int x, int y) {
     super(x, y);
   }
 
