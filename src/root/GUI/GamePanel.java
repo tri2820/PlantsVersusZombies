@@ -27,7 +27,7 @@ import root.etc.ResourcesPath;
 public class GamePanel extends JPanel implements Runnable, MouseInputListener, CellsManager, ResourcesPath {
 
   /* ----------VARS---------- */
-  final int DELAY = 32;
+  final int DELAY = 25;
   public boolean testMode = false;
   int mouseX, mouseY;
   int LoopCounter = 0;

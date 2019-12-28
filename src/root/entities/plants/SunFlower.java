@@ -16,7 +16,7 @@ public class SunFlower extends Plant {
   @Override
   public void actions() {
     LoopCounter++;
-    if (LoopCounter % 500 == 0) {
+    if (LoopCounter % 512 == 0) {
       listZombies.add(new HeadedSun(position.x + stuffShooter.x, position.y + stuffShooter.y));
     }
   }

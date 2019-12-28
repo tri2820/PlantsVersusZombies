@@ -15,8 +15,11 @@ public class Round1 extends Level {
     cards.add(new Decorator(gamePanel.visualMode.ShovelButtonIcon, gamePanel.visualMode.GameDim.width * 57 / 100, 0,
             gamePanel.visualMode.ShovelImage, gamePanel));
 
+    //zombie
     zombieClasses.add(NormalZombie.class);
 
+
+    //plant
     plantClasses.add(SunFlower.class);
     cards.add(new Decorator(gamePanel.visualMode.SunFlowerCardIcon, gamePanel.visualMode.GameDim.width * 10 / 90,
             gamePanel.visualMode.GameDim.height / 67, gamePanel.visualMode.SunFlowerImage, gamePanel));
@@ -32,6 +35,7 @@ public class Round1 extends Level {
     plantClasses.add(FreezePeaShooter.class);
     cards.add(new Decorator(gamePanel.visualMode.FreezePeaShooterCardIcon, gamePanel.visualMode.GameDim.width * 28 / 90,
             gamePanel.visualMode.GameDim.height / 67, gamePanel.visualMode.FreezePeaShooterImage, gamePanel));
+
     plantClasses.add(Repeater.class);
     cards.add(new Decorator(gamePanel.visualMode.RepeaterCardIcon, gamePanel.visualMode.GameDim.width * 34 / 90,
             gamePanel.visualMode.GameDim.height / 67, gamePanel.visualMode.RepeaterImage, gamePanel));

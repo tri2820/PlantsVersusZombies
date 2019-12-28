@@ -7,6 +7,7 @@ public class ConeHeadZombie extends Zombie {
   public ConeHeadZombie(int x, int y) {
     super(x, y);
     health = 250;
+    speed = 1;
   }
 
   @Override

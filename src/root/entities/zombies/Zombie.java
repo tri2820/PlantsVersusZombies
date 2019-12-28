@@ -15,6 +15,7 @@ public abstract class Zombie extends GameEntity implements Actable {
   public int health;
   public boolean stunt = false;
   public boolean collided = false;
+  public int speed = 0;
 
   public Zombie(int x, int y) {
     super(x, y);
@@ -41,7 +42,7 @@ public abstract class Zombie extends GameEntity implements Actable {
   @Override
   public void actions() {
     LoopCounter++;
-    position.y += dy;
+    position.y += dy * speed;
 
     Plant collidedPlant = collidedPlant();
     if (collidedPlant == null) {

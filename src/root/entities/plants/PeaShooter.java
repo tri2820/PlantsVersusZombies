@@ -42,7 +42,7 @@ public class PeaShooter extends Plant implements PlantAttackable {
   public void actions() {
     LoopCounter++;
     if (!zomOnLane().isEmpty()) {
-      if (listZombies.isEmpty() && LoopCounter % 100 == 0) { shoot(); }
+      if (listZombies.isEmpty() && LoopCounter % 128 == 0) { shoot(); }
       dealWithZom();
     }
   }
