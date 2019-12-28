@@ -3,35 +3,55 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="11.0" y="311.0">root.GUI.GamePanel</node>
-    <node x="0.0" y="79.0">root.GameMode.Levels.Round1</node>
-    <node x="144.5" y="0.0">root.GameMode.Visuals.VisualMode</node>
-    <node x="0.0" y="158.0">root.GameMode.Levels.Round2</node>
-    <node x="3.5" y="0.0">root.GameMode.Levels.Level</node>
-    <node x="177.0" y="232.0">root.GUI.Decorator</node>
-    <node x="134.0" y="79.0">root.GameMode.Visuals.NoScalingMode</node>
-    <node x="0.0" y="232.0">root.etc.CellsManager</node>
+    <node x="110.75" y="0.0">root.etc.ResourcesPath</node>
+    <node x="253.25" y="79.0">root.GUI.GamePanel</node>
+    <node x="0.0" y="311.0">root.GameMode.Levels.Round1</node>
+    <node x="0.0" y="390.0">root.GameMode.Levels.Round2</node>
+    <node x="86.5" y="79.0">root.GameMode.Visuals.VisualMode</node>
+    <node x="3.5" y="232.0">root.GameMode.Levels.Level</node>
+    <node x="159.0" y="158.0">root.GameMode.Visuals.ScalingMode</node>
+    <node x="134.0" y="232.0">root.GUI.Decorator</node>
+    <node x="0.0" y="158.0">root.GameMode.Visuals.NoScalingMode</node>
+    <node x="269.75" y="0.0">root.etc.CellsManager</node>
   </nodes>
   <notes />
   <edges>
+    <edge source="root.GUI.GamePanel" target="root.etc.ResourcesPath">
+      <point x="-27.5" y="-14.5" />
+      <point x="280.75" y="54.0" />
+      <point x="215.0" y="54.0" />
+      <point x="34.75" y="14.5" />
+    </edge>
+    <edge source="root.GameMode.Visuals.VisualMode" target="root.etc.ResourcesPath">
+      <point x="0.0" y="-14.5" />
+      <point x="-34.75" y="14.5" />
+    </edge>
+    <edge source="root.GameMode.Visuals.ScalingMode" target="root.GameMode.Visuals.VisualMode">
+      <point x="0.0" y="-14.5" />
+      <point x="221.5" y="133.0" />
+      <point x="175.0" y="133.0" />
+      <point x="29.5" y="14.5" />
+    </edge>
+    <edge source="root.GameMode.Levels.Round2" target="root.GameMode.Levels.Round1">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
     <edge source="root.GameMode.Levels.Round1" target="root.GameMode.Levels.Level">
       <point x="0.0" y="-14.5" />
       <point x="0.0" y="14.5" />
     </edge>
     <edge source="root.GameMode.Visuals.NoScalingMode" target="root.GameMode.Visuals.VisualMode">
       <point x="0.0" y="-14.5" />
-      <point x="0.0" y="14.5" />
-    </edge>
-    <edge source="root.GameMode.Levels.Round2" target="root.GameMode.Levels.Round1">
-      <point x="0.0" y="-14.5" />
-      <point x="0.0" y="14.5" />
+      <point x="69.5" y="133.0" />
+      <point x="116.0" y="133.0" />
+      <point x="-29.5" y="14.5" />
     </edge>
     <edge source="root.GUI.GamePanel" target="root.etc.CellsManager">
-      <point x="0.0" y="-14.5" />
+      <point x="27.5" y="-14.5" />
       <point x="0.0" y="14.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.8" x="478.54166666666674" y="115.83333333333334" />
+  <settings layout="Hierarchic Group" zoom="1.1" x="791.6363636363636" y="284.5454545454545" />
   <SelectedNodes />
   <Categories />
   <SCOPE>All</SCOPE>
