@@ -30,6 +30,10 @@ public interface ResourcesPath {
   String CONE_HEAD_ZOMBIE_WALK = RESOURCE_DIR + "/zombies/ConeHeadZombieWalk.gif";
   String CONE_HEAD_ZOMBIE_EAT = RESOURCE_DIR + "/zombies/ConeHeadZombieAttack.gif";
 
+  //buckethead zombie
+  String BUCKET_HEAD_ZOMBIE_WALK = RESOURCE_DIR + "/zombies/BucketHeadZombieWalk.gif";
+  String BUCKET_HEAD_ZOMBIE_EAT = RESOURCE_DIR + "/zombies/BucketHeadZombieAttack.gif";
+
   //sunflower
   String SUNFLOWER_CARD = RESOURCE_DIR + "/cards/SunFlowerCard.png";
   String SUNFLOWER = RESOURCE_DIR + "/plants/SunFlower.gif";

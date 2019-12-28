@@ -153,7 +153,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
         } else {
           /* ---- YOU WIN ---- */
           message.setFont(visualMode.SOL_FONT.deriveFont(100f));
-          message.setText("GAME OVER");
+          message.setText("CONGRATULATION");
           gameResult = RESULT.WIN;
         }
       }

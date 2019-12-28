@@ -40,6 +40,10 @@ public class ScalingMode extends VisualMode {
   Image ConeHeadZombieWalkImage = getScaledImage(CONE_HEAD_ZOMBIE_WALK);
   Image ConeHeadZombieEatImage = getScaledImage(CONE_HEAD_ZOMBIE_EAT);
 
+  Image BucketHeadZombieWalkImage = getScaledImage(BUCKET_HEAD_ZOMBIE_WALK);
+  Image BucketHeadZombieEatImage = getScaledImage(BUCKET_HEAD_ZOMBIE_EAT);
+
+
   Image ShovelImage = getScaledImage(SHOVEL, 0.65);
 
   ImageIcon ShovelButtonIcon = new ImageIcon(getScaledImage(SHOVEL_BUTTON, 0.65));

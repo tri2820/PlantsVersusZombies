@@ -27,6 +27,9 @@ public class NoScalingMode extends VisualMode {
     ConeHeadZombieWalkImage = new ImageIcon(CONE_HEAD_ZOMBIE_WALK).getImage();
     ConeHeadZombieEatImage = new ImageIcon(CONE_HEAD_ZOMBIE_EAT).getImage();
 
+    BucketHeadZombieWalkImage = new ImageIcon(BUCKET_HEAD_ZOMBIE_WALK).getImage();
+    BucketHeadZombieEatImage = new ImageIcon(BUCKET_HEAD_ZOMBIE_EAT).getImage();
+
     ShovelImage = new ImageIcon(SHOVEL).getImage();
     ShovelButtonImage = new ImageIcon(SHOVEL_BUTTON).getImage();
     LawnmowerImage = new ImageIcon(LAWNMOWER).getImage();
