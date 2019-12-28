@@ -34,6 +34,7 @@ public class ScalingMode extends VisualMode {
 
   Image NormalZombieWalkImage = getScaledImage(NORMAL_ZOMBIE_WALK);
   Image NormalZombieEatImage = getScaledImage(NORMAL_ZOMBIE_EAT);
+  Image NormalZombieDieImage = getScaledImage(NORMAL_ZOMBIE_DIE);
   Image NormalZombieLostHeadWalkImage = getScaledImage(NORMAL_ZOMBIE_LOST_HEAD_WALK);
   Image NormalZombieLostHeadEatImage = getScaledImage(NORMAL_ZOMBIE_LOST_HEAD_EAT);
 

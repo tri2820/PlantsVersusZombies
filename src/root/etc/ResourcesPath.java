@@ -23,6 +23,7 @@ public interface ResourcesPath {
   //zombie
   String NORMAL_ZOMBIE_WALK = RESOURCE_DIR + "/zombies/NormalZombieWalk.gif";
   String NORMAL_ZOMBIE_EAT = RESOURCE_DIR + "/zombies/NormalZombieAttack.gif";
+  String NORMAL_ZOMBIE_DIE = RESOURCE_DIR + "/zombies/NormalZombieDie.gif";
   String NORMAL_ZOMBIE_LOST_HEAD_WALK = RESOURCE_DIR + "/zombies/NormalZombieLostHeadWalk.gif";
   String NORMAL_ZOMBIE_LOST_HEAD_EAT = RESOURCE_DIR + "/zombies/NormalZombieLostHeadAttack.gif";
 

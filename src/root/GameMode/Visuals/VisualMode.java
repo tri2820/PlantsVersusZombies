@@ -28,6 +28,7 @@ public abstract class VisualMode implements ResourcesPath {
   public Image FreezePeaImage;
   public Image NormalZombieWalkImage;
   public Image NormalZombieEatImage;
+  public Image NormalZombieDieImage;
   public Image NormalZombieLostHeadWalkImage;
   public Image NormalZombieLostHeadEatImage;
 

@@ -21,6 +21,7 @@ public class NoScalingMode extends VisualMode {
 
     NormalZombieWalkImage = new ImageIcon(NORMAL_ZOMBIE_WALK).getImage();
     NormalZombieEatImage = new ImageIcon(NORMAL_ZOMBIE_EAT).getImage();
+    NormalZombieDieImage = new ImageIcon(NORMAL_ZOMBIE_DIE).getImage();
     NormalZombieLostHeadWalkImage = new ImageIcon(NORMAL_ZOMBIE_LOST_HEAD_WALK).getImage();
     NormalZombieLostHeadEatImage = new ImageIcon(NORMAL_ZOMBIE_LOST_HEAD_EAT).getImage();
 
