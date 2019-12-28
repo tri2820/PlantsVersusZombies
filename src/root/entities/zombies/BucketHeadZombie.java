@@ -1,12 +1,11 @@
 package root.entities.zombies;
 
-import java.awt.*;
+import java.awt.Image;
 
 public class BucketHeadZombie extends Zombie {
     public BucketHeadZombie(int x, int y) {
         super(x, y);
         health = 350;
-        speed = 1;
     }
 
     @Override

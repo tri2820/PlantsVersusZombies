@@ -1,6 +1,6 @@
-package root.entities.moveable;
+package root.entities.movable;
 
-import java.awt.*;
+import java.awt.Image;
 
 public class FreezePea extends Pea {
 

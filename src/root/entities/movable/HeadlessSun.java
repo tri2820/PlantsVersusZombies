@@ -1,4 +1,4 @@
-package root.entities.moveable;
+package root.entities.movable;
 
 public class HeadlessSun extends Sun {
   //sun that comes from sun
@@ -8,8 +8,8 @@ public class HeadlessSun extends Sun {
 
   @Override
   public void SpecialMoves() {
-    if (position.y == visualMode.GameDim.height - getImage().getHeight(null)) {
-      dy = 0;
+    if (Math.abs(position.y - visualMode.GameDim.height + getImage().getHeight(null)) < Math.abs(dy)) {
+      position.y -= dy;
       LoopCounter++;
     }
   }

@@ -17,9 +17,13 @@ import javax.swing.event.MouseInputListener;
 import root.GameMode.Levels.Level;
 import root.GameMode.Visuals.NoScalingMode;
 import root.GameMode.Visuals.VisualMode;
+import root.entities.movable.HeadlessSun;
+import root.entities.movable.KillSun;
+import root.entities.movable.MovableObjects;
+import root.entities.movable.Pea;
+import root.entities.movable.Sun;
 import root.entities.plants.Lawnmower;
 import root.entities.plants.Plant;
-import root.entities.moveable.*;
 import root.entities.zombies.Zombie;
 import root.etc.CellsManager;
 import root.etc.ResourcesPath;
@@ -27,7 +31,7 @@ import root.etc.ResourcesPath;
 public class GamePanel extends JPanel implements Runnable, MouseInputListener, CellsManager, ResourcesPath {
 
   /* ----------VARS---------- */
-  final int DELAY = 25;
+  final int DELAY = 50;
   public boolean testMode = false;
   int mouseX, mouseY;
   int LoopCounter = 0;
@@ -35,7 +39,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
   public VisualMode visualMode = new NoScalingMode();
   int levelNumber = 1;
   public Level level = Level.getRound(levelNumber, this);
-  int tmp_loop_counter = 1000;
+  int popup_loop_counter = 500;
   RESULT gameResult;
 
   /* ----------INIT---------- */
@@ -52,7 +56,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
 
   void initMessage() {
     add(message);
-    message.setFont(visualMode.SOL_FONT);
+    message.setFont(visualMode.PvZUI_FONT);
     message.setBounds(new Rectangle(new Point(0, 0), visualMode.GameDim));
     message.setHorizontalAlignment(SwingConstants.CENTER);
     message.setForeground(Color.BLACK);
@@ -63,7 +67,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
   /* ----------UTILITIES FUNCTIONS---------- */
   private void resetToLevel(int levelNumber) {
     LoopCounter = 0;
-    tmp_loop_counter = 1000;
+    popup_loop_counter = 500;
     this.levelNumber = levelNumber;
     level = Level.getRound(this.levelNumber, this);
     message.setText("");
@@ -84,7 +88,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
   /* ---------- LOOP ---------- */
   private void cycle() {
     /* ----- Make certain things do their step ----- */
-    level.moveableEntities.forEach(MoveableObjects::actions);
+    level.movableEntities.forEach(MovableObjects::actions);
     level.zombies.forEach(Zombie::actions);
     Zombie.updateStatus();
     level.lawnmowers.forEach(Lawnmower::actions);
@@ -92,56 +96,66 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
     /* ----- Setting for the cells ----- */
     cellMaps.forEach((Point, value) -> {
       value.actions();
-      value.listZombies.forEach(MoveableObjects::actions);
-      value.listZombies.removeIf(
-          stuff -> ((stuff instanceof Sun && (stuff.LoopCounter == Sun.existLoop || ((Sun) stuff).doneCollected))
-                  || (stuff instanceof Pea && ((((Pea) stuff).hitted) || ((Pea) stuff).outOfGame))
-                  || (stuff instanceof KillSun && (stuff.LoopCounter == KillSun.existLoop || ((KillSun) stuff).doneCollected))));
+      value.Stuffs.forEach(MovableObjects::actions);
+      value.Stuffs.removeIf(
+          stuff -> ((stuff instanceof Sun && (stuff.LoopCounter >= Sun.existLoop || ((Sun) stuff).doneCollected))
+              || (stuff instanceof Pea && ((((Pea) stuff).hitted) || ((Pea) stuff).outOfGame))
+              || (stuff instanceof KillSun && (stuff.LoopCounter >= KillSun.existLoop || ((KillSun) stuff).doneCollected))));
     });
 
+    /* ****Zombie Die effects**** */
+    level.zombies.forEach(zombie -> {
+      if (zombie.health <= 0) {
+        level.zombieKilled++;
+        level.zombieKilledPosition.put(zombie.getPosition(), 0);
+      }
+    });
+
+    level.zombieKilledPosition.keySet().removeIf(tmp -> level.zombieKilledPosition.get(tmp) == visualMode.ZombieDie.length - 1);
 
     /* ---- Check for removals ---- */
-    level.zombies.removeIf(zombie -> zombie.health <= 0 || zombie.getX() + zombie.getImage().getWidth(null) == 0);
-    level.moveableEntities
-        .removeIf(stuff -> ((stuff instanceof Sun && (stuff.LoopCounter == Sun.existLoop || ((Sun) stuff).doneCollected))
-                || (stuff instanceof KillSun && (stuff.LoopCounter == KillSun.existLoop || ((KillSun) stuff).doneCollected))));
-    CellsManager.cellMaps.values().removeIf(plant -> plant.health == 0);
+    level.zombies.removeIf(zombie -> zombie.health <= 0 || zombie.getX() + zombie.getImage().getWidth(null) <= 0);
+
+    level.movableEntities
+        .removeIf(obj -> ((obj instanceof Sun && (obj.LoopCounter >= Sun.existLoop || ((Sun) obj).doneCollected))
+            || (obj instanceof KillSun && (obj.LoopCounter >= KillSun.existLoop || ((KillSun) obj).doneCollected))));
+    CellsManager.cellMaps.values().removeIf(plant -> plant.health <= 0);
     level.lawnmowers.removeIf(lawnmower -> lawnmower.getX() > visualMode.GameDim.width);
 
     /* ----- Tasks that need timer ----- */
     LoopCounter++;
-    if (LoopCounter == 50) {
+    if (LoopCounter == 25) {
       message.setText("ROUND " + levelNumber);
-    } else if (LoopCounter == 100) {
+    } else if (LoopCounter == 50) {
       message.setText("Collect suns to buy plants.");
-    } else if (LoopCounter == 150) {
+    } else if (LoopCounter == 75) {
       message.setText("Plants can defend your house.");
-    } else if (LoopCounter == 200) {
+    } else if (LoopCounter == 100) {
       message.setText("");
-    } else if (LoopCounter == 900) {
+    } else if (LoopCounter == 450) {
       message.setText("Watch out! Zombies are coming");
-    } else if (LoopCounter == 950) {
+    } else if (LoopCounter == 500) {
       message.setText("Good luck ^-^");
-    } else if (LoopCounter == 4096) {
-      message.setText("The zombie wave is comming!");
-    } else if (LoopCounter > tmp_loop_counter + 50 && !message.getText().equals("")) {
+    } else if (LoopCounter == 2048) {
+      message.setText("The zombie wave is coming!");
+    } else if (LoopCounter > popup_loop_counter + 25 && !message.getText().equals("")) {
       message.setText("");
     }
 
-    if (LoopCounter % 256 == 0) {
+    if (LoopCounter % 128 == 0) {
       int edge = visualMode.SunImage.getWidth(null);
-      level.moveableEntities.add(new HeadlessSun((new Random().nextInt(visualMode.GameDim.width - edge)), 0));
-    } else if (LoopCounter % 1024 == 0) {
+      level.movableEntities.add(new HeadlessSun((new Random().nextInt(visualMode.GameDim.width - edge)), 0));
+    } else if (LoopCounter % 512 == 0) {
       int edge = visualMode.KillSunImage.getWidth(null);
-      level.moveableEntities.add(new KillSun((new Random().nextInt(visualMode.GameDim.width - edge)), 0));
+      level.movableEntities.add(new KillSun((new Random().nextInt(visualMode.GameDim.width - edge)), 0));
     }
 
     if (!level.end()) {
-      if (LoopCounter > 1024 && LoopCounter % 256 == 0) {
+      if (LoopCounter > 512 && LoopCounter % 128 == 0) {
         level.addZombie(visualMode);
-      } else if (LoopCounter > 2048 && LoopCounter % 128 == 0) {
+      } else if (LoopCounter > 1024 && LoopCounter % 64 == 0) {
         level.addZombie(visualMode);
-      } else if (LoopCounter > 4096 && LoopCounter % 64 == 0) {
+      } else if (LoopCounter > 2048 && LoopCounter % 32 == 0) {
         level.addZombie(visualMode);
       }
     } else {
@@ -152,7 +166,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
           resetToLevel(levelNumber);
         } else {
           /* ---- YOU WIN ---- */
-          message.setFont(visualMode.SOL_FONT.deriveFont(100f));
+          message.setFont(visualMode.PvZUI_FONT.deriveFont(100f));
           message.setText("CONGRATULATION");
           gameResult = RESULT.WIN;
         }
@@ -160,8 +174,8 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
     }
 
     level.zombies.forEach(zombie -> {
-      if (zombie.getX() == 0) {
-        message.setFont(visualMode.SOL_FONT.deriveFont(100f));
+      if (zombie.getX() <= 0) {
+        message.setFont(visualMode.PvZUI_FONT.deriveFont(100f));
         message.setText("GAME OVER");
         gameResult = RESULT.LOSE;
       }
@@ -213,7 +227,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
 
     cellMaps.forEach((key, value) -> {
       g.drawImage(value.getImage(), key.x, key.y, null);
-      value.listZombies.forEach(stuff -> {
+      value.Stuffs.forEach(stuff -> {
         g.drawImage(stuff.getImage(), stuff.getX(), stuff.getY(), null);
         if (testMode) {
           g.drawRect(stuff.getBounds().x, stuff.getBounds().y, stuff.getBounds().width, stuff.getBounds().height);
@@ -221,12 +235,21 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
       });
     });
 
-    level.moveableEntities.forEach((stuff) -> {
+    level.movableEntities.forEach((stuff) -> {
       g.drawImage(stuff.getImage(), stuff.getX(), stuff.getY(), null);
       if (testMode) {
         g.drawRect(stuff.getBounds().x, stuff.getBounds().y, stuff.getBounds().width, stuff.getBounds().height);
       }
     });
+
+    /* Zombie Dying gif */
+    level.zombieKilledPosition.forEach(
+        (pos, index) -> {
+          g.drawImage(visualMode.ZombieDie[index], pos.x - 30, pos.y - 30, null);
+          if (LoopCounter % 4 == 0) {
+            level.zombieKilledPosition.replace(pos, level.zombieKilledPosition.get(pos) + 1);
+          }
+        });
 
     level.zombies.forEach((zombie) -> {
       g.drawImage(zombie.getImage(), zombie.getX(), zombie.getY() - visualMode.GameDim.height / 50, null);
@@ -251,16 +274,16 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
   /* ----------ACTION HANDLERS---------- */
   @Override
   public void mouseClicked(MouseEvent mouseEvent) {
-    for (MoveableObjects moveableObjects : level.moveableEntities) {
-      if (moveableObjects instanceof Sun) {
-        if (moveableObjects.getBounds().contains(mouseEvent.getPoint())) {
-          ((Sun) moveableObjects).collected = true;
+    for (MovableObjects movableObjects : level.movableEntities) {
+      if (movableObjects instanceof Sun) {
+        if (movableObjects.getBounds().contains(mouseEvent.getPoint())) {
+          ((Sun) movableObjects).collected = true;
         }
       }
 
-      if (moveableObjects instanceof KillSun) {
-        if (moveableObjects.getBounds().contains(mouseEvent.getPoint())) {
-          ((KillSun) moveableObjects).collected = true;
+      if (movableObjects instanceof KillSun) {
+        if (movableObjects.getBounds().contains(mouseEvent.getPoint())) {
+          ((KillSun) movableObjects).collected = true;
         }
       }
 
@@ -290,7 +313,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
       }
     }
 
-    cellMaps.forEach((point, plant) -> plant.listZombies.forEach(stuff -> {
+    cellMaps.forEach((point, plant) -> plant.Stuffs.forEach(stuff -> {
       if (stuff instanceof Sun) {
         if (stuff.getBounds().contains(mouseEvent.getPoint())) {
           ((Sun) stuff).collected = true;
@@ -303,8 +326,8 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
 
   @Override
   public void mouseReleased(MouseEvent mouseEvent) {
-    if (mouseEvent.getSource() instanceof Decorator) {
-      Decorator source = (Decorator) mouseEvent.getSource();
+    if (mouseEvent.getSource() instanceof IconButton) {
+      IconButton source = (IconButton) mouseEvent.getSource();
       source.dragged = false;
 
       for (Rectangle cell : cells) {
@@ -317,10 +340,13 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
                 Plant tmp_plant = plantClass.getConstructor(int.class, int.class).newInstance(cell.x, cell.y);
                 if (tmp_plant.getImage().equals(source.dragTarget)) {
                   if (Sun.Count >= tmp_plant.price) {
-                    cellMaps.putIfAbsent(cell.getLocation(), plantClass.getConstructor(int.class, int.class).newInstance(cell.x, cell.y));
-                    Sun.updateCount(-tmp_plant.price);
+                    Plant hasPlant = cellMaps
+                        .putIfAbsent(cell.getLocation(), plantClass.getConstructor(int.class, int.class).newInstance(cell.x, cell.y));
+                    if (hasPlant == null) {
+                      Sun.updateCount(-tmp_plant.price);
+                    }
                   } else {
-                    tmp_loop_counter = LoopCounter;
+                    popup_loop_counter = LoopCounter;
                     if (message.getText().equals("")) {
                       message.setText("You don't have enough suns.");
                     }
@@ -357,7 +383,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
 
   @Override
   public void mouseDragged(MouseEvent mouseEvent) {
-    for (Decorator card : level.cards) {
+    for (IconButton card : level.cards) {
       card.dragged = mouseEvent.getSource() == card;
     }
 

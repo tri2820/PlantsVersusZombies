@@ -1,7 +1,5 @@
 package root.GameMode.Visuals;
 
-import root.entities.plants.Repeater;
-
 import javax.swing.ImageIcon;
 
 public class NoScalingMode extends VisualMode {
@@ -21,6 +19,7 @@ public class NoScalingMode extends VisualMode {
 
     NormalZombieWalkImage = new ImageIcon(NORMAL_ZOMBIE_WALK).getImage();
     NormalZombieEatImage = new ImageIcon(NORMAL_ZOMBIE_EAT).getImage();
+    NormalZombieDieImage = new ImageIcon(NORMAL_ZOMBIE_DIE).getImage();
     NormalZombieLostHeadWalkImage = new ImageIcon(NORMAL_ZOMBIE_LOST_HEAD_WALK).getImage();
     NormalZombieLostHeadEatImage = new ImageIcon(NORMAL_ZOMBIE_LOST_HEAD_EAT).getImage();
 
@@ -29,6 +28,10 @@ public class NoScalingMode extends VisualMode {
 
     BucketHeadZombieWalkImage = new ImageIcon(BUCKET_HEAD_ZOMBIE_WALK).getImage();
     BucketHeadZombieEatImage = new ImageIcon(BUCKET_HEAD_ZOMBIE_EAT).getImage();
+
+    for (int i = 0; i < ZOMBIE_DIE.length; i++) {
+      ZombieDie[i] = new ImageIcon(ZOMBIE_DIE[i]).getImage();
+    }
 
     ShovelImage = new ImageIcon(SHOVEL).getImage();
     ShovelButtonImage = new ImageIcon(SHOVEL_BUTTON).getImage();

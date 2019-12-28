@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact build-on-make="true" name="PlantsVersusZombies:jar">
+    <output-path>$PROJECT_DIR$/</output-path>
+    <root id="root">
+      <element id="archive" name="PlantsVersusZombies.jar">
+        <element id="module-output" name="PlantsVersusZombies" />
+      </element>
+    </root>
+  </artifact>
+</component>

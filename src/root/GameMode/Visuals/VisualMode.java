@@ -28,8 +28,10 @@ public abstract class VisualMode implements ResourcesPath {
   public Image FreezePeaImage;
   public Image NormalZombieWalkImage;
   public Image NormalZombieEatImage;
+  public Image NormalZombieDieImage;
   public Image NormalZombieLostHeadWalkImage;
   public Image NormalZombieLostHeadEatImage;
+  public Image[] ZombieDie = new Image[10];
 
   public Image ConeHeadZombieWalkImage;
   public Image ConeHeadZombieEatImage;
@@ -56,15 +58,18 @@ public abstract class VisualMode implements ResourcesPath {
   public Dimension cellSize = new Dimension(PeaShooterImage.getWidth(null), PeaShooterImage.getHeight(null));
 
   public Font SOL_FONT;
+  public Font PvZUI_FONT;
 
   public void initFont() {
     //create the font
     try {
       //create the font to use. Specify the size!
       SOL_FONT = Font.createFont(Font.TRUETYPE_FONT, new File(ResourcesPath.SOL_FONT)).deriveFont(50f);
+      PvZUI_FONT = Font.createFont(Font.TRUETYPE_FONT, new File(ResourcesPath.PvZUI_FONT)).deriveFont(50f);
       GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
       //register the font
       ge.registerFont(SOL_FONT);
+      ge.registerFont(PvZUI_FONT);
     } catch (IOException | FontFormatException e) {
       e.printStackTrace();
     }

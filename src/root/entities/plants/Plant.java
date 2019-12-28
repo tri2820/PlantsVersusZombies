@@ -2,17 +2,16 @@ package root.entities.plants;
 
 import java.awt.Point;
 import java.util.LinkedList;
-
 import root.entities.Actable;
 import root.entities.GameEntity;
-import root.entities.moveable.MoveableObjects;
+import root.entities.movable.MovableObjects;
 import root.entities.zombies.Zombie;
 
 public abstract class Plant extends GameEntity implements Actable {
 
   public int price;
   public int health;
-  public LinkedList<MoveableObjects> listZombies = new LinkedList<>();
+  public LinkedList<MovableObjects> Stuffs = new LinkedList<>();
   public Point stuffShooter = new Point(getBounds().width * 5 / 7, getBounds().height / 10);
 
   public Plant(int x, int y) {
@@ -39,15 +38,4 @@ public abstract class Plant extends GameEntity implements Actable {
 
     return closestZomOnLane;
   }
-
-//  @Override
-//  public void actions() {
-//    LoopCounter++;
-//    if (!zomOnLane().isEmpty()) {
-//      if (moveableEntities.isEmpty() && LoopCounter % 20 == 0) {
-//        shoot();
-//      }
-//      dealWithZom();
-//    }
-//  }
 }

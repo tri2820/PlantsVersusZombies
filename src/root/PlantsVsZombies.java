@@ -21,7 +21,6 @@ public class PlantsVsZombies extends JFrame {
   }
 
   private void initUI() {
-//    add(Game.getInstance());
     add(new GamePanel());
     pack();
     setTitle("Plants Versus Zombies Clone");

@@ -1,9 +1,7 @@
 package root.entities.plants;
 
-import root.entities.moveable.HeadedSun;
-import root.entities.plants.Plant;
-
-import java.awt.*;
+import java.awt.Image;
+import root.entities.movable.HeadedSun;
 
 public class SunFlower extends Plant {
 
@@ -16,8 +14,8 @@ public class SunFlower extends Plant {
   @Override
   public void actions() {
     LoopCounter++;
-    if (LoopCounter % 512 == 0) {
-      listZombies.add(new HeadedSun(position.x + stuffShooter.x, position.y + stuffShooter.y));
+    if (LoopCounter % 256 == 0) {
+      Stuffs.add(new HeadedSun(position.x + stuffShooter.x, position.y + stuffShooter.y));
     }
   }
 

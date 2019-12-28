@@ -1,11 +1,10 @@
 package root.entities.plants;
 
+import java.awt.Image;
 import root.entities.PlantAttackable;
-import root.entities.moveable.MoveableObjects;
-import root.entities.moveable.Pea;
+import root.entities.movable.MovableObjects;
+import root.entities.movable.Pea;
 import root.entities.zombies.Zombie;
-
-import java.awt.*;
 
 public class PeaShooter extends Plant implements PlantAttackable {
 
@@ -18,16 +17,16 @@ public class PeaShooter extends Plant implements PlantAttackable {
 
   @Override
   public void shoot() {
-    listZombies.add(new Pea(position.x + stuffShooter.x, position.y + stuffShooter.y));
+    Stuffs.add(new Pea(position.x + stuffShooter.x, position.y + stuffShooter.y));
   }
 
 
   @Override
   public void dealWithZom() {
     Zombie closestZom = closestZom(zomOnLane());
-    for (MoveableObjects moveableObjects : listZombies) {
-      if (closestZom.getX() - moveableObjects.getX() < closestZom.getImage().getWidth(null) / 4) {
-        ((Pea) moveableObjects).hitted = true;
+    for (MovableObjects movableObjects : Stuffs) {
+      if (closestZom.getX() - movableObjects.getX() < closestZom.getImage().getWidth(null) / 4) {
+        ((Pea) movableObjects).hitted = true;
         closestZom.health -= 15;
       }
     }
@@ -42,7 +41,9 @@ public class PeaShooter extends Plant implements PlantAttackable {
   public void actions() {
     LoopCounter++;
     if (!zomOnLane().isEmpty()) {
-      if (listZombies.isEmpty() && LoopCounter % 128 == 0) { shoot(); }
+      if (Stuffs.isEmpty() && LoopCounter % 32 == 0) {
+        shoot();
+      }
       dealWithZom();
     }
   }

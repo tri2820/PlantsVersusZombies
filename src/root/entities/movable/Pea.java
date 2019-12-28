@@ -1,8 +1,8 @@
-package root.entities.moveable;
+package root.entities.movable;
 
-import java.awt.*;
+import java.awt.Image;
 
-public class Pea extends MoveableObjects {
+public class Pea extends MovableObjects {
 
   public boolean hitted = false;
   public boolean outOfGame = false;
@@ -10,7 +10,7 @@ public class Pea extends MoveableObjects {
 
   public Pea(int x, int y) {
     super(x, y);
-    dx = 10;
+    dx = 15;
     dy = 0;
   }
 

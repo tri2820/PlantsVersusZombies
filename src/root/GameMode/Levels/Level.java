@@ -1,17 +1,20 @@
 package root.GameMode.Levels;
 
+import java.awt.Point;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import root.GUI.GamePanel;
-import root.GUI.Decorator;
+import root.GUI.IconButton;
 import root.GameMode.Visuals.VisualMode;
 import root.entities.GameEntity;
+import root.entities.movable.MovableObjects;
 import root.entities.plants.Lawnmower;
 import root.entities.plants.Plant;
-import root.entities.moveable.MoveableObjects;
 import root.entities.zombies.Zombie;
 import root.etc.CellsManager;
 
@@ -19,19 +22,23 @@ public abstract class Level {
 
   // Add new rounds to this
   public static LinkedList<Class<? extends Level>> rounds = new LinkedList<>(List.of(Level.class, Round1.class, Round2.class));
-  public ArrayList<MoveableObjects> moveableEntities = new ArrayList<>();
+  public ArrayList<MovableObjects> movableEntities = new ArrayList<>();
   public ArrayList<Zombie> zombies = new ArrayList<>();
   public ArrayList<Class<? extends Plant>> plantClasses = new ArrayList<>();
   public ArrayList<Class<? extends Zombie>> zombieClasses = new ArrayList<>();
-  public ArrayList<Decorator> cards = new ArrayList<>(5);
+  public ArrayList<IconButton> cards = new ArrayList<>(5);
   public ArrayList<Lawnmower> lawnmowers = new ArrayList<>(5);
+  public Map<Point, Integer> zombieKilledPosition = new HashMap<>();
   public int MAX_ZOMBIES;
-  public int zombieCount = 0;
+  public int zombieCount, zombieKilled;
 
   public Level(GamePanel gamePanel) {
     CellsManager.init(gamePanel.visualMode);
     GameEntity.setGamePanel(gamePanel);
     GameEntity.setVisualMode();
+    zombieCount = 0;
+    zombieKilled = 0;
+    zombieKilledPosition.clear();
   }
 
   public static Level getRound(int levelNumber, GamePanel gamePanel) {

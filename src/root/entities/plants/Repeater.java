@@ -1,10 +1,9 @@
 package root.entities.plants;
 
-import root.entities.moveable.Pea;
-import root.entities.moveable.MoveableObjects;
+import java.awt.Image;
+import root.entities.movable.MovableObjects;
+import root.entities.movable.Pea;
 import root.entities.zombies.Zombie;
-
-import java.awt.*;
 
 public class Repeater extends PeaShooter {
 
@@ -22,9 +21,9 @@ public class Repeater extends PeaShooter {
     @Override
     public void dealWithZom() {
         Zombie closestZom = closestZom(zomOnLane());
-        for (MoveableObjects moveableObjects : listZombies) {
-            if (closestZom.getX() - moveableObjects.getX() < closestZom.getImage().getWidth(null) / 4) {
-                ((Pea) moveableObjects).hitted = true;
+        for (MovableObjects movableObjects : Stuffs) {
+            if (closestZom.getX() - movableObjects.getX() < closestZom.getImage().getWidth(null) / 4) {
+                ((Pea) movableObjects).hitted = true;
                 closestZom.health -= 30;
             }
         }
@@ -32,7 +31,7 @@ public class Repeater extends PeaShooter {
 
     @Override
     public void shoot() {
-        listZombies.add(new Pea(position.x + stuffShooter.x, position.y + stuffShooter.y));
-        listZombies.add(new Pea(position.x + stuffShooter.x + 40, position.y + stuffShooter.y));
+        Stuffs.add(new Pea(position.x + stuffShooter.x, position.y + stuffShooter.y));
+        Stuffs.add(new Pea(position.x + stuffShooter.x + 40, position.y + stuffShooter.y));
     }
 }

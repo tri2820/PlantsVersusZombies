@@ -1,9 +1,10 @@
-package root.entities.moveable;
+package root.entities.movable;
 
+import java.awt.Image;
 import root.entities.zombies.Zombie;
-import java.awt.*;
 
-public class KillSun extends MoveableObjects {
+public class KillSun extends MovableObjects {
+
     //kill all the zombie on the gamepanel
     public static int existLoop = 20;
     public boolean collected = false;
@@ -11,8 +12,8 @@ public class KillSun extends MoveableObjects {
 
     public KillSun(int x, int y) {
         super(x, y);
-        dx = 2;
-        dy = 12;
+        dx = 4;
+        dy = 24;
     }
 
     public void SpecialMoves() {

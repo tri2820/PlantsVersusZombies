@@ -1,14 +1,12 @@
 package root.entities.zombies;
 
-import root.entities.plants.Plant;
-import java.awt.*;
+import java.awt.Image;
 
 public class NormalZombie extends Zombie {
 
   public NormalZombie(int x, int y) {
     super(x, y);
     health = 150;
-    speed = 1;
   }
 
 

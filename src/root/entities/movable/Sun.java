@@ -1,11 +1,15 @@
-package root.entities.moveable;
+package root.entities.movable;
 
-import java.awt.*;
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Image;
+import java.awt.Point;
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
-public abstract class Sun extends MoveableObjects {
+public abstract class Sun extends MovableObjects {
 
-  public static int Count = 2000;                                                           //initial sun in game
+  public static int Count = 250;                                                           //initial sun in game
   public static JLabel CountLabel = new JLabel(String.valueOf(Count), SwingConstants.CENTER);
   public static int existLoop = 120;                                                          //lasting time of the sun
   private static Point SunCollector = new Point(visualMode.GameDim.width / 90, visualMode.GameDim.height / 67);
@@ -15,7 +19,7 @@ public abstract class Sun extends MoveableObjects {
   public Sun(int x, int y) {
     super(x, y);
     dx = 0;
-    dy = visualMode.GameDim.height / 300;
+    dy = 4;
   }
 
   public static JLabel initCountLabel() {
@@ -36,11 +40,11 @@ public abstract class Sun extends MoveableObjects {
   }
 
   public void CollectedAction() {
-    double speed = 20;
+    double speed = 40;
     double length = SunCollector.distance(position);
     dx = (int) ((SunCollector.x - position.x) / length * speed);
     dy = (int) ((SunCollector.y - position.y) / length * speed);
-    if (Math.abs(SunCollector.x - position.x) < 20 && Math.abs(SunCollector.y - position.y) < 20) {
+    if (Math.abs(SunCollector.x - position.x) < 40 && Math.abs(SunCollector.y - position.y) < Math.abs(speed)) {
       updateCount(25);
       doneCollected = true;
     }
