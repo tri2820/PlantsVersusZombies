@@ -3,7 +3,7 @@ package root.GameMode.Levels;
 import root.GUI.GamePanel;
 import root.GUI.Decorator;
 import root.entities.plants.*;
-import root.entities.moveable.SunFlower;
+import root.entities.plants.SunFlower;
 import root.entities.zombies.NormalZombie;
 import root.etc.CellsManager;
 

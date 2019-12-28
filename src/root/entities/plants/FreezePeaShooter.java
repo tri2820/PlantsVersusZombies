@@ -18,7 +18,7 @@ public class FreezePeaShooter extends PeaShooter implements PlantAttackable {
   @Override
   public void dealWithZom() {
     Zombie closestZom = closestZom(zomOnLane());
-    for (MoveableObjects moveableObjects : moveableEntities) {
+    for (MoveableObjects moveableObjects : listZombies) {
       if (closestZom.getX() - moveableObjects.getX() < closestZom.getImage().getWidth(null) / 4) {
         ((FreezePea) moveableObjects).hitted = true;
         closestZom.stunt = true;
@@ -29,7 +29,7 @@ public class FreezePeaShooter extends PeaShooter implements PlantAttackable {
 
   @Override
   public void shoot() {
-    moveableEntities.add(new FreezePea(position.x + stuffShooter.x, position.y + stuffShooter.y));
+    listZombies.add(new FreezePea(position.x + stuffShooter.x, position.y + stuffShooter.y));
   }
 
   @Override

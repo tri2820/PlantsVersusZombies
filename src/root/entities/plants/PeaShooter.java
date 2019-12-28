@@ -18,14 +18,14 @@ public class PeaShooter extends Plant implements PlantAttackable {
 
   @Override
   public void shoot() {
-    moveableEntities.add(new Pea(position.x + stuffShooter.x, position.y + stuffShooter.y));
+    listZombies.add(new Pea(position.x + stuffShooter.x, position.y + stuffShooter.y));
   }
 
 
   @Override
   public void dealWithZom() {
     Zombie closestZom = closestZom(zomOnLane());
-    for (MoveableObjects moveableObjects : moveableEntities) {
+    for (MoveableObjects moveableObjects : listZombies) {
       if (closestZom.getX() - moveableObjects.getX() < closestZom.getImage().getWidth(null) / 4) {
         ((Pea) moveableObjects).hitted = true;
         closestZom.health -= 15;
@@ -42,7 +42,7 @@ public class PeaShooter extends Plant implements PlantAttackable {
   public void actions() {
     LoopCounter++;
     if (!zomOnLane().isEmpty()) {
-      if (moveableEntities.isEmpty() && LoopCounter % 100 == 0) { shoot(); }
+      if (listZombies.isEmpty() && LoopCounter % 100 == 0) { shoot(); }
       dealWithZom();
     }
   }

@@ -3,96 +3,94 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="285.25" y="79.0">root.entities.Actable</node>
-    <node x="412.0" y="237.0">root.entities.plants.Walnut</node>
-    <node x="282.0" y="237.0">root.entities.stuffs.SunFlower</node>
-    <node x="457.75" y="0.0">root.etc.ResourcesPath</node>
-    <node x="401.25" y="79.0">root.entities.GameEntity</node>
-    <node x="539.25" y="79.0">root.GUI.GamePanel</node>
-    <node x="144.0" y="237.0">root.entities.plants.PeaShooter</node>
-    <node x="0.0" y="316.0">root.entities.plants.FreezePeaShooter</node>
-    <node x="28.625" y="158.0">root.entities.PlantAttackable</node>
-    <node x="181.0" y="316.0">root.entities.plants.Repeater</node>
-    <node x="355.75" y="158.0">root.entities.plants.Plant</node>
-    <node x="521.0" y="237.0">root.entities.plants.Lawnmower</node>
+    <node x="246.875" y="0.0">root.etc.ResourcesPath</node>
+    <node x="124.5" y="79.0">root.entities.GameEntity</node>
+    <node x="278.25" y="79.0">root.entities.Actable</node>
+    <node x="394.25" y="79.0">root.GUI.GamePanel</node>
+    <node x="322.7852564102564" y="237.0">root.entities.plants.PeaShooter</node>
+    <node x="438.849358974359" y="316.0">root.entities.plants.FreezePeaShooter</node>
+    <node x="408.5" y="158.0">root.entities.PlantAttackable</node>
+    <node x="130.0" y="237.0">root.entities.plants.Walnut</node>
+    <node x="300.7852564102564" y="316.0">root.entities.plants.Repeater</node>
+    <node x="133.5" y="158.0">root.entities.plants.Plant</node>
+    <node x="235.5" y="158.0">root.entities.moveable.MoveableObjects</node>
+    <node x="0.0" y="237.0">root.entities.plants.Lawnmower</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="root.entities.plants.Plant" target="root.entities.Actable">
-      <point x="-20.5" y="-14.5" />
-      <point x="376.25" y="133.0" />
-      <point x="333.25" y="133.0" />
-      <point x="0.0" y="14.5" />
-    </edge>
-    <edge source="root.GUI.GamePanel" target="root.etc.ResourcesPath">
-      <point x="0.0" y="-14.5" />
-      <point x="594.25" y="54.0" />
-      <point x="562.0" y="54.0" />
-      <point x="34.75" y="14.5" />
-    </edge>
-    <edge source="root.entities.plants.FreezePeaShooter" target="root.entities.plants.PeaShooter">
-      <point x="40.25" y="-14.5" />
-      <point x="120.75" y="291.0" />
-      <point x="173.5" y="291.0" />
-      <point x="-29.5" y="14.5" />
+    <edge source="root.entities.moveable.MoveableObjects" target="root.entities.GameEntity">
+      <point x="-38.25" y="-14.5" />
+      <point x="273.75" y="128.0" />
+      <point x="213.0" y="128.0" />
+      <point x="29.5" y="14.5" />
     </edge>
     <edge source="root.entities.plants.Repeater" target="root.entities.plants.PeaShooter">
       <point x="0.0" y="-14.5" />
-      <point x="29.5" y="14.5" />
-    </edge>
-    <edge source="root.entities.plants.Walnut" target="root.entities.plants.Plant">
-      <point x="0.0" y="-14.5" />
-      <point x="456.5" y="217.0" />
-      <point x="407.0" y="217.0" />
-      <point x="10.25" y="14.5" />
-    </edge>
-    <edge source="root.entities.plants.FreezePeaShooter" target="root.entities.PlantAttackable">
-      <point x="-40.25" y="-14.5" />
-      <point x="40.25" y="217.0" />
-      <point x="66.875" y="217.0" />
-      <point x="-38.25" y="14.5" />
-    </edge>
-    <edge source="root.entities.GameEntity" target="root.etc.ResourcesPath">
-      <point x="0.0" y="-14.5" />
-      <point x="460.25" y="54.0" />
-      <point x="492.5" y="54.0" />
-      <point x="-34.75" y="14.5" />
+      <point x="-29.5" y="14.5" />
     </edge>
     <edge source="root.entities.plants.Plant" target="root.entities.GameEntity">
-      <point x="20.5" y="-14.5" />
-      <point x="417.25" y="133.0" />
-      <point x="460.25" y="133.0" />
-      <point x="0.0" y="14.5" />
+      <point x="-20.5" y="-14.5" />
+      <point x="-29.5" y="14.5" />
     </edge>
     <edge source="root.entities.plants.Lawnmower" target="root.entities.plants.Plant">
       <point x="0.0" y="-14.5" />
-      <point x="576.0" y="207.0" />
-      <point x="427.5" y="207.0" />
-      <point x="30.75" y="14.5" />
+      <point x="55.0" y="212.0" />
+      <point x="147.16666666666669" y="212.0" />
+      <point x="-27.333333333333314" y="14.5" />
     </edge>
-    <edge source="root.entities.stuffs.SunFlower" target="root.entities.plants.Plant">
+    <edge source="root.entities.plants.Plant" target="root.entities.Actable">
+      <point x="20.5" y="-14.5" />
+      <point x="195.0" y="138.0" />
+      <point x="302.25" y="138.0" />
+      <point x="-24.0" y="14.5" />
+    </edge>
+    <edge source="root.GUI.GamePanel" target="root.etc.ResourcesPath">
       <point x="0.0" y="-14.5" />
-      <point x="337.0" y="217.0" />
-      <point x="386.5" y="217.0" />
-      <point x="-10.25" y="14.5" />
+      <point x="449.25" y="54.0" />
+      <point x="351.125" y="54.0" />
+      <point x="34.75" y="14.5" />
     </edge>
-    <edge source="root.entities.plants.PeaShooter" target="root.entities.PlantAttackable">
-      <point x="-29.5" y="-14.5" />
-      <point x="173.5" y="217.0" />
-      <point x="143.375" y="217.0" />
+    <edge source="root.entities.plants.FreezePeaShooter" target="root.entities.plants.PeaShooter">
+      <point x="-40.25" y="-14.5" />
+      <point x="479.099358974359" y="291.0" />
+      <point x="411.28525641025635" y="291.0" />
+      <point x="29.5" y="14.5" />
+    </edge>
+    <edge source="root.entities.moveable.MoveableObjects" target="root.entities.Actable">
+      <point x="38.25" y="-14.5" />
+      <point x="24.0" y="14.5" />
+    </edge>
+    <edge source="root.entities.plants.Walnut" target="root.entities.plants.Plant">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="root.entities.plants.FreezePeaShooter" target="root.entities.PlantAttackable">
+      <point x="40.25" y="-14.5" />
+      <point x="559.599358974359" y="212.0" />
+      <point x="523.25" y="212.0" />
       <point x="38.25" y="14.5" />
     </edge>
-    <edge source="root.entities.plants.PeaShooter" target="root.entities.plants.Plant">
+    <edge source="root.entities.GameEntity" target="root.etc.ResourcesPath">
+      <point x="0.0" y="-14.5" />
+      <point x="183.5" y="54.0" />
+      <point x="281.625" y="54.0" />
+      <point x="-34.75" y="14.5" />
+    </edge>
+    <edge source="root.entities.plants.PeaShooter" target="root.entities.PlantAttackable">
       <point x="29.5" y="-14.5" />
-      <point x="232.5" y="207.0" />
-      <point x="366.0" y="207.0" />
-      <point x="-30.75" y="14.5" />
+      <point x="411.28525641025635" y="212.0" />
+      <point x="446.75" y="212.0" />
+      <point x="-38.25" y="14.5" />
+    </edge>
+    <edge source="root.entities.plants.PeaShooter" target="root.entities.plants.Plant">
+      <point x="-29.5" y="-14.5" />
+      <point x="352.2852564102564" y="212.0" />
+      <point x="201.83333333333331" y="212.0" />
+      <point x="27.333333333333314" y="14.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="1.0" x="459.5454545454545" y="522.0" />
-  <SelectedNodes>
-    <node>root.entities.plants.Repeater</node>
-  </SelectedNodes>
+  <settings layout="Hierarchic Group" zoom="1.0" x="501.5" y="1072.0" />
+  <SelectedNodes />
   <Categories />
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>

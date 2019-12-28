@@ -92,8 +92,8 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
     /* ----- Setting for the cells ----- */
     cellMaps.forEach((Point, value) -> {
       value.actions();
-      value.moveableEntities.forEach(MoveableObjects::actions);
-      value.moveableEntities.removeIf(
+      value.listZombies.forEach(MoveableObjects::actions);
+      value.listZombies.removeIf(
           stuff -> ((stuff instanceof Sun && (stuff.LoopCounter == Sun.existLoop || ((Sun) stuff).doneCollected))
                   || (stuff instanceof Pea && ((((Pea) stuff).hitted) || ((Pea) stuff).outOfGame))
                   || (stuff instanceof KillSun && (stuff.LoopCounter == KillSun.existLoop || ((KillSun) stuff).doneCollected))));
@@ -213,7 +213,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
 
     cellMaps.forEach((key, value) -> {
       g.drawImage(value.getImage(), key.x, key.y, null);
-      value.moveableEntities.forEach(stuff -> {
+      value.listZombies.forEach(stuff -> {
         g.drawImage(stuff.getImage(), stuff.getX(), stuff.getY(), null);
         if (testMode) {
           g.drawRect(stuff.getBounds().x, stuff.getBounds().y, stuff.getBounds().width, stuff.getBounds().height);
@@ -290,7 +290,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
       }
     }
 
-    cellMaps.forEach((point, plant) -> plant.moveableEntities.forEach(stuff -> {
+    cellMaps.forEach((point, plant) -> plant.listZombies.forEach(stuff -> {
       if (stuff instanceof Sun) {
         if (stuff.getBounds().contains(mouseEvent.getPoint())) {
           ((Sun) stuff).collected = true;

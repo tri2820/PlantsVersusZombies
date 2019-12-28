@@ -22,7 +22,7 @@ public class Repeater extends PeaShooter {
     @Override
     public void dealWithZom() {
         Zombie closestZom = closestZom(zomOnLane());
-        for (MoveableObjects moveableObjects : moveableEntities) {
+        for (MoveableObjects moveableObjects : listZombies) {
             if (closestZom.getX() - moveableObjects.getX() < closestZom.getImage().getWidth(null) / 4) {
                 ((Pea) moveableObjects).hitted = true;
                 closestZom.health -= 30;
@@ -32,7 +32,7 @@ public class Repeater extends PeaShooter {
 
     @Override
     public void shoot() {
-        moveableEntities.add(new Pea(position.x + stuffShooter.x, position.y + stuffShooter.y));
-        moveableEntities.add(new Pea(position.x + stuffShooter.x + 40, position.y + stuffShooter.y));
+        listZombies.add(new Pea(position.x + stuffShooter.x, position.y + stuffShooter.y));
+        listZombies.add(new Pea(position.x + stuffShooter.x + 40, position.y + stuffShooter.y));
     }
 }

@@ -12,7 +12,7 @@ public abstract class Plant extends GameEntity implements Actable {
 
   public int price;
   public int health;
-  public LinkedList<MoveableObjects> moveableEntities = new LinkedList<>();
+  public LinkedList<MoveableObjects> listZombies = new LinkedList<>();
   public Point stuffShooter = new Point(getBounds().width * 5 / 7, getBounds().height / 10);
 
   public Plant(int x, int y) {
