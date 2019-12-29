@@ -10,7 +10,7 @@ public class Pea extends MovableObjects {
 
   public Pea(int x, int y) {
     super(x, y);
-    dx = 15;
+    dx = 20;
     dy = 0;
   }
 

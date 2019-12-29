@@ -37,21 +37,19 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
   int LoopCounter = 0;
   public JLabel message = new JLabel();
   public VisualMode visualMode = new NoScalingMode();
-  int levelNumber = 1;
-  public Level level = Level.getRound(levelNumber, this);
-  int popup_loop_counter = 500;
+  public Level level;
+  int levelNumber;
+  int popup_loop_counter;
   RESULT gameResult;
 
   /* ----------INIT---------- */
   public GamePanel() {
     visualMode.initFont();
-    initMessage();
-    add(Zombie.initStatus());
-    add(Sun.initCountLabel());
     addMouseListener(this);
     addMouseMotionListener(this);
     setLayout(null);
     setPreferredSize(visualMode.GameDim);
+    resetToLevel(1);
   }
 
   void initMessage() {
@@ -66,15 +64,16 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
 
   /* ----------UTILITIES FUNCTIONS---------- */
   private void resetToLevel(int levelNumber) {
+    this.levelNumber = levelNumber;
     LoopCounter = 0;
     popup_loop_counter = 500;
-    this.levelNumber = levelNumber;
     level = Level.getRound(this.levelNumber, this);
-    message.setText("");
     message.removeAll();
+    message.setText("");
+    initMessage();
     add(Zombie.initStatus());
     add(Sun.initCountLabel());
-    initMessage();
+    Sun.updateCount(1000 * levelNumber);
     cellMaps.forEach(cellMaps::remove);
   }
 
@@ -190,7 +189,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
     beforeTime = System.currentTimeMillis();
 
     while (true) {
-      if (!message.getText().equals("GAME OVER")) {
+      if (!(message.getText().equals("GAME OVER") || message.getText().equals("CONGRATULATION"))) {
         cycle();
         repaint();
       }
@@ -291,7 +290,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
       }
 
       if (mouseEvent.getSource().equals(message)) {
-        if (message.getText().equals("GAME OVER")) {
+        if (message.getText().equals("GAME OVER") || message.getText().equals("CONGRATULATION")) {
           int opt = 0;
           UIManager.put("OptionPane.minimumSize", new Dimension(400, 100));
           if (gameResult == RESULT.WIN) {

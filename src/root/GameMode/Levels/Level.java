@@ -38,7 +38,6 @@ public abstract class Level {
     GameEntity.setVisualMode();
     zombieCount = 0;
     zombieKilled = 0;
-    zombieKilledPosition.clear();
   }
 
   public static Level getRound(int levelNumber, GamePanel gamePanel) {
