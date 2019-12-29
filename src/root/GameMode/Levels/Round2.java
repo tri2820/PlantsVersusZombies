@@ -25,6 +25,6 @@ public class Round2 extends Round1 {
     cards.add(new IconButton(gamePanel.visualMode.RepeaterCardIcon, gamePanel.visualMode.GameDim.width * 34 / 90,
         gamePanel.visualMode.GameDim.height / 67, gamePanel.visualMode.RepeaterImage, gamePanel));
 
-    MAX_ZOMBIES = 1;
+    MAX_ZOMBIES = 60;
   }
 }
