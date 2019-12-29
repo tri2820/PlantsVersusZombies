@@ -3,69 +3,65 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="131.25" y="0.0">root.entities.GameEntity</node>
-    <node x="269.25" y="0.0">root.entities.Actable</node>
-    <node x="21.5" y="158.0">root.entities.moveable.Pea</node>
-    <node x="227.79166666666666" y="158.0">root.entities.moveable.Sun</node>
-    <node x="0.0" y="237.0">root.entities.moveable.FreezePea</node>
-    <node x="314.79166666666663" y="158.0">root.entities.moveable.KillSun</node>
-    <node x="260.0" y="237.0">root.entities.moveable.HeadlessSun</node>
-    <node x="130.0" y="237.0">root.entities.moveable.HeadedSun</node>
-    <node x="177.25" y="79.0">root.entities.moveable.MoveableObjects</node>
+    <node x="198.33333333333337" y="0.0">root.entities.GameEntity</node>
+    <node x="336.33333333333337" y="0.0">root.entities.Actable</node>
+    <node x="275.0" y="237.0">root.entities.movable.FreezePea</node>
+    <node x="383.5" y="158.0">root.entities.movable.KillSun</node>
+    <node x="0.0" y="237.0">root.entities.movable.HeadlessSun</node>
+    <node x="145.0" y="237.0">root.entities.movable.HeadedSun</node>
+    <node x="122.62499999999997" y="158.0">root.entities.movable.Sun</node>
+    <node x="296.5" y="158.0">root.entities.movable.Pea</node>
+    <node x="257.0" y="79.0">root.entities.movable.MovableObjects</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="root.entities.moveable.HeadedSun" target="root.entities.moveable.Sun">
+    <edge source="root.entities.movable.Sun" target="root.entities.movable.MovableObjects">
       <point x="0.0" y="-14.5" />
-      <point x="185.0" y="212.0" />
-      <point x="244.54166666666666" y="212.0" />
-      <point x="-16.75" y="14.5" />
+      <point x="156.12499999999997" y="133.0" />
+      <point x="281.33333333333337" y="133.0" />
+      <point x="-48.66666666666666" y="14.5" />
     </edge>
-    <edge source="root.entities.moveable.Sun" target="root.entities.moveable.MoveableObjects">
-      <point x="0.0" y="-14.5" />
-      <point x="261.2916666666667" y="133.0" />
-      <point x="253.75" y="133.0" />
+    <edge source="root.entities.movable.MovableObjects" target="root.entities.Actable">
+      <point x="36.5" y="-14.5" />
+      <point x="366.5" y="54.0" />
+      <point x="384.33333333333337" y="54.0" />
       <point x="0.0" y="14.5" />
     </edge>
-    <edge source="root.entities.moveable.Pea" target="root.entities.moveable.MoveableObjects">
+    <edge source="root.entities.movable.HeadedSun" target="root.entities.movable.Sun">
       <point x="0.0" y="-14.5" />
-      <point x="55.0" y="133.0" />
-      <point x="202.75" y="133.0" />
-      <point x="-51.0" y="14.5" />
-    </edge>
-    <edge source="root.entities.moveable.FreezePea" target="root.entities.moveable.Pea">
-      <point x="0.0" y="-14.5" />
-      <point x="0.0" y="14.5" />
-    </edge>
-    <edge source="root.entities.moveable.MoveableObjects" target="root.entities.GameEntity">
-      <point x="-38.25" y="-14.5" />
-      <point x="215.5" y="54.0" />
-      <point x="190.25" y="54.0" />
-      <point x="0.0" y="14.5" />
-    </edge>
-    <edge source="root.entities.moveable.MoveableObjects" target="root.entities.Actable">
-      <point x="38.25" y="-14.5" />
-      <point x="292.0" y="54.0" />
-      <point x="317.25" y="54.0" />
-      <point x="0.0" y="14.5" />
-    </edge>
-    <edge source="root.entities.moveable.KillSun" target="root.entities.moveable.MoveableObjects">
-      <point x="0.0" y="-14.5" />
-      <point x="362.79166666666663" y="133.0" />
-      <point x="304.75" y="133.0" />
-      <point x="51.0" y="14.5" />
-    </edge>
-    <edge source="root.entities.moveable.HeadlessSun" target="root.entities.moveable.Sun">
-      <point x="0.0" y="-14.5" />
-      <point x="322.5" y="212.0" />
-      <point x="278.0416666666667" y="212.0" />
+      <point x="200.0" y="212.0" />
+      <point x="172.87499999999997" y="212.0" />
       <point x="16.75" y="14.5" />
     </edge>
+    <edge source="root.entities.movable.KillSun" target="root.entities.movable.MovableObjects">
+      <point x="2.8421709430404007E-14" y="-14.5" />
+      <point x="431.5" y="133.0" />
+      <point x="378.66666666666663" y="133.0" />
+      <point x="48.66666666666663" y="14.5" />
+    </edge>
+    <edge source="root.entities.movable.Pea" target="root.entities.movable.MovableObjects">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="root.entities.movable.FreezePea" target="root.entities.movable.Pea">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="root.entities.movable.HeadlessSun" target="root.entities.movable.Sun">
+      <point x="0.0" y="-14.5" />
+      <point x="62.5" y="212.0" />
+      <point x="139.37499999999997" y="212.0" />
+      <point x="-16.75" y="14.5" />
+    </edge>
+    <edge source="root.entities.movable.MovableObjects" target="root.entities.GameEntity">
+      <point x="-36.5" y="-14.5" />
+      <point x="293.5" y="54.0" />
+      <point x="257.33333333333337" y="54.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="1.0" x="774.5" y="410.0" />
-  <SelectedNodes>
-    <node>root.entities.moveable.HeadedSun</node>
-  </SelectedNodes>
+  <settings layout="Hierarchic Group" zoom="1.0" x="492.5" y="315.0" />
+  <SelectedNodes />
   <Categories />
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>
