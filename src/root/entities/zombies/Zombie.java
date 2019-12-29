@@ -51,7 +51,7 @@ public abstract class Zombie extends GameEntity implements Actable {
         speed = 2;
       } else {
         speed = 1;
-        if (LoopCounter % 64 == 0) {
+        if (LoopCounter % 128 == 0) {
           slowed = false;
         }
       }

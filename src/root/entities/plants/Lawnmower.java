@@ -1,14 +1,12 @@
 package root.entities.plants;
 
-import java.awt.*;
+import java.awt.Image;
 import java.util.LinkedList;
-
-import root.entities.Actable;
 import root.entities.zombies.Zombie;
 
 public class Lawnmower extends Plant {
 
-  private static final int SPEED = 5;
+  private static final int SPEED = 10;
   private boolean move = false;
 
   public Lawnmower(int x, int y) {

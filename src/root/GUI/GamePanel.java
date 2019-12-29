@@ -111,7 +111,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
       }
     });
 
-    level.zombieKilledPosition.keySet().removeIf(tmp -> level.zombieKilledPosition.get(tmp) == visualMode.ZombieDie.length - 1);
+    level.zombieKilledPosition.keySet().removeIf(tmp -> level.zombieKilledPosition.get(tmp) >= visualMode.ZombieDie.length - 1);
 
     /* ---- Check for removals ---- */
     level.zombies.removeIf(zombie -> zombie.health <= 0 || zombie.getX() + zombie.getImage().getWidth(null) <= 0);
@@ -137,7 +137,8 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
     } else if (LoopCounter == 500) {
       message.setText("Good luck ^-^");
     } else if (LoopCounter == 2048) {
-      message.setText("The zombie wave is coming!");
+      popup_loop_counter = LoopCounter;
+      message.setText("A big wave of zombies is coming!");
     } else if (LoopCounter > popup_loop_counter + 25 && !message.getText().equals("")) {
       message.setText("");
     }
@@ -245,9 +246,11 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
     /* Zombie Dying gif */
     level.zombieKilledPosition.forEach(
         (pos, index) -> {
-          g.drawImage(visualMode.ZombieDie[index], pos.x - 30, pos.y - 30, null);
-          if (LoopCounter % 4 == 0) {
-            level.zombieKilledPosition.replace(pos, level.zombieKilledPosition.get(pos) + 1);
+          if (index < visualMode.ZombieDie.length) {
+            g.drawImage(visualMode.ZombieDie[index], pos.x - 30, pos.y - 30, null);
+            if (LoopCounter % 4 == 0) {
+              level.zombieKilledPosition.replace(pos, level.zombieKilledPosition.get(pos) + 1);
+            }
           }
         });
 
