@@ -32,16 +32,16 @@ public class ScalingMode extends VisualMode {
   Image RepeaterImage = getScaledImage(REPEATER);
   Image RepreaterCardIcon = getScaledImage(REPEATER_CARD);
 
-  Image NormalZombieWalkImage = getScaledImage(NORMAL_ZOMBIE_WALK);
+  Image NormalZombieWalkImage = getScaledImage(NORMAL_ZOMBIE);
   Image NormalZombieEatImage = getScaledImage(NORMAL_ZOMBIE_EAT);
   Image NormalZombieDieImage = getScaledImage(NORMAL_ZOMBIE_DIE);
-  Image NormalZombieLostHeadWalkImage = getScaledImage(NORMAL_ZOMBIE_LOST_HEAD_WALK);
+  Image NormalZombieLostHeadWalkImage = getScaledImage(NORMAL_ZOMBIE_LOST_HEAD);
   Image NormalZombieLostHeadEatImage = getScaledImage(NORMAL_ZOMBIE_LOST_HEAD_EAT);
 
-  Image ConeHeadZombieWalkImage = getScaledImage(CONE_HEAD_ZOMBIE_WALK);
+  Image ConeHeadZombieWalkImage = getScaledImage(CONE_HEAD_ZOMBIE);
   Image ConeHeadZombieEatImage = getScaledImage(CONE_HEAD_ZOMBIE_EAT);
 
-  Image BucketHeadZombieWalkImage = getScaledImage(BUCKET_HEAD_ZOMBIE_WALK);
+  Image BucketHeadZombieWalkImage = getScaledImage(BUCKET_HEAD_ZOMBIE);
   Image BucketHeadZombieEatImage = getScaledImage(BUCKET_HEAD_ZOMBIE_EAT);
 
   Image ThreePeaShooterImage = getScaledImage(THREE_PEASHOOTER);

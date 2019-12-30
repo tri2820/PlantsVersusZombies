@@ -24,7 +24,6 @@ public class NoScalingMode extends VisualMode {
     SnowPeaCardIcon = new ImageIcon(SNOW_PEA_CARD);
 
     //PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS
-
     //repeater
     RepeaterImage = new ImageIcon(REPEATER).getImage();
     RepeaterCardIcon = new ImageIcon(REPEATER_CARD);
@@ -44,20 +43,19 @@ public class NoScalingMode extends VisualMode {
     WalnutCardIcon = new ImageIcon(WALNUT_CARD);
 
     //ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE
-
     //normal zombie
-    NormalZombieWalkImage = new ImageIcon(NORMAL_ZOMBIE_WALK).getImage();
+    NormalZombieWalkImage = new ImageIcon(NORMAL_ZOMBIE).getImage();
     NormalZombieEatImage = new ImageIcon(NORMAL_ZOMBIE_EAT).getImage();
     NormalZombieDieImage = new ImageIcon(NORMAL_ZOMBIE_DIE).getImage();
-    NormalZombieLostHeadWalkImage = new ImageIcon(NORMAL_ZOMBIE_LOST_HEAD_WALK).getImage();
+    NormalZombieLostHeadWalkImage = new ImageIcon(NORMAL_ZOMBIE_LOST_HEAD).getImage();
     NormalZombieLostHeadEatImage = new ImageIcon(NORMAL_ZOMBIE_LOST_HEAD_EAT).getImage();
 
     //cone head zombie
-    ConeHeadZombieWalkImage = new ImageIcon(CONE_HEAD_ZOMBIE_WALK).getImage();
+    ConeHeadZombieWalkImage = new ImageIcon(CONE_HEAD_ZOMBIE).getImage();
     ConeHeadZombieEatImage = new ImageIcon(CONE_HEAD_ZOMBIE_EAT).getImage();
 
     //bucket head zombie
-    BucketHeadZombieWalkImage = new ImageIcon(BUCKET_HEAD_ZOMBIE_WALK).getImage();
+    BucketHeadZombieWalkImage = new ImageIcon(BUCKET_HEAD_ZOMBIE).getImage();
     BucketHeadZombieEatImage = new ImageIcon(BUCKET_HEAD_ZOMBIE_EAT).getImage();
 
     //flag zombie

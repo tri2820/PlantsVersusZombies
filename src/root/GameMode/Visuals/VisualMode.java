@@ -21,12 +21,30 @@ public abstract class VisualMode implements ResourcesPath {
   public Image SunImage;
   public Image KillSunImage;
   public Image LuckyBalloonImage;
+  public ImageIcon ShovelButtonIcon;
+  public ImageIcon SunFlowerCardIcon;
+  public ImageIcon PeaShooterCardIcon;
+  public ImageIcon SnowPeaCardIcon;
+  public ImageIcon ThreePeaShooterCardIcon;
+  public Image ThreePeaShooterImage;
+
+  public Image ShovelImage;
+  public Image ShovelButtonImage;
+  public Image LawnmowerImage;
+  public Image LawnmowerMovingImage;
 
   public Image RepeaterImage;
   public ImageIcon RepeaterCardIcon;
 
   public Image PeaImage;
   public Image FreezePeaImage;
+  public Image MushroomImage;
+
+  public Image PuffShroomImage;
+  public ImageIcon PuffShroomCardIcon;
+
+  public Image SunShroomImage;
+  public ImageIcon SunShroomCardIcon;
 
   //normal zombie
   public Image NormalZombieWalkImage;
@@ -57,19 +75,6 @@ public abstract class VisualMode implements ResourcesPath {
   public Image FlagZombieEatImage;
   public Image FlagZombieLostHeadImage;
   public Image FlagZombieLostHeadEatImage;
-
-  public Image ThreePeaShooterImage;
-
-  public Image ShovelImage;
-  public Image ShovelButtonImage;
-  public Image LawnmowerImage;
-  public Image LawnmowerMovingImage;
-
-  public ImageIcon ShovelButtonIcon;
-  public ImageIcon SunFlowerCardIcon;
-  public ImageIcon PeaShooterCardIcon;
-  public ImageIcon SnowPeaCardIcon;
-  public ImageIcon ThreePeaShooterCardIcon;
 
   public Image Walnut1;
   public Image Walnut2;

@@ -8,9 +8,6 @@ public class NightMode extends VisualMode {
     BackgroundImage = new ImageIcon(BACKGROUND_NIGHT).getImage();
 
     ////////////////////// CHANGE TO DARK MODE PLANTS BELOW
-    SunFlowerImage = new ImageIcon(SUNFLOWER).getImage();
-    PeaShooterImage = new ImageIcon(PEASHOOTER).getImage();
-    SnowPeaImage = new ImageIcon(SNOW_PEA).getImage();
     SunImage = new ImageIcon(SUN).getImage();
     KillSunImage = new ImageIcon(KILL_SUN).getImage();
     LuckyBalloonImage = new ImageIcon(LUCKY_BALLOON).getImage();
@@ -18,13 +15,25 @@ public class NightMode extends VisualMode {
     ShovelButtonImage = new ImageIcon(SHOVEL_BUTTON).getImage();
     LawnmowerImage = new ImageIcon(LAWNMOWER).getImage();
     LawnmowerMovingImage = new ImageIcon(LAWNMOWER_MOVING).getImage();
-
     ShovelButtonIcon = new ImageIcon(ShovelButtonImage);
-    SunFlowerCardIcon = new ImageIcon(SUNFLOWER_CARD);
-    PeaShooterCardIcon = new ImageIcon(PEASHOOTER_CARD);
-    SnowPeaCardIcon = new ImageIcon(SNOW_PEA_CARD);
+    MushroomImage = new ImageIcon(MUSHROOM).getImage();
 
     //PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS
+    //puff shroom
+    PuffShroomImage = new ImageIcon(PUFF_SHROOM).getImage();
+    PuffShroomCardIcon = new ImageIcon(PUFF_SHROOM_CARD);
+
+    //sun shroom
+    SunShroomImage = new ImageIcon(SUN_SHROOM).getImage();
+    SunShroomCardIcon = new ImageIcon(SUN_SHROOM_CARD);
+
+    //pea shooter
+    PeaShooterImage = new ImageIcon(PEASHOOTER).getImage();
+    PeaShooterCardIcon = new ImageIcon(PEASHOOTER_CARD);
+
+    //snow pea
+    SnowPeaCardIcon = new ImageIcon(SNOW_PEA_CARD);
+    SnowPeaImage = new ImageIcon(SNOW_PEA).getImage();
 
     //repeater
     RepeaterImage = new ImageIcon(REPEATER).getImage();
@@ -47,18 +56,18 @@ public class NightMode extends VisualMode {
     //ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE
 
     //normal zombie
-    NormalZombieWalkImage = new ImageIcon(NORMAL_ZOMBIE_WALK).getImage();
+    NormalZombieWalkImage = new ImageIcon(NORMAL_ZOMBIE).getImage();
     NormalZombieEatImage = new ImageIcon(NORMAL_ZOMBIE_EAT).getImage();
     NormalZombieDieImage = new ImageIcon(NORMAL_ZOMBIE_DIE).getImage();
-    NormalZombieLostHeadWalkImage = new ImageIcon(NORMAL_ZOMBIE_LOST_HEAD_WALK).getImage();
+    NormalZombieLostHeadWalkImage = new ImageIcon(NORMAL_ZOMBIE_LOST_HEAD).getImage();
     NormalZombieLostHeadEatImage = new ImageIcon(NORMAL_ZOMBIE_LOST_HEAD_EAT).getImage();
 
     //cone head zombie
-    ConeHeadZombieWalkImage = new ImageIcon(CONE_HEAD_ZOMBIE_WALK).getImage();
+    ConeHeadZombieWalkImage = new ImageIcon(CONE_HEAD_ZOMBIE).getImage();
     ConeHeadZombieEatImage = new ImageIcon(CONE_HEAD_ZOMBIE_EAT).getImage();
 
     //bucket head zombie
-    BucketHeadZombieWalkImage = new ImageIcon(BUCKET_HEAD_ZOMBIE_WALK).getImage();
+    BucketHeadZombieWalkImage = new ImageIcon(BUCKET_HEAD_ZOMBIE).getImage();
     BucketHeadZombieEatImage = new ImageIcon(BUCKET_HEAD_ZOMBIE_EAT).getImage();
 
     //flag zombie

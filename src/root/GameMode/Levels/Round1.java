@@ -6,6 +6,7 @@ import root.entities.plants.Lawnmower;
 import root.entities.plants.PeaShooter;
 import root.entities.plants.SunFlower;
 import root.entities.plants.Walnut;
+import root.entities.zombies.FlagZombie;
 import root.entities.zombies.NormalZombie;
 import root.etc.CellsManager;
 
@@ -19,6 +20,7 @@ public class Round1 extends Level {
 
     //zombie
     zombieClasses.add(NormalZombie.class);
+    zombieClasses.add(FlagZombie.class);
 
     //plant
     plantClasses.add(SunFlower.class);
