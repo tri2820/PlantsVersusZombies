@@ -110,9 +110,9 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
       }
     });
 
-    level.zombieKilledPosition.keySet().removeIf(tmp -> level.zombieKilledPosition.get(tmp) >= visualMode.ZombieDie.length - 1);
 
     /* ---- Check for removals ---- */
+    level.zombieKilledPosition.keySet().removeIf(tmp -> level.zombieKilledPosition.get(tmp) >= visualMode.ZombieDie.length - 1);
     level.zombies.removeIf(zombie -> zombie.health <= 0 || zombie.getX() + zombie.getImage().getWidth(null) <= 0);
 
     level.movableEntities
