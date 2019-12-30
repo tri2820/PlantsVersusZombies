@@ -12,6 +12,7 @@ import root.GUI.GamePanel;
 import root.GUI.IconButton;
 import root.GameMode.Visuals.VisualMode;
 import root.entities.GameEntity;
+import root.entities.movable.LuckyBalloon;
 import root.entities.movable.MovableObjects;
 import root.entities.plants.Lawnmower;
 import root.entities.plants.Plant;
@@ -28,6 +29,7 @@ public abstract class Level {
   public ArrayList<Class<? extends Zombie>> zombieClasses = new ArrayList<>();
   public ArrayList<IconButton> cards = new ArrayList<>(5);
   public ArrayList<Lawnmower> lawnmowers = new ArrayList<>(5);
+  public ArrayList<LuckyBalloon> luckyBalloons = new ArrayList<>(5);
   public Map<Point, Integer> zombieKilledPosition = new HashMap<>();
   public int MAX_ZOMBIES;
   public int zombieCount, zombieKilled;

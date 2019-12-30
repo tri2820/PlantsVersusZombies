@@ -14,7 +14,8 @@ public interface ResourcesPath {
 
   //type of sun
   String SUN = RESOURCE_DIR + "/Sun.gif";
-  String KILLSUN = RESOURCE_DIR + "/KillSun.png";
+  String KILL_SUN = RESOURCE_DIR + "/KillSun.png";
+  String LUCKY_BALLOON = RESOURCE_DIR + "/lucky.png";
 
   //repeater
   String REPEATER = RESOURCE_DIR + "/plants/Repeater.gif";
@@ -27,11 +28,11 @@ public interface ResourcesPath {
   String NORMAL_ZOMBIE_LOST_HEAD_WALK = RESOURCE_DIR + "/zombies/NormalZombieLostHeadWalk-Tall.gif";
   String NORMAL_ZOMBIE_LOST_HEAD_EAT = RESOURCE_DIR + "/zombies/NormalZombieLostHeadAttack-Tall.gif";
 
-  //conehead zombie
+  //ConeHead zombie
   String CONE_HEAD_ZOMBIE_WALK = RESOURCE_DIR + "/zombies/ConeHeadZombieWalk.gif";
   String CONE_HEAD_ZOMBIE_EAT = RESOURCE_DIR + "/zombies/ConeHeadZombieAttack.gif";
 
-  //buckethead zombie
+  //BucketHead zombie
   String BUCKET_HEAD_ZOMBIE_WALK = RESOURCE_DIR + "/zombies/BucketHeadZombieWalk.gif";
   String BUCKET_HEAD_ZOMBIE_EAT = RESOURCE_DIR + "/zombies/BucketHeadZombieAttack.gif";
 
@@ -58,20 +59,20 @@ public interface ResourcesPath {
   String PEASHOOTER = RESOURCE_DIR + "/plants/PeaShooter.gif";
 
   //freeze pea shooter
-  String FREEZE_PEASHOOTER_CARD = RESOURCE_DIR + "/cards/FreezePeaShooterCard.png";
-  String FREEZE_PEASHOOTER = RESOURCE_DIR + "/plants/FreezePeaShooter.gif";
+  String SNOW_PEA_CARD = RESOURCE_DIR + "/cards/SnowPeaCard.png";
+  String SNOW_PEA = RESOURCE_DIR + "/plants/SnowPea.gif";
 
   //types of pea
   String PEA = RESOURCE_DIR + "/Pea.png";
-  String FREEZE_PEA = RESOURCE_DIR + "/FreezePea.png";
+  String SNOW = RESOURCE_DIR + "/Snow.png";
 
   //font
   String PvZUI_FONT = RESOURCE_DIR + "/Font/PvZUI.ttf";
   String SOL_FONT = RESOURCE_DIR + "/Font/solHeavy.ttf";
 
   //walnut
-  String WALNUT_CARD = RESOURCE_DIR + "/plants/walnut/wallnutcard.png";
-  String WALNUT1 = RESOURCE_DIR + "/plants/walnut/Wallnut1.gif";
-  String WALNUT2 = RESOURCE_DIR + "/plants/walnut/Wallnut2.gif";
-  String WALNUT3 = RESOURCE_DIR + "/plants/walnut/Wallnut3.gif";
+  String WALNUT_CARD = RESOURCE_DIR + "/plants/walnut/WalnutCard.png";
+  String WALNUT1 = RESOURCE_DIR + "/plants/walnut/Walnut1.gif";
+  String WALNUT2 = RESOURCE_DIR + "/plants/walnut/Walnut2.gif";
+  String WALNUT3 = RESOURCE_DIR + "/plants/walnut/Walnut3.gif";
 }

@@ -2,9 +2,9 @@ package root.entities.movable;
 
 import java.awt.Image;
 
-public class FreezePea extends Pea {
+public class Snow extends Pea {
 
-  public FreezePea(int x, int y) {
+  public Snow(int x, int y) {
     super(x, y);
   }
 

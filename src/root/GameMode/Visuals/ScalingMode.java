@@ -21,13 +21,13 @@ public class ScalingMode extends VisualMode {
 
   Image SunFlowerImage = getScaledImage(SUNFLOWER);
   Image SunImage = getScaledImage(SUN);
-  Image KillSunImage = getScaledImage(KILLSUN);
+  Image KillSunImage = getScaledImage(KILL_SUN);
 
   Image PeaShooterImage = getScaledImage(PEASHOOTER);
   Image PeaImage = getScaledImage(PEA);
 
-  Image FreezePeaShooterImage = getScaledImage(FREEZE_PEASHOOTER);
-  Image FreezePeaImage = getScaledImage(FREEZE_PEA);
+  Image FreezePeaShooterImage = getScaledImage(SNOW_PEA);
+  Image FreezePeaImage = getScaledImage(SNOW);
 
   Image RepeaterImage = getScaledImage(REPEATER);
   Image RepreaterCardIcon = getScaledImage(REPEATER_CARD);
@@ -50,7 +50,7 @@ public class ScalingMode extends VisualMode {
   ImageIcon ShovelButtonIcon = new ImageIcon(getScaledImage(SHOVEL_BUTTON, 0.65));
   ImageIcon SunFlowerCardIcon = new ImageIcon(getScaledImage(SUNFLOWER_CARD));
   ImageIcon PeaShooterCardIcon = new ImageIcon(getScaledImage(PEASHOOTER_CARD));
-  ImageIcon FreezePeaShooterCardIcon = new ImageIcon(getScaledImage(FREEZE_PEASHOOTER_CARD));
+  ImageIcon FreezePeaShooterCardIcon = new ImageIcon(getScaledImage(SNOW_PEA_CARD));
 
   ImageIcon WalnutCardIcon = new ImageIcon(getScaledImage(WALNUT_CARD));
   Image Walnut1 = getScaledImage(WALNUT1);

@@ -2,13 +2,13 @@ package root.entities.plants;
 
 import java.awt.Image;
 import root.entities.PlantAttackable;
-import root.entities.movable.FreezePea;
 import root.entities.movable.MovableObjects;
+import root.entities.movable.Snow;
 import root.entities.zombies.Zombie;
 
-public class FreezePeaShooter extends PeaShooter implements PlantAttackable {
+public class SnowPea extends PeaShooter implements PlantAttackable {
 
-  public FreezePeaShooter(int x, int y) {
+  public SnowPea(int x, int y) {
     super(x, y);
     price = 175;
     health = 200;
@@ -19,7 +19,7 @@ public class FreezePeaShooter extends PeaShooter implements PlantAttackable {
     Zombie closestZom = closestZom(zomOnLane());
     for (MovableObjects movableObjects : Stuffs) {
       if (closestZom.getX() - movableObjects.getX() < closestZom.getImage().getWidth(null) / 4) {
-        ((FreezePea) movableObjects).hitted = true;
+        ((Snow) movableObjects).hitted = true;
         closestZom.slowed = true;
         closestZom.health -= 15;
       }
@@ -28,11 +28,11 @@ public class FreezePeaShooter extends PeaShooter implements PlantAttackable {
 
   @Override
   public void shoot() {
-    Stuffs.add(new FreezePea(position.x + stuffShooter.x, position.y + stuffShooter.y));
+    Stuffs.add(new Snow(position.x + stuffShooter.x, position.y + stuffShooter.y));
   }
 
   @Override
   public Image getImage() {
-    return visualMode.FreezePeaShooterImage;
+    return visualMode.SnowPeaCardImage;
   }
 }

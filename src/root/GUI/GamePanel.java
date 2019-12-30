@@ -19,6 +19,7 @@ import root.GameMode.Visuals.NoScalingMode;
 import root.GameMode.Visuals.VisualMode;
 import root.entities.movable.HeadlessSun;
 import root.entities.movable.KillSun;
+import root.entities.movable.LuckyBalloon;
 import root.entities.movable.MovableObjects;
 import root.entities.movable.Pea;
 import root.entities.movable.Sun;
@@ -73,6 +74,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
     initMessage();
     add(Zombie.initStatus());
     add(Sun.initCountLabel());
+    Sun.Count = 0;
     Sun.updateCount(1000 * levelNumber);
     cellMaps.forEach(cellMaps::remove);
   }
@@ -98,8 +100,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
       value.Stuffs.forEach(MovableObjects::actions);
       value.Stuffs.removeIf(
           stuff -> ((stuff instanceof Sun && (stuff.LoopCounter >= Sun.existLoop || ((Sun) stuff).doneCollected))
-              || (stuff instanceof Pea && ((((Pea) stuff).hitted) || ((Pea) stuff).outOfGame))
-              || (stuff instanceof KillSun && (stuff.LoopCounter >= KillSun.existLoop || ((KillSun) stuff).doneCollected))));
+              || (stuff instanceof Pea && ((((Pea) stuff).hitted) || ((Pea) stuff).outOfGame))));
     });
 
     /* ****Zombie Die effects**** */
@@ -116,8 +117,10 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
     level.zombies.removeIf(zombie -> zombie.health <= 0 || zombie.getX() + zombie.getImage().getWidth(null) <= 0);
 
     level.movableEntities
-        .removeIf(obj -> ((obj instanceof Sun && (obj.LoopCounter >= Sun.existLoop || ((Sun) obj).doneCollected))
-            || (obj instanceof KillSun && (obj.LoopCounter >= KillSun.existLoop || ((KillSun) obj).doneCollected))));
+        .removeIf(obj -> (
+            (obj instanceof Sun && (obj.LoopCounter >= Sun.existLoop || ((Sun) obj).doneCollected))
+                || (obj instanceof LuckyBalloon && (obj.LoopCounter >= LuckyBalloon.existLoop || ((LuckyBalloon) obj).clicked))));
+
     CellsManager.cellMaps.values().removeIf(plant -> plant.health <= 0);
     level.lawnmowers.removeIf(lawnmower -> lawnmower.getX() > visualMode.GameDim.width);
 
@@ -142,12 +145,20 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
       message.setText("");
     }
 
-    if (LoopCounter % 128 == 0) {
-      int edge = visualMode.SunImage.getWidth(null);
-      level.movableEntities.add(new HeadlessSun((new Random().nextInt(visualMode.GameDim.width - edge)), 0));
-    } else if (LoopCounter % 512 == 0) {
-      int edge = visualMode.KillSunImage.getWidth(null);
-      level.movableEntities.add(new KillSun((new Random().nextInt(visualMode.GameDim.width - edge)), 0));
+    if (LoopCounter % 512 == 0) {
+      int killSunEdge = visualMode.KillSunImage.getWidth(null);
+      level.movableEntities.add(new KillSun((new Random().nextInt(visualMode.GameDim.width - killSunEdge)), 0));
+    } else if (LoopCounter % 256 == 0) {
+      int luckyEdgeX = visualMode.LuckyBalloonImage.getWidth(null);
+      int luckyEdgeY = visualMode.LuckyBalloonImage.getHeight(null);
+      level.movableEntities.add(new LuckyBalloon(
+          (new Random().nextInt(visualMode.GameDim.width - luckyEdgeX)),
+          (new Random().nextInt(visualMode.GameDim.height - luckyEdgeY))
+      ));
+    } else if (LoopCounter % 128 == 0) {
+      int sunEdge = visualMode.SunImage.getWidth(null);
+      level.movableEntities.add(
+          new HeadlessSun((new Random().nextInt(visualMode.GameDim.width - sunEdge)), 0));
     }
 
     if (!level.end()) {
@@ -281,11 +292,9 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
         if (movableObjects.getBounds().contains(mouseEvent.getPoint())) {
           ((Sun) movableObjects).collected = true;
         }
-      }
-
-      if (movableObjects instanceof KillSun) {
+      } else if (movableObjects instanceof LuckyBalloon) {
         if (movableObjects.getBounds().contains(mouseEvent.getPoint())) {
-          ((KillSun) movableObjects).collected = true;
+          ((LuckyBalloon) movableObjects).luckyEffect();
         }
       }
 

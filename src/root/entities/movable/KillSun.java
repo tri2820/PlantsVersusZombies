@@ -5,7 +5,7 @@ import root.entities.zombies.Zombie;
 
 public class KillSun extends Sun {
 
-    //kill all the zombie on the gamepanel
+    //kill all the zombie on the gamePanel
     public KillSun(int x, int y) {
         super(x, y);
         dx = 4;

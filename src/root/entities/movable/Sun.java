@@ -11,7 +11,7 @@ public abstract class Sun extends MovableObjects {
 
   public static int Count = 0;                                                           //initial sun in game
   public static JLabel CountLabel = new JLabel(String.valueOf(Count), SwingConstants.CENTER);
-  public static int existLoop = 120;                                                          //lasting time of the sun
+  public static final int existLoop = 40;                                                          //lasting time of the sun
   private static Point SunCollector = new Point(visualMode.GameDim.width / 90, visualMode.GameDim.height / 67);
   public boolean collected = false;
   public boolean doneCollected = false;
