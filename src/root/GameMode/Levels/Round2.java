@@ -7,6 +7,7 @@ import root.entities.plants.SnowPea;
 import root.entities.plants.ThreePeaShooter;
 import root.entities.zombies.BucketHeadZombie;
 import root.entities.zombies.ConeHeadZombie;
+import root.entities.zombies.NewspaperZombie;
 
 public class Round2 extends Round1 {
 
@@ -16,6 +17,7 @@ public class Round2 extends Round1 {
     //zombie
     zombieClasses.add(ConeHeadZombie.class);
     zombieClasses.add(BucketHeadZombie.class);
+    zombieClasses.add(NewspaperZombie.class);
 
     //plant
     plantClasses.add(SnowPea.class);

@@ -21,25 +21,11 @@ public abstract class VisualMode implements ResourcesPath {
   public Image SunImage;
   public Image KillSunImage;
   public Image LuckyBalloonImage;
-
-  public Image RepeaterImage;
-  public ImageIcon RepeaterCardIcon;
-
-  public Image PeaImage;
-  public Image FreezePeaImage;
-  public Image NormalZombieWalkImage;
-  public Image NormalZombieEatImage;
-  public Image NormalZombieDieImage;
-  public Image NormalZombieLostHeadWalkImage;
-  public Image NormalZombieLostHeadEatImage;
-  public Image[] ZombieDie = new Image[10];
-
-  public Image ConeHeadZombieWalkImage;
-  public Image ConeHeadZombieEatImage;
-
-  public Image BucketHeadZombieWalkImage;
-  public Image BucketHeadZombieEatImage;
-
+  public ImageIcon ShovelButtonIcon;
+  public ImageIcon SunFlowerCardIcon;
+  public ImageIcon PeaShooterCardIcon;
+  public ImageIcon SnowPeaCardIcon;
+  public ImageIcon ThreePeaShooterCardIcon;
   public Image ThreePeaShooterImage;
 
   public Image ShovelImage;
@@ -47,11 +33,48 @@ public abstract class VisualMode implements ResourcesPath {
   public Image LawnmowerImage;
   public Image LawnmowerMovingImage;
 
-  public ImageIcon ShovelButtonIcon;
-  public ImageIcon SunFlowerCardIcon;
-  public ImageIcon PeaShooterCardIcon;
-  public ImageIcon SnowPeaCardIcon;
-  public ImageIcon ThreePeaShooterCardIcon;
+  public Image RepeaterImage;
+  public ImageIcon RepeaterCardIcon;
+
+  public Image PeaImage;
+  public Image FreezePeaImage;
+  public Image MushroomImage;
+
+  public Image PuffShroomImage;
+  public ImageIcon PuffShroomCardIcon;
+
+  public Image SunShroomImage;
+  public ImageIcon SunShroomCardIcon;
+
+  //normal zombie
+  public Image NormalZombieWalkImage;
+  public Image NormalZombieEatImage;
+  public Image NormalZombieDieImage;
+  public Image NormalZombieLostHeadWalkImage;
+  public Image NormalZombieLostHeadEatImage;
+  public Image[] ZombieDie = new Image[10];
+
+  //cone head zombie
+  public Image ConeHeadZombieWalkImage;
+  public Image ConeHeadZombieEatImage;
+
+  //bucket head zombie
+  public Image BucketHeadZombieWalkImage;
+  public Image BucketHeadZombieEatImage;
+
+  //newspaper zombie
+  public Image NewspaperZombieImage;
+  public Image NewspaperZombieEatImage;
+  public Image NewsZombieImage;
+  public Image NewsZombieEatImage;
+  public Image NewsZombieLostHeadImage;
+  public Image NewsZombieLostHeadEatImage;
+
+  //flag zombie
+  public Image FlagZombieImage;
+  public Image FlagZombieEatImage;
+  public Image FlagZombieLostHeadImage;
+  public Image FlagZombieLostHeadEatImage;
 
   public Image Walnut1;
   public Image Walnut2;

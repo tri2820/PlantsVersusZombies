@@ -22,44 +22,17 @@ public interface ResourcesPath {
   //types of pea
   String PEA = RESOURCE_DIR + "/pea/Pea.png";
   String SNOW = RESOURCE_DIR + "/pea/Snow.png";
+  String MUSHROOM = RESOURCE_DIR + "/pea/Mushroom.png";
 
   //type of sun
   String SUN = RESOURCE_DIR + "/pea/Sun.gif";
   String KILL_SUN = RESOURCE_DIR + "/pea/KillSun.png";
   String LUCKY_BALLOON = RESOURCE_DIR + "/item/lucky.png";
 
+  //PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS
   //repeater
   String REPEATER = RESOURCE_DIR + "/plants/Repeater.gif";
   String REPEATER_CARD = RESOURCE_DIR + "/cards/RepeaterCard.png";
-
-  //zombie
-  String NORMAL_ZOMBIE_WALK = RESOURCE_DIR + "/zombies/NormalZombieWalk.gif";
-  String NORMAL_ZOMBIE_EAT = RESOURCE_DIR + "/zombies/NormalZombieAttack.gif";
-  String NORMAL_ZOMBIE_DIE = RESOURCE_DIR + "/zombies/NormalZombieDie.gif";
-  String NORMAL_ZOMBIE_LOST_HEAD_WALK = RESOURCE_DIR + "/zombies/NormalZombieLostHeadWalk-Tall.gif";
-  String NORMAL_ZOMBIE_LOST_HEAD_EAT = RESOURCE_DIR + "/zombies/NormalZombieLostHeadAttack-Tall.gif";
-
-  //ConeHead zombie
-  String CONE_HEAD_ZOMBIE_WALK = RESOURCE_DIR + "/zombies/ConeHeadZombieWalk.gif";
-  String CONE_HEAD_ZOMBIE_EAT = RESOURCE_DIR + "/zombies/ConeHeadZombieAttack.gif";
-
-  //BucketHead zombie
-  String BUCKET_HEAD_ZOMBIE_WALK = RESOURCE_DIR + "/zombies/BucketHeadZombieWalk.gif";
-  String BUCKET_HEAD_ZOMBIE_EAT = RESOURCE_DIR + "/zombies/BucketHeadZombieAttack.gif";
-
-  //zombie die
-  String[] ZOMBIE_DIE = {
-      RESOURCE_DIR + "/zombies/zombie_die/frame_00_delay-0.2s.png",
-      RESOURCE_DIR + "/zombies/zombie_die/frame_01_delay-0.2s.png",
-      RESOURCE_DIR + "/zombies/zombie_die/frame_02_delay-0.2s.png",
-      RESOURCE_DIR + "/zombies/zombie_die/frame_03_delay-0.2s.png",
-      RESOURCE_DIR + "/zombies/zombie_die/frame_04_delay-0.2s.png",
-      RESOURCE_DIR + "/zombies/zombie_die/frame_05_delay-0.2s.png",
-      RESOURCE_DIR + "/zombies/zombie_die/frame_06_delay-0.2s.png",
-      RESOURCE_DIR + "/zombies/zombie_die/frame_07_delay-0.2s.png",
-      RESOURCE_DIR + "/zombies/zombie_die/frame_08_delay-0.2s.png",
-      RESOURCE_DIR + "/zombies/zombie_die/frame_09_delay-0.2s.png"
-  };
 
   //sunflower
   String SUNFLOWER_CARD = RESOURCE_DIR + "/cards/SunFlowerCard.png";
@@ -82,4 +55,56 @@ public interface ResourcesPath {
   String WALNUT1 = RESOURCE_DIR + "/plants/walnut/Walnut1.gif";
   String WALNUT2 = RESOURCE_DIR + "/plants/walnut/Walnut2.gif";
   String WALNUT3 = RESOURCE_DIR + "/plants/walnut/Walnut3.gif";
+
+  //Puff shroom
+  String PUFF_SHROOM = RESOURCE_DIR + "/plants/PuffShroom.gif";
+  String PUFF_SHROOM_CARD = RESOURCE_DIR + "/cards/PuffShroomCard.png";
+
+  //sun shroom
+  String SUN_SHROOM = RESOURCE_DIR + "/plants/SunShroom.gif";
+  String SUN_SHROOM_CARD = RESOURCE_DIR + "/cards/SunShroomCard.png";
+
+  //ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE
+  //zombie
+  String NORMAL_ZOMBIE = RESOURCE_DIR + "/zombies/NormalZombie/NormalZombie.gif";
+  String NORMAL_ZOMBIE_EAT = RESOURCE_DIR + "/zombies/NormalZombie/NormalZombieAttack.gif";
+  String NORMAL_ZOMBIE_LOST_HEAD = RESOURCE_DIR + "/zombies/NormalZombie/NormalZombieLostHead.gif";
+  String NORMAL_ZOMBIE_LOST_HEAD_EAT = RESOURCE_DIR + "/zombies/NormalZombie/NormalZombieLostHeadAttack.gif";
+  String NORMAL_ZOMBIE_DIE = RESOURCE_DIR + "/zombies/NormalZombieDie.gif";
+
+  //ConeHead zombie
+  String CONE_HEAD_ZOMBIE = RESOURCE_DIR + "/zombies/ConeHeadZombie/ConeHeadZombie.gif";
+  String CONE_HEAD_ZOMBIE_EAT = RESOURCE_DIR + "/zombies/ConeHeadZombie/ConeHeadZombieAttack.gif";
+
+  //BucketHead zombie
+  String BUCKET_HEAD_ZOMBIE = RESOURCE_DIR + "/zombies/BucketHeadZombie/BucketHeadZombie.gif";
+  String BUCKET_HEAD_ZOMBIE_EAT = RESOURCE_DIR + "/zombies/BucketHeadZombie/BucketHeadZombieAttack.gif";
+
+  //Newspaper zombie
+  String NEWSPAPER_ZOMBIE = RESOURCE_DIR + "/zombies/NewspaperZombie/NewspaperZombie.gif";
+  String NEWSPAPER_ZOMBIE_EAT = RESOURCE_DIR + "/zombies/NewspaperZombie/NewspaperZombieAttack.gif";
+  String NEWS_ZOMBIE = RESOURCE_DIR + "/zombies/NewspaperZombie/NewsZombie.gif";
+  String NEWS_ZOMBIE_EAT = RESOURCE_DIR + "/zombies/NewspaperZombie/NewsZombieAttack.gif";
+  String NEWS_ZOMBIE_LOST_HEAD = RESOURCE_DIR + "/zombies/NewspaperZombie/NewsZombieLostHead.gif";
+  String NEWS_ZOMBIE_LOST_HEAD_EAT = RESOURCE_DIR + "/zombies/NewspaperZombie/NewsZombieLostHeadAttack.gif";
+
+  //flag zombie
+  String FLAG_ZOMBIE = RESOURCE_DIR + "/zombies/FlagZombie/FlagZombie.gif";
+  String FLAG_ZOMBIE_EAT = RESOURCE_DIR + "/zombies/FlagZombie/FlagZombieAttack.gif";
+  String FLAG_ZOMBIE_LOST_HEAD = RESOURCE_DIR + "/zombies/FlagZombie/FlagZombieLostHead.gif";
+  String FLAG_ZOMBIE_LOST_HEAD_EAT = RESOURCE_DIR + "/zombies/FlagZombie/FlagZombieLostHeadAttack.gif";
+
+  //zombie die
+  String[] ZOMBIE_DIE = {
+      RESOURCE_DIR + "/zombies/zombie_die/frame_00_delay-0.2s.png",
+      RESOURCE_DIR + "/zombies/zombie_die/frame_01_delay-0.2s.png",
+      RESOURCE_DIR + "/zombies/zombie_die/frame_02_delay-0.2s.png",
+      RESOURCE_DIR + "/zombies/zombie_die/frame_03_delay-0.2s.png",
+      RESOURCE_DIR + "/zombies/zombie_die/frame_04_delay-0.2s.png",
+      RESOURCE_DIR + "/zombies/zombie_die/frame_05_delay-0.2s.png",
+      RESOURCE_DIR + "/zombies/zombie_die/frame_06_delay-0.2s.png",
+      RESOURCE_DIR + "/zombies/zombie_die/frame_07_delay-0.2s.png",
+      RESOURCE_DIR + "/zombies/zombie_die/frame_08_delay-0.2s.png",
+      RESOURCE_DIR + "/zombies/zombie_die/frame_09_delay-0.2s.png"
+  };
 }

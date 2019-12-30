@@ -9,7 +9,7 @@ import javax.swing.SwingConstants;
 
 public abstract class Sun extends MovableObjects {
 
-  public static int Count = 0;                                                           //initial sun in game
+  public static int Count = 200000;                                                           //initial sun in game
   public static JLabel CountLabel = new JLabel(String.valueOf(Count), SwingConstants.CENTER);
   public static final int existLoop = 80;                                                          //lasting time of the sun
   private static Point SunCollector = new Point(visualMode.GameDim.width / 90, visualMode.GameDim.height / 67);
