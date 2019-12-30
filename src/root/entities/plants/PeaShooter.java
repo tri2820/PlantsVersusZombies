@@ -5,7 +5,6 @@ import root.entities.PlantAttackable;
 import root.entities.movable.MovableObjects;
 import root.entities.movable.Pea;
 import root.entities.zombies.Zombie;
-import root.etc.CellsManager;
 
 public class PeaShooter extends Plant implements PlantAttackable {
 
@@ -21,9 +20,6 @@ public class PeaShooter extends Plant implements PlantAttackable {
     Stuffs.add(new Pea(position.x + stuffShooter.x, position.y + stuffShooter.y));
   }
 
-  public void shoot(int lane) {
-    Stuffs.add(new Pea(position.x + stuffShooter.x, CellsManager.lanes[lane] + stuffShooter.y));
-  }
 
   @Override
   public void dealWithZom() {

@@ -19,14 +19,6 @@ public abstract class Plant extends GameEntity implements Actable {
     super(x, y);
   }
 
-  private int getLane() {
-    for (int i = 0; i < CellsManager.lanes.length; i++) {
-      if (position.y == CellsManager.lanes[i]) {
-        return i;
-      }
-    }
-    return 0;
-  }
 
   public LinkedList<Zombie> zomOnLane() {
     LinkedList<Zombie> ZomOnLane = new LinkedList<>();
