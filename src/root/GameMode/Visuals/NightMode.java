@@ -2,9 +2,12 @@ package root.GameMode.Visuals;
 
 import javax.swing.ImageIcon;
 
-public class NoScalingMode extends VisualMode {
+public class NightMode extends VisualMode {
 
-  public NoScalingMode() {
+  public NightMode() {
+    BackgroundImage = new ImageIcon(BACKGROUND_NIGHT).getImage();
+
+    ////////////////////// CHANGE TO DARK MODE PLANTS BELOW
     SunFlowerImage = new ImageIcon(SUNFLOWER).getImage();
     PeaShooterImage = new ImageIcon(PEASHOOTER).getImage();
     SnowPeaImage = new ImageIcon(SNOW_PEA).getImage();

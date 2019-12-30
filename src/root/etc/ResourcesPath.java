@@ -3,10 +3,12 @@ package root.etc;
 import java.io.File;
 
 public interface ResourcesPath {
+
   //game basic element
   String PROJECT_DIR = new File("").getAbsolutePath();
   String RESOURCE_DIR = PROJECT_DIR + "/resource";
-  String BACKGROUND = RESOURCE_DIR + "/background/Background.png";
+  String BACKGROUND_DAY = RESOURCE_DIR + "/background/BackgroundDay.png";
+  String BACKGROUND_NIGHT = RESOURCE_DIR + "/background/BackgroundNight.png";
   String LAWNMOWER = RESOURCE_DIR + "/item/Lawnmower.png";
   String LAWNMOWER_MOVING = RESOURCE_DIR + "/item/LawnmowerMoving.gif";
   String SHOVEL = RESOURCE_DIR + "/item/Shovel.png";

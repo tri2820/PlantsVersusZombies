@@ -2,7 +2,6 @@ package root.entities.movable;
 
 import java.awt.Image;
 import java.util.Random;
-
 import root.entities.zombies.Zombie;
 
 public class KillSun extends Sun {
@@ -27,15 +26,13 @@ public class KillSun extends Sun {
     @Override
     public void SpecialMoves() {
 //        LoopCounter++;
-        position.x += dx;
-        position.y += dy;
         if (position.x <= 0 || position.x + getImage().getWidth(null) >= visualMode.GameDim.width) {
             dx *= -1;
-            dy = rand.nextInt(bound) - bound * 1.0 / 2;
+//            dy = rand.nextInt(bound) - bound * 1.0 / 2;
         } else if (position.y <= 0
                 || position.y + getImage().getHeight(null) >= visualMode.GameDim.height) {
             dy *= -1;
-            dx = rand.nextInt(bound) - bound * 1.0 / 2;
+//            dx = rand.nextInt(bound) - bound * 1.0 / 2;
         }
     }
 

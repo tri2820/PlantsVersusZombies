@@ -33,6 +33,6 @@ public class SnowPea extends PeaShooter implements PlantAttackable {
 
   @Override
   public Image getImage() {
-    return visualMode.SnowPeaCardImage;
+    return visualMode.SnowPeaImage;
   }
 }

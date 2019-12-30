@@ -50,7 +50,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
     addMouseMotionListener(this);
     setLayout(null);
     setPreferredSize(visualMode.GameDim);
-    resetToLevel(1);
+    resetToLevel(2);
   }
 
   void initMessage() {
@@ -237,7 +237,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
     });
 
     cellMaps.forEach((key, value) -> {
-      g.drawImage(value.getImage(), key.x, key.y, null);
+      g.drawImage(value.getImage(), key.x + value.adjustX(), key.y + value.adjustY(), null);
       value.Stuffs.forEach(stuff -> {
         g.drawImage(stuff.getImage(), stuff.getX(), stuff.getY(), null);
         if (testMode) {

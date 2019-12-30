@@ -1,11 +1,6 @@
 package root.entities.plants;
 
-import root.entities.PlantAttackable;
-import root.entities.movable.MovableObjects;
-import root.entities.movable.Pea;
-import root.entities.zombies.Zombie;
-
-import java.awt.*;
+import java.awt.Image;
 
 public class ThreePeaShooter extends PeaShooter {
 
@@ -15,20 +10,30 @@ public class ThreePeaShooter extends PeaShooter {
         health = 200;
     }
 
+//    @Override
+//    public void dealWithZom() {
+//        Zombie closestZom = closestZom(zomOnLane());
+//        for (MovableObjects movableObjects : Stuffs) {
+//            if (closestZom.getX() - movableObjects.getX() < closestZom.getImage().getWidth(null) / 4) {
+//                ((Pea) movableObjects).hitted = true;
+//                closestZom.health -= 15; //per pea
+//            }
+//        }
+//    }
+
+//    @Override
+//    public void shoot() {
+//
+//    }
+
     @Override
-    public void dealWithZom() {
-        Zombie closestZom = closestZom(zomOnLane());
-        for (MovableObjects movableObjects : Stuffs) {
-            if (closestZom.getX() - movableObjects.getX() < closestZom.getImage().getWidth(null) / 4) {
-                ((Pea) movableObjects).hitted = true;
-                closestZom.health -= 15; //per pea
-            }
-        }
+    public int adjustX() {
+        return -10;
     }
 
     @Override
-    public void shoot() {
-
+    public int adjustY() {
+        return -20;
     }
 
     @Override

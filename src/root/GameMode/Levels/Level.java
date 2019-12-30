@@ -3,11 +3,11 @@ package root.GameMode.Levels;
 import java.awt.Point;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.ConcurrentHashMap;
 import root.GUI.GamePanel;
 import root.GUI.IconButton;
 import root.GameMode.Visuals.VisualMode;
@@ -30,7 +30,7 @@ public abstract class Level {
   public ArrayList<IconButton> cards = new ArrayList<>(5);
   public ArrayList<Lawnmower> lawnmowers = new ArrayList<>(5);
   public ArrayList<LuckyBalloon> luckyBalloons = new ArrayList<>(5);
-  public Map<Point, Integer> zombieKilledPosition = new HashMap<>();
+  public Map<Point, Integer> zombieKilledPosition = new ConcurrentHashMap<>();
   public int MAX_ZOMBIES;
   public int zombieCount, zombieKilled;
 

@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 public class ScalingMode extends VisualMode {
 
   // Set Game dimension based on the background image
-  static Image BackgroundImageOriginal = new ImageIcon(BACKGROUND).getImage();
+  static Image BackgroundImageOriginal = new ImageIcon(BACKGROUND_DAY).getImage();
   static double ScaleFactor =
       (double) Toolkit.getDefaultToolkit().getScreenSize().height
           / BackgroundImageOriginal.getHeight(null);
@@ -17,7 +17,7 @@ public class ScalingMode extends VisualMode {
           (int) (BackgroundImageOriginal.getWidth(null) * ScaleFactor),
           (int) (BackgroundImageOriginal.getHeight(null) * ScaleFactor));
 
-  Image BackgroundImage = getScaledImage(BACKGROUND);
+  Image BackgroundImage = getScaledImage(BACKGROUND_DAY);
 
   Image SunFlowerImage = getScaledImage(SUNFLOWER);
   Image SunImage = getScaledImage(SUN);

@@ -6,6 +6,7 @@ import root.entities.Actable;
 import root.entities.GameEntity;
 import root.entities.movable.MovableObjects;
 import root.entities.zombies.Zombie;
+import root.etc.CellsManager;
 
 public abstract class Plant extends GameEntity implements Actable {
 
@@ -18,10 +19,29 @@ public abstract class Plant extends GameEntity implements Actable {
     super(x, y);
   }
 
+  private int getLane() {
+    for (int i = 0; i < CellsManager.lanes.length; i++) {
+      if (position.y == CellsManager.lanes[i]) {
+        return i;
+      }
+    }
+    return 0;
+  }
+
   public LinkedList<Zombie> zomOnLane() {
     LinkedList<Zombie> ZomOnLane = new LinkedList<>();
     for (Zombie zombie : gamePanel.level.zombies) {
       if (zombie.getX() > position.x && zombie.getX() <= visualMode.GameDim.width && position.y == zombie.getY()) {
+        ZomOnLane.add(zombie);
+      }
+    }
+    return ZomOnLane;
+  }
+
+  public LinkedList<Zombie> zomOnLane(int lane) {
+    LinkedList<Zombie> ZomOnLane = new LinkedList<>();
+    for (Zombie zombie : gamePanel.level.zombies) {
+      if (zombie.getX() > position.x && zombie.getX() <= visualMode.GameDim.width && CellsManager.lanes[lane] == zombie.getY()) {
         ZomOnLane.add(zombie);
       }
     }
@@ -38,4 +58,13 @@ public abstract class Plant extends GameEntity implements Actable {
 
     return closestZomOnLane;
   }
+
+  public int adjustX() {
+    return 0;
+  }
+
+  public int adjustY() {
+    return 0;
+  }
+
 }

@@ -14,10 +14,10 @@ public abstract class VisualMode implements ResourcesPath {
 
   public boolean testMode = false;
 
-  public Image BackgroundImage = new ImageIcon(BACKGROUND).getImage();
+  public Image BackgroundImage = new ImageIcon(BACKGROUND_DAY).getImage();
   public Image PeaShooterImage = new ImageIcon(SNOW_PEA).getImage();
   public Image SunFlowerImage;
-  public Image SnowPeaCardImage;
+  public Image SnowPeaImage;
   public Image SunImage;
   public Image KillSunImage;
   public Image LuckyBalloonImage;
@@ -40,7 +40,6 @@ public abstract class VisualMode implements ResourcesPath {
   public Image BucketHeadZombieWalkImage;
   public Image BucketHeadZombieEatImage;
 
-  public Image ThreePeaShooterCardIcon;
   public Image ThreePeaShooterImage;
 
   public Image ShovelImage;
@@ -52,6 +51,7 @@ public abstract class VisualMode implements ResourcesPath {
   public ImageIcon SunFlowerCardIcon;
   public ImageIcon PeaShooterCardIcon;
   public ImageIcon SnowPeaCardIcon;
+  public ImageIcon ThreePeaShooterCardIcon;
 
   public Image Walnut1;
   public Image Walnut2;
