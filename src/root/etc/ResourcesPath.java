@@ -47,6 +47,20 @@ public interface ResourcesPath {
   String BUCKET_HEAD_ZOMBIE_WALK = RESOURCE_DIR + "/zombies/BucketHeadZombieWalk.gif";
   String BUCKET_HEAD_ZOMBIE_EAT = RESOURCE_DIR + "/zombies/BucketHeadZombieAttack.gif";
 
+  //Newspaper zombie
+  String NEWSPAPER_ZOMBIE = RESOURCE_DIR + "/zombies/NewspaperZombie/NewspaperZombie.gif";
+  String NEWSPAPER_ZOMBIE_EAT = RESOURCE_DIR + "/zombies/NewspaperZombie/NewspaperZombieAttack.gif";
+  String NEWS_ZOMBIE = RESOURCE_DIR + "/zombies/NewspaperZombie/NewsZombie.gif";
+  String NEWS_ZOMBIE_EAT = RESOURCE_DIR + "/zombies/NewspaperZombie/NewsZombieAttack.gif";
+  String NEWS_ZOMBIE_LOST_HEAD = RESOURCE_DIR + "/zombies/NewspaperZombie/NewsZombieLostHead.gif";
+  String NEWS_ZOMBIE_LOST_HEAD_EAT = RESOURCE_DIR + "/zombies/NewspaperZombie/NewsZombieLostHeadAttack.gif";
+
+  //flag zombie
+  String FLAG_ZOMBIE = RESOURCE_DIR + "/zombies/FlagZombie/FlagZombie.gif";
+  String FLAG_ZOMBIE_EAT = RESOURCE_DIR + "/zombies/FlagZombie/FlagZombieAttack.gif";
+  String FLAG_ZOMBIE_LOST_HEAD = RESOURCE_DIR + "/zombies/FlagZombie/FlagZombieLostHead.gif";
+  String FLAG_ZOMBIE_LOST_HEAD_EAT = RESOURCE_DIR + "/zombies/FlagZombie/FlagZombieLostHeadAttack.gif";
+
   //zombie die
   String[] ZOMBIE_DIE = {
       RESOURCE_DIR + "/zombies/zombie_die/frame_00_delay-0.2s.png",

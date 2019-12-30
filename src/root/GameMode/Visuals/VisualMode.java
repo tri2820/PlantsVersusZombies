@@ -27,6 +27,8 @@ public abstract class VisualMode implements ResourcesPath {
 
   public Image PeaImage;
   public Image FreezePeaImage;
+
+  //normal zombie
   public Image NormalZombieWalkImage;
   public Image NormalZombieEatImage;
   public Image NormalZombieDieImage;
@@ -34,11 +36,27 @@ public abstract class VisualMode implements ResourcesPath {
   public Image NormalZombieLostHeadEatImage;
   public Image[] ZombieDie = new Image[10];
 
+  //cone head zombie
   public Image ConeHeadZombieWalkImage;
   public Image ConeHeadZombieEatImage;
 
+  //bucket head zombie
   public Image BucketHeadZombieWalkImage;
   public Image BucketHeadZombieEatImage;
+
+  //newspaper zombie
+  public Image NewspaperZombieImage;
+  public Image NewspaperZombieEatImage;
+  public Image NewsZombieImage;
+  public Image NewsZombieEatImage;
+  public Image NewsZombieLostHeadImage;
+  public Image NewsZombieLostHeadEatImage;
+
+  //flag zombie
+  public Image FlagZombieImage;
+  public Image FlagZombieEatImage;
+  public Image FlagZombieLostHeadImage;
+  public Image FlagZombieLostHeadEatImage;
 
   public Image ThreePeaShooterImage;
 
