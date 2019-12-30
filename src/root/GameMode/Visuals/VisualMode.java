@@ -40,6 +40,9 @@ public abstract class VisualMode implements ResourcesPath {
   public Image BucketHeadZombieWalkImage;
   public Image BucketHeadZombieEatImage;
 
+  public Image ThreePeaShooterCardIcon;
+  public Image ThreePeaShooterImage;
+
   public Image ShovelImage;
   public Image ShovelButtonImage;
   public Image LawnmowerImage;

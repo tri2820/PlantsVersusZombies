@@ -44,6 +44,8 @@ public class ScalingMode extends VisualMode {
   Image BucketHeadZombieWalkImage = getScaledImage(BUCKET_HEAD_ZOMBIE_WALK);
   Image BucketHeadZombieEatImage = getScaledImage(BUCKET_HEAD_ZOMBIE_EAT);
 
+  Image ThreePeaShooterImage = getScaledImage(THREE_PEASHOOTER);
+  ImageIcon ThreePeaShooterCardIcon = new ImageIcon(getScaledImage(THREE_PEASHOOTER_CARD));
 
   Image ShovelImage = getScaledImage(SHOVEL, 0.65);
 

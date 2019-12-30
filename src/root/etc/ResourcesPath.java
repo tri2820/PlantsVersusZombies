@@ -6,7 +6,7 @@ public interface ResourcesPath {
   //game basic element
   String PROJECT_DIR = new File("").getAbsolutePath();
   String RESOURCE_DIR = PROJECT_DIR + "/resource";
-  String BACKGROUND = RESOURCE_DIR + "/Background.png";
+  String BACKGROUND = RESOURCE_DIR + "/background/Background.png";
   String LAWNMOWER = RESOURCE_DIR + "/Lawnmower.png";
   String LAWNMOWER_MOVING = RESOURCE_DIR + "/LawnmowerMoving.gif";
   String SHOVEL = RESOURCE_DIR + "/Shovel.png";
@@ -62,6 +62,10 @@ public interface ResourcesPath {
   String SNOW_PEA_CARD = RESOURCE_DIR + "/cards/SnowPeaCard.png";
   String SNOW_PEA = RESOURCE_DIR + "/plants/SnowPea.gif";
 
+  //three pea shooter
+  String THREE_PEASHOOTER_CARD = RESOURCE_DIR + "/cards/ThreePeaShooterCard.png";
+  String THREE_PEASHOOTER = RESOURCE_DIR + "/plants/ThreePeaShooter.gif";
+
   //types of pea
   String PEA = RESOURCE_DIR + "/Pea.png";
   String SNOW = RESOURCE_DIR + "/Snow.png";
@@ -71,7 +75,7 @@ public interface ResourcesPath {
   String SOL_FONT = RESOURCE_DIR + "/Font/solHeavy.ttf";
 
   //walnut
-  String WALNUT_CARD = RESOURCE_DIR + "/plants/walnut/WalnutCard.png";
+  String WALNUT_CARD = RESOURCE_DIR + "/cards/WalnutCard.png";
   String WALNUT1 = RESOURCE_DIR + "/plants/walnut/Walnut1.gif";
   String WALNUT2 = RESOURCE_DIR + "/plants/walnut/Walnut2.gif";
   String WALNUT3 = RESOURCE_DIR + "/plants/walnut/Walnut3.gif";

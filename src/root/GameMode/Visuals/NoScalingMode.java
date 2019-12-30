@@ -18,6 +18,9 @@ public class NoScalingMode extends VisualMode {
     PeaImage = new ImageIcon(PEA).getImage();
     FreezePeaImage = new ImageIcon(SNOW).getImage();
 
+    ThreePeaShooterImage = new ImageIcon(THREE_PEASHOOTER).getImage();
+    ThreePeaShooterCardIcon = new ImageIcon(THREE_PEASHOOTER_CARD).getImage();
+
     NormalZombieWalkImage = new ImageIcon(NORMAL_ZOMBIE_WALK).getImage();
     NormalZombieEatImage = new ImageIcon(NORMAL_ZOMBIE_EAT).getImage();
     NormalZombieDieImage = new ImageIcon(NORMAL_ZOMBIE_DIE).getImage();
