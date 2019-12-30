@@ -7,15 +7,24 @@ public interface ResourcesPath {
   String PROJECT_DIR = new File("").getAbsolutePath();
   String RESOURCE_DIR = PROJECT_DIR + "/resource";
   String BACKGROUND = RESOURCE_DIR + "/background/Background.png";
-  String LAWNMOWER = RESOURCE_DIR + "/Lawnmower.png";
-  String LAWNMOWER_MOVING = RESOURCE_DIR + "/LawnmowerMoving.gif";
-  String SHOVEL = RESOURCE_DIR + "/Shovel.png";
-  String SHOVEL_BUTTON = RESOURCE_DIR + "/ShovelButton.jpg";
+  String LAWNMOWER = RESOURCE_DIR + "/item/Lawnmower.png";
+  String LAWNMOWER_MOVING = RESOURCE_DIR + "/item/LawnmowerMoving.gif";
+  String SHOVEL = RESOURCE_DIR + "/item/Shovel.png";
+  String SHOVEL_BUTTON = RESOURCE_DIR + "/item/ShovelButton.jpg";
+  String START_GAME = RESOURCE_DIR + "/item/menu.png";
+
+  //font
+  String PvZUI_FONT = RESOURCE_DIR + "/Font/PvZUI.ttf";
+  String SOL_FONT = RESOURCE_DIR + "/Font/solHeavy.ttf";
+
+  //types of pea
+  String PEA = RESOURCE_DIR + "/pea/Pea.png";
+  String SNOW = RESOURCE_DIR + "/pea/Snow.png";
 
   //type of sun
-  String SUN = RESOURCE_DIR + "/Sun.gif";
-  String KILL_SUN = RESOURCE_DIR + "/KillSun.png";
-  String LUCKY_BALLOON = RESOURCE_DIR + "/lucky.png";
+  String SUN = RESOURCE_DIR + "/pea/Sun.gif";
+  String KILL_SUN = RESOURCE_DIR + "/pea/KillSun.png";
+  String LUCKY_BALLOON = RESOURCE_DIR + "/item/lucky.png";
 
   //repeater
   String REPEATER = RESOURCE_DIR + "/plants/Repeater.gif";
@@ -65,14 +74,6 @@ public interface ResourcesPath {
   //three pea shooter
   String THREE_PEASHOOTER_CARD = RESOURCE_DIR + "/cards/ThreePeaShooterCard.png";
   String THREE_PEASHOOTER = RESOURCE_DIR + "/plants/ThreePeaShooter.gif";
-
-  //types of pea
-  String PEA = RESOURCE_DIR + "/Pea.png";
-  String SNOW = RESOURCE_DIR + "/Snow.png";
-
-  //font
-  String PvZUI_FONT = RESOURCE_DIR + "/Font/PvZUI.ttf";
-  String SOL_FONT = RESOURCE_DIR + "/Font/solHeavy.ttf";
 
   //walnut
   String WALNUT_CARD = RESOURCE_DIR + "/cards/WalnutCard.png";
