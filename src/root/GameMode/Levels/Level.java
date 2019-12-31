@@ -22,7 +22,7 @@ import root.etc.CellsManager;
 public abstract class Level {
 
   // Add new rounds to this
-  public static LinkedList<Class<? extends Level>> rounds = new LinkedList<>(List.of(Level.class, Round1.class, Round2.class));
+  public static LinkedList<Class<? extends Level>> rounds = new LinkedList<>(List.of(Level.class, Round1.class, Round2.class, Round3.class));
   public ArrayList<MovableObjects> movableEntities = new ArrayList<>();
   public ArrayList<Zombie> zombies = new ArrayList<>();
   public ArrayList<Class<? extends Plant>> plantClasses = new ArrayList<>();
