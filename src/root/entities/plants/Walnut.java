@@ -1,6 +1,6 @@
 package root.entities.plants;
 
-import java.awt.*;
+import java.awt.Image;
 
 public class Walnut extends Plant {
 
@@ -20,6 +20,12 @@ public class Walnut extends Plant {
             return visualMode.Walnut3;
         }
     }
+
+    @Override
+    public int adjustX() {
+        return 10;
+    }
+
 
     @Override
     public void actions() {

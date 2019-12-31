@@ -27,7 +27,7 @@ public class SunShroom extends Plant {
 
     @Override
     public int adjustY() {
-        return 20;
+        return 5;
     }
 
     @Override

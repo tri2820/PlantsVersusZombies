@@ -14,9 +14,42 @@ public abstract class Zombie extends GameEntity implements Actable {
 
   public static JLabel Status = new JLabel();
   public int health;
-  public boolean slowed = false;
+  public boolean specialEffect = false;
   public boolean collided = false;
+  public boolean backward = false;
   public int speed = 0;
+  public Effects effects;
+
+  @Override
+  public void actions() {
+    LoopCounter++;
+
+    Plant collidedPlant = collidedPlant();
+    if (collidedPlant == null) {
+      collided = false;
+      if (!specialEffect) {
+        speed = 2;
+      } else {
+        if (effects == Effects.SLOWED) {
+          speed = 1;
+        }
+        if (effects == Effects.BACKWARD) {
+          speed = -2;
+        }
+        if (effects == Effects.BOOST) {
+          speed = 4;
+        }
+        if (LoopCounter % 128 == 0) {
+          specialEffect = false;
+        }
+      }
+      position.x += dx * speed;
+      position.y += dy * speed;
+    } else {
+      collidedPlant.health -= 1;
+      collided = true;
+    }
+  }
 
   public Zombie(int x, int y) {
     super(x, y);
@@ -40,29 +73,7 @@ public abstract class Zombie extends GameEntity implements Actable {
     Status.setText(status);
   }
 
-  @Override
-  public void actions() {
-    LoopCounter++;
-
-    Plant collidedPlant = collidedPlant();
-    if (collidedPlant == null) {
-      collided = false;
-      if (!slowed) {
-        speed = 2;
-      } else {
-        speed = 1;
-        if (LoopCounter % 128 == 0) {
-          slowed = false;
-        }
-      }
-      position.x += dx * speed;
-      position.y += dy * speed;
-    } else {
-      collidedPlant.health -= 1;
-      collided = true;
-    }
-
-  }
+  public enum Effects {SLOWED, BOOST, BACKWARD}
 
   protected Plant collidedPlant() {
     if (!CellsManager.cellMaps.isEmpty()) {

@@ -5,6 +5,7 @@ import root.entities.PlantAttackable;
 import root.entities.movable.MovableObjects;
 import root.entities.movable.Snow;
 import root.entities.zombies.Zombie;
+import root.entities.zombies.Zombie.Effects;
 
 public class SnowPea extends PeaShooter implements PlantAttackable {
 
@@ -20,7 +21,8 @@ public class SnowPea extends PeaShooter implements PlantAttackable {
     for (MovableObjects movableObjects : Stuffs) {
       if (closestZom.getX() - movableObjects.getX() < closestZom.getImage().getWidth(null) / 4) {
         ((Snow) movableObjects).hitted = true;
-        closestZom.slowed = true;
+        closestZom.specialEffect = true;
+        closestZom.effects = Effects.SLOWED;
         closestZom.health -= 15;
       }
     }

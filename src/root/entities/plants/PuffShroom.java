@@ -34,7 +34,7 @@ public class PuffShroom extends PeaShooter implements PlantAttackable {
 
     @Override
     public int adjustX() {
-        return 15;
+        return 25;
     }
 
     @Override

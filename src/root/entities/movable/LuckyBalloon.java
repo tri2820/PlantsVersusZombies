@@ -2,6 +2,7 @@ package root.entities.movable;
 
 import java.awt.Image;
 import java.util.Random;
+import root.entities.zombies.Zombie.Effects;
 import root.etc.CellsManager;
 
 public class LuckyBalloon extends MovableObjects {
@@ -37,21 +38,44 @@ public class LuckyBalloon extends MovableObjects {
   }
 
   public void luckyEffect() {
-    int opt = luck.nextInt(3);
-    if (opt == 0) {
-      Sun.updateCount(Sun.Count);
-    } else if (opt == 1) {
-      int tmp = Sun.Count;
-      Sun.Count = 0;
-      Sun.updateCount(tmp / 2);
-    } else if (opt == 2) {
-      int bad_number = luck.nextInt(CellsManager.lanes.length);
-      CellsManager.cellMaps.forEach((point, plant) -> {
-        if (point.y == CellsManager.lanes[bad_number]) {
-          CellsManager.cellMaps.remove(point);
-        }
-      });
+    int opt = luck.nextInt(7);
+    switch (opt) {
+      case 0:
+        Sun.updateCount(Sun.Count);
+        break;
+      case 1:
+        int tmp = Sun.Count;
+        Sun.Count = 0;
+        Sun.updateCount(tmp / 2);
+        break;
+      case 2:
+        Sun.updateCount(1000);
+        break;
+      case 3:
+        CellsManager.cellMaps.forEach(CellsManager.cellMaps::remove);
+        break;
+      case 4:
+        gamePanel.level.zombies.forEach(zombie -> {
+          zombie.specialEffect = true;
+          zombie.effects = Effects.BACKWARD;
+        });
+        break;
+      case 5:
+        gamePanel.level.zombies.forEach(zombie -> {
+          zombie.specialEffect = true;
+          zombie.effects = Effects.BOOST;
+        });
+        break;
+      case 6:
+        int bad_number = luck.nextInt(CellsManager.lanes.length);
+        CellsManager.cellMaps.forEach((point, plant) -> {
+          if (point.y == CellsManager.lanes[bad_number]) {
+            CellsManager.cellMaps.remove(point);
+          }
+        });
+        break;
     }
+
     clicked = true;
   }
 
