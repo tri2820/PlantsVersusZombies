@@ -6,18 +6,23 @@ public class NoScalingMode extends VisualMode {
 
   public NoScalingMode() {
     SunFlowerImage = new ImageIcon(SUNFLOWER).getImage();
+    SunImage = new ImageIcon(SUN).getImage();
+
     PeaShooterImage = new ImageIcon(PEASHOOTER).getImage();
     SnowPeaImage = new ImageIcon(SNOW_PEA).getImage();
-    SunImage = new ImageIcon(SUN).getImage();
+
     KillSunImage = new ImageIcon(KILL_SUN).getImage();
     LuckyBalloonImage = new ImageIcon(LUCKY_BALLOON).getImage();
+
     ShovelImage = new ImageIcon(SHOVEL).getImage();
     ShovelButtonImage = new ImageIcon(SHOVEL_BUTTON).getImage();
+
     LawnmowerImage = new ImageIcon(LAWNMOWER).getImage();
     LawnmowerMovingImage = new ImageIcon(LAWNMOWER_MOVING).getImage();
 
     ShovelButtonIcon = new ImageIcon(ShovelButtonImage);
     SunFlowerCardIcon = new ImageIcon(SUNFLOWER_CARD);
+
     PeaShooterCardIcon = new ImageIcon(PEASHOOTER_CARD);
     SnowPeaCardIcon = new ImageIcon(SNOW_PEA_CARD);
 

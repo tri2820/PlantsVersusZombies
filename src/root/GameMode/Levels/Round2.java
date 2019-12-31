@@ -38,6 +38,6 @@ public class Round2 extends Round1 {
     cards.add(new IconButton(gamePanel.visualMode.ThreePeaShooterCardIcon, gamePanel.visualMode.GameDim.width * 40 / 90,
         gamePanel.visualMode.GameDim.height / 67, gamePanel.visualMode.ThreePeaShooterImage, gamePanel));
 
-    MAX_ZOMBIES = 20;
+    MAX_ZOMBIES = 50;
   }
 }
