@@ -20,7 +20,7 @@ public class Round1 extends Level {
   public Round1(GamePanel gamePanel) {
     super(gamePanel);
 
-    cards.add(new IconButton(gamePanel.visualMode.ShovelButtonIcon, gamePanel.visualMode.GameDim.width * 57 / 100, 0,
+    cards.add(new IconButton(gamePanel.visualMode.ShovelButtonIcon, gamePanel.visualMode.GameDim.width * 66 / 100, 0,
         gamePanel.visualMode.ShovelImage, gamePanel));
 
     //zombie

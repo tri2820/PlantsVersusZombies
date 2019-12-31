@@ -22,7 +22,7 @@ public class PuffShroom extends PeaShooter implements PlantAttackable {
         for (MovableObjects movableObjects : Stuffs) {
             if (closestZom.getX() - movableObjects.getX() < closestZom.getImage().getWidth(null) / 4) {
                 ((Mushroom) movableObjects).hitted = true;
-                closestZom.health -= 15;
+                closestZom.health -= 5;
             }
         }
     }
