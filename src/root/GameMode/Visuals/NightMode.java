@@ -7,7 +7,6 @@ public class NightMode extends VisualMode {
   public NightMode() {
     BackgroundImage = new ImageIcon(BACKGROUND_NIGHT).getImage();
 
-    ////////////////////// CHANGE TO DARK MODE PLANTS BELOW
     SunImage = new ImageIcon(SUN).getImage();
     KillSunImage = new ImageIcon(KILL_SUN).getImage();
     LuckyBalloonImage = new ImageIcon(LUCKY_BALLOON).getImage();
@@ -60,7 +59,6 @@ public class NightMode extends VisualMode {
     WalnutCardIcon = new ImageIcon(WALNUT_CARD);
 
     //ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE ZOMBIE
-
     //normal zombie
     NormalZombieWalkImage = new ImageIcon(NORMAL_ZOMBIE).getImage();
     NormalZombieEatImage = new ImageIcon(NORMAL_ZOMBIE_EAT).getImage();

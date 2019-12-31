@@ -28,11 +28,8 @@ public class KillSun extends Sun {
         LoopCounter++;
         if (position.x <= 0 || position.x + getImage().getWidth(null) >= visualMode.GameDim.width) {
             dx *= -1;
-//            dy = rand.nextInt(bound) - bound * 1.0 / 2;
-        } else if (position.y <= 0
-                || position.y + getImage().getHeight(null) >= visualMode.GameDim.height) {
+        } else if (position.y <= 0 || position.y + getImage().getHeight(null) >= visualMode.GameDim.height) {
             dy *= -1;
-//            dx = rand.nextInt(bound) - bound * 1.0 / 2;
         }
     }
 
@@ -40,7 +37,6 @@ public class KillSun extends Sun {
     public void CollectedAction() {
         for (Zombie zombie : gamePanel.level.zombies) {
             zombie.health = 0;
-            System.out.println("you clicked");
         }
         doneCollected = true;
     }
