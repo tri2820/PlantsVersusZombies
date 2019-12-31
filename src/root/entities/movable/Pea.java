@@ -30,7 +30,7 @@ public class Pea extends MovableObjects {
   private void validatePosY() {
     for (int time = 0; time < 30; time++) {
       position.y += dy;
-      if (Math.abs(endY - position.y) <= 5) {
+      if (Math.abs(endY - position.y) <= 1) {
         dy = 0;
         return;
       }

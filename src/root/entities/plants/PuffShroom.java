@@ -11,7 +11,7 @@ public class PuffShroom extends PeaShooter implements PlantAttackable {
     public PuffShroom(int x, int y) {
         super(x, y);
         price = 0;
-        health = 200;
+        health = 50;
         stuffShooter.x += adjustX();
         stuffShooter.y += adjustY();
     }
