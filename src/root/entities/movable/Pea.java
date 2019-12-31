@@ -27,21 +27,11 @@ public class Pea extends MovableObjects {
     return endY;
   }
 
-  private void validatePosY() {
-    for (int time = 0; time < 30; time++) {
-      position.y += dy;
-      if (Math.abs(endY - position.y) <= 5) {
-        dy = 0;
-        return;
-      }
-    }
-  }
-
   @Override
   public void actions() {
     move();
 
-    validatePosY();
+    dy = (endY - position.y) / 10.0;
 
     if (position.x > visualMode.GameDim.getWidth()) {
       outOfGame = true;
