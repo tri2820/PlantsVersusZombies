@@ -19,19 +19,10 @@ public class Round3 extends Round2 {
   public Round3(GamePanel gamePanel) {
     super(gamePanel);
 
-    //zombie
-    zombieClasses.add(ConeHeadZombie.class);
-    zombieClasses.add(BucketHeadZombie.class);
-    zombieClasses.add(NewspaperZombie.class);
-
     //plant
     plantClasses.add(SunShroom.class);
     cards.add(new IconButton(gamePanel.visualMode.SunShroomCardIcon, gamePanel.visualMode.GameDim.width * 10 / 90,
             gamePanel.visualMode.GameDim.height / 67, gamePanel.visualMode.SunShroomImage, gamePanel));
-
-    plantClasses.add(ThreePeaShooter.class);
-    cards.add(new IconButton(gamePanel.visualMode.ThreePeaShooterCardIcon, gamePanel.visualMode.GameDim.width * 40 / 90,
-            gamePanel.visualMode.GameDim.height / 67, gamePanel.visualMode.ThreePeaShooterImage, gamePanel));
 
     plantClasses.add(PuffShroom.class);
     cards.add(new IconButton(gamePanel.visualMode.PuffShroomCardIcon, gamePanel.visualMode.GameDim.width * 46 / 90,
