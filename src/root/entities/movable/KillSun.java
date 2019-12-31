@@ -7,7 +7,7 @@ import root.entities.zombies.Zombie;
 public class KillSun extends Sun {
 
     //lasting time of the kill sun
-    public static final int existLoop = 100;
+    public static final int existLoop = 150;
     private static final int bound = 30;
     private static Random rand = new Random();
     public boolean clicked = false;
