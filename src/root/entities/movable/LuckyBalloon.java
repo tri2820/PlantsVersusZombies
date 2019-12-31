@@ -43,13 +43,8 @@ public class LuckyBalloon extends MovableObjects {
       int tmp = Sun.Count;
       Sun.Count = 0;
       Sun.updateCount(tmp / 2);
-//    } else if (opt == 2) {
-//      int bad_number = luck.nextInt(CellsManager.lanes.length);
-//      CellsManager.cellMaps.forEach(((point, plant) -> {
-//        if (point.y == CellsManager.lanes[bad_number]) {
-////          CellsManager.cellMaps.remove(point, plant);
-//        }
-//      }));
+    } else if (opt == 2) {
+      Sun.updateCount(-Sun.Count);
     }
     clicked = true;
   }
