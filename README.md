@@ -10,7 +10,7 @@ It serves as the final project for our OOP class in HCMIU-VN.
 
 # Download source
 ```
-git clone https://github.com/tri2820/PlantsVersusZombies/edit/master/README.md
+git clone https://github.com/tri2820/PlantsVersusZombies
 ```
 
 # Run
