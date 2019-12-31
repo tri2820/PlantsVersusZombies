@@ -2,6 +2,7 @@ package root.entities.movable;
 
 import java.awt.Image;
 import java.util.Random;
+import root.etc.CellsManager;
 
 public class LuckyBalloon extends MovableObjects {
 
@@ -38,13 +39,19 @@ public class LuckyBalloon extends MovableObjects {
   public void luckyEffect() {
     int opt = luck.nextInt(3);
     if (opt == 0) {
-      System.out.println(opt);
+      Sun.updateCount(Sun.Count);
     } else if (opt == 1) {
-      System.out.println(opt);
+      int tmp = Sun.Count;
+      Sun.Count = 0;
+      Sun.updateCount(tmp / 2);
     } else if (opt == 2) {
-      System.out.println(opt);
+      int bad_number = luck.nextInt(CellsManager.lanes.length);
+      CellsManager.cellMaps.forEach(((point, plant) -> {
+        if (point.y == CellsManager.lanes[bad_number]) {
+          CellsManager.cellMaps.remove(point, plant);
+        }
+      }));
     }
-
     clicked = true;
   }
 
