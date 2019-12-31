@@ -3,16 +3,21 @@ package root.GameMode.Levels;
 import root.GUI.GamePanel;
 import root.GUI.IconButton;
 import root.GameMode.Visuals.NightMode;
-import root.entities.plants.*;
+import root.entities.plants.PuffShroom;
+import root.entities.plants.SunShroom;
+import root.entities.plants.ThreePeaShooter;
 import root.entities.zombies.BucketHeadZombie;
 import root.entities.zombies.ConeHeadZombie;
 import root.entities.zombies.NewspaperZombie;
 
 public class Round3 extends Round2 {
 
+  public Round3() {
+    visualMode = new NightMode();
+  }
+
   public Round3(GamePanel gamePanel) {
     super(gamePanel);
-    gamePanel.visualMode = new NightMode();
 
     //zombie
     zombieClasses.add(ConeHeadZombie.class);

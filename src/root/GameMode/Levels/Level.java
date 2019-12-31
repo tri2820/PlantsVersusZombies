@@ -10,6 +10,7 @@ import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import root.GUI.GamePanel;
 import root.GUI.IconButton;
+import root.GameMode.Visuals.NoScalingMode;
 import root.GameMode.Visuals.VisualMode;
 import root.entities.GameEntity;
 import root.entities.movable.LuckyBalloon;
@@ -22,7 +23,8 @@ import root.etc.CellsManager;
 public abstract class Level {
 
   // Add new rounds to this
-  public static LinkedList<Class<? extends Level>> rounds = new LinkedList<>(List.of(Level.class, Round1.class, Round2.class));
+  public static LinkedList<Class<? extends Level>> rounds = new LinkedList<>(List.of(Level.class, Round1.class, Round2.class, Round3.class));
+  public VisualMode visualMode = new NoScalingMode();
   public ArrayList<MovableObjects> movableEntities = new ArrayList<>();
   public ArrayList<Zombie> zombies = new ArrayList<>();
   public ArrayList<Class<? extends Plant>> plantClasses = new ArrayList<>();
@@ -33,6 +35,9 @@ public abstract class Level {
   public Map<Point, Integer> zombieKilledPosition = new ConcurrentHashMap<>();
   public int MAX_ZOMBIES;
   public int zombieCount, zombieKilled;
+
+  public Level() {
+  }
 
   public Level(GamePanel gamePanel) {
     CellsManager.init(gamePanel.visualMode);
@@ -46,6 +51,17 @@ public abstract class Level {
     if (levelNumber < rounds.size()) {
       try {
         return rounds.get(levelNumber).getConstructor(GamePanel.class).newInstance(gamePanel);
+      } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+        e.printStackTrace();
+      }
+    }
+    return null;
+  }
+
+  public static VisualMode getVisualMode(int levelNumber) {
+    if (levelNumber < rounds.size()) {
+      try {
+        return rounds.get(levelNumber).getConstructor().newInstance().visualMode;
       } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
         e.printStackTrace();
       }

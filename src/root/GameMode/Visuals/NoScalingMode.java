@@ -1,7 +1,5 @@
 package root.GameMode.Visuals;
 
-import root.entities.zombies.FlagZombie;
-
 import javax.swing.ImageIcon;
 
 public class NoScalingMode extends VisualMode {
@@ -76,5 +74,7 @@ public class NoScalingMode extends VisualMode {
     for (int i = 0; i < ZOMBIE_DIE.length; i++) {
       ZombieDie[i] = new ImageIcon(ZOMBIE_DIE[i]).getImage();
     }
+
+    initFont();
   }
 }

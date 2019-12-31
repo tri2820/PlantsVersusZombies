@@ -18,6 +18,9 @@ public class NightMode extends VisualMode {
     ShovelButtonIcon = new ImageIcon(ShovelButtonImage);
     MushroomImage = new ImageIcon(MUSHROOM).getImage();
 
+    SunFlowerImage = new ImageIcon(SUNFLOWER).getImage();
+    SunFlowerCardIcon = new ImageIcon(SUNFLOWER_CARD);
+
     //PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS PLANTS
     //puff shroom
     PuffShroomImage = new ImageIcon(PUFF_SHROOM).getImage();
@@ -88,5 +91,7 @@ public class NightMode extends VisualMode {
     for (int i = 0; i < ZOMBIE_DIE.length; i++) {
       ZombieDie[i] = new ImageIcon(ZOMBIE_DIE[i]).getImage();
     }
+
+    initFont();
   }
 }

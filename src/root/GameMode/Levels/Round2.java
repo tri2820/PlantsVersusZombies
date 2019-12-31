@@ -2,6 +2,7 @@ package root.GameMode.Levels;
 
 import root.GUI.GamePanel;
 import root.GUI.IconButton;
+import root.GameMode.Visuals.NoScalingMode;
 import root.entities.plants.Repeater;
 import root.entities.plants.SnowPea;
 import root.entities.plants.ThreePeaShooter;
@@ -10,6 +11,11 @@ import root.entities.zombies.ConeHeadZombie;
 import root.entities.zombies.NewspaperZombie;
 
 public class Round2 extends Round1 {
+
+  public Round2() {
+    visualMode = new NoScalingMode();
+  }
+
 
   public Round2(GamePanel gamePanel) {
     super(gamePanel);

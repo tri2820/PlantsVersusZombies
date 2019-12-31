@@ -5,25 +5,35 @@ import java.awt.Image;
 public class Pea extends MovableObjects {
 
   public boolean hitted = false;
-  private int startY;
+  private int startY, endY;
   public boolean outOfGame = false;
-
 
   public Pea(int x, int y) {
     super(x, y);
     startY = position.y;
+    endY = position.y;
     dx = 20;
     dy = 0;
   }
 
-  public Pea(int x, int y, int startY) {
-    super(x, y);
-    this.startY = startY;
+  public Pea(int x, int startY, int endY) {
+    super(x, startY);
+    this.endY = endY;
     dx = 20;
-    if (y > startY) {
-      dy = 1;
-    } else {
-      dy = -1;
+    dy = Integer.compare(endY, startY);
+  }
+
+  public int getEndY() {
+    return endY;
+  }
+
+  private void validatePosY(int times) {
+    for (int time = 0; time < times; time++) {
+      position.y += dy;
+      if (endY == position.y) {
+        dy = 0;
+        return;
+      }
     }
   }
 
@@ -31,9 +41,7 @@ public class Pea extends MovableObjects {
   public void actions() {
     move();
 
-    if (startY == position.y) {
-      dy = 0;
-    }
+    validatePosY(30);
 
     if (position.x > visualMode.GameDim.getWidth()) {
       outOfGame = true;

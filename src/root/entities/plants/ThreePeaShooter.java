@@ -1,7 +1,10 @@
 package root.entities.plants;
 
 import java.awt.Image;
+import java.awt.Point;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import root.entities.movable.MovableObjects;
 import root.entities.movable.Pea;
 import root.entities.zombies.Zombie;
@@ -9,7 +12,10 @@ import root.etc.CellsManager;
 
 public class ThreePeaShooter extends PeaShooter {
 
-  private ArrayList<Integer> lanes = new ArrayList<>(3);
+  public Point stuffShooter = new Point(getBounds().width * 5 / 7, getBounds().height / 8);
+  private ArrayList<Integer> lane_indexes = new ArrayList<>(3);
+  private Map<Integer, Integer> LoopCounters = new HashMap<>(3);
+  private Map<Integer, ArrayList<Pea>> stuffsOnLane = new HashMap<>(3);
 
   public ThreePeaShooter(int x, int y) {
     super(x, y);
@@ -30,37 +36,54 @@ public class ThreePeaShooter extends PeaShooter {
 
   private void setLanes() {
     if (getLane() == 0) {
-      lanes.add(0);
-      lanes.add(1);
+      lane_indexes.add(0);
+      lane_indexes.add(1);
     } else if (getLane() == 4) {
-      lanes.add(3);
-      lanes.add(4);
+      lane_indexes.add(3);
+      lane_indexes.add(4);
     } else {
-      lanes.add(getLane() - 1);
-      lanes.add(getLane());
-      lanes.add(getLane() + 1);
+      lane_indexes.add(getLane() - 1);
+      lane_indexes.add(getLane());
+      lane_indexes.add(getLane() + 1);
+    }
+
+    for (int lane_index : lane_indexes) {
+      stuffsOnLane.put(lane_index, new ArrayList<>());
+      LoopCounters.put(lane_index, 0);
     }
   }
 
-  public void shoot(int lane) {
-    Stuffs.add(new Pea(position.x + stuffShooter.x, CellsManager.lanes[lane] + stuffShooter.y, position.y + stuffShooter.y));
+  public void shoot(int lane_index) {
+    Pea p = new Pea(position.x + stuffShooter.x, position.y + stuffShooter.y, CellsManager.lanes[lane_index] + stuffShooter.y);
+    Stuffs.add(p);
+    stuffsOnLane.get(lane_index).add(p);
   }
 
-  @Override
-  public void dealWithZom() {
-    for (int lane : lanes) {
-      Zombie closestZom = closestZom(zomOnLane(lane));
-      for (MovableObjects movableObjects : Stuffs) {
-        if (closestZom.getX() - movableObjects.getX() < closestZom.getImage().getWidth(null) / 4) {
-          ((Pea) movableObjects).hitted = true;
+  public void dealWithZom(int lane_index) {
+    Zombie closestZom = closestZom(zomOnLane(lane_index));
+    for (MovableObjects obj : Stuffs) {
+      if (obj instanceof Pea) {
+        if (closestZom.getX() - obj.getX() < closestZom.getImage().getWidth(null) / 4 && ((Pea) obj).getEndY() - stuffShooter.y == closestZom
+            .getY()) {
+          ((Pea) obj).hitted = true;
           closestZom.health -= 15; //per pea
         }
       }
     }
   }
 
-  public void shoot() {
-    lanes.forEach(lane -> shoot(lane));
+  @Override
+  public void actions() {
+    for (int lane_index : lane_indexes) {
+      LoopCounters.put(lane_index, LoopCounters.get(lane_index) + 1);
+      stuffsOnLane.get(lane_index).removeIf(pea -> pea.hitted || pea.outOfGame);
+      if (!zomOnLane(lane_index).isEmpty()) {
+        if (stuffsOnLane.get(lane_index).isEmpty() && LoopCounters.get(lane_index) % 32 == 0) {
+          shoot(lane_index);
+        }
+        dealWithZom(lane_index);
+      }
+    }
   }
 
   @Override

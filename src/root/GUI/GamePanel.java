@@ -45,7 +45,6 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
 
   /* ----------INIT---------- */
   public GamePanel() {
-    visualMode.initFont();
     addMouseListener(this);
     addMouseMotionListener(this);
     setLayout(null);
@@ -68,6 +67,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
     this.levelNumber = levelNumber;
     LoopCounter = 0;
     popup_loop_counter = 500;
+    visualMode = Level.getVisualMode(this.levelNumber);
     level = Level.getRound(this.levelNumber, this);
     message.removeAll();
     message.setText("");
@@ -171,8 +171,10 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
       }
     } else {
       if (level.zombies.isEmpty()) {
+        popup_loop_counter = LoopCounter;
         message.setText("Well done! You passed round " + levelNumber);
-        Level new_level = Level.getRound(++levelNumber, this);
+        visualMode = Level.getVisualMode(levelNumber + 1);
+        Level new_level = Level.getRound(levelNumber++, this);
         if (new_level != null) {
           resetToLevel(levelNumber);
         } else {

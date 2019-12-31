@@ -2,6 +2,7 @@ package root.GameMode.Levels;
 
 import root.GUI.GamePanel;
 import root.GUI.IconButton;
+import root.GameMode.Visuals.NoScalingMode;
 import root.entities.plants.Lawnmower;
 import root.entities.plants.PeaShooter;
 import root.entities.plants.SunFlower;
@@ -11,6 +12,10 @@ import root.entities.zombies.NormalZombie;
 import root.etc.CellsManager;
 
 public class Round1 extends Level {
+
+  public Round1() {
+    visualMode = new NoScalingMode();
+  }
 
   public Round1(GamePanel gamePanel) {
     super(gamePanel);
@@ -39,6 +44,6 @@ public class Round1 extends Level {
       lawnmowers.add(new Lawnmower(0, lane));
     }
 
-    MAX_ZOMBIES = 10;
+    MAX_ZOMBIES = 1;
   }
 }
