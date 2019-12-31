@@ -27,10 +27,10 @@ public class Pea extends MovableObjects {
     return endY;
   }
 
-  private void validatePosY(int times) {
-    for (int time = 0; time < times; time++) {
+  private void validatePosY() {
+    for (int time = 0; time < 30; time++) {
       position.y += dy;
-      if (endY == position.y) {
+      if (Math.abs(endY - position.y) >= 1) {
         dy = 0;
         return;
       }
@@ -41,7 +41,7 @@ public class Pea extends MovableObjects {
   public void actions() {
     move();
 
-    validatePosY(30);
+    validatePosY();
 
     if (position.x > visualMode.GameDim.getWidth()) {
       outOfGame = true;
