@@ -11,12 +11,14 @@ public class NightMode extends VisualMode {
     SunImage = new ImageIcon(SUN).getImage();
     KillSunImage = new ImageIcon(KILL_SUN).getImage();
     LuckyBalloonImage = new ImageIcon(LUCKY_BALLOON).getImage();
+
     ShovelImage = new ImageIcon(SHOVEL).getImage();
     ShovelButtonImage = new ImageIcon(SHOVEL_BUTTON).getImage();
+
     LawnmowerImage = new ImageIcon(LAWNMOWER).getImage();
     LawnmowerMovingImage = new ImageIcon(LAWNMOWER_MOVING).getImage();
+
     ShovelButtonIcon = new ImageIcon(ShovelButtonImage);
-    MushroomImage = new ImageIcon(MUSHROOM).getImage();
 
     SunFlowerImage = new ImageIcon(SUNFLOWER).getImage();
     SunFlowerCardIcon = new ImageIcon(SUNFLOWER_CARD);
@@ -45,6 +47,7 @@ public class NightMode extends VisualMode {
     //types of pea
     PeaImage = new ImageIcon(PEA).getImage();
     FreezePeaImage = new ImageIcon(SNOW).getImage();
+    MushroomImage = new ImageIcon(MUSHROOM).getImage();
 
     //three pea shooter
     ThreePeaShooterImage = new ImageIcon(THREE_PEASHOOTER).getImage();

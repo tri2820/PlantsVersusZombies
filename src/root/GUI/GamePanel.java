@@ -49,7 +49,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
     addMouseMotionListener(this);
     setLayout(null);
     setPreferredSize(visualMode.GameDim);
-    resetToLevel(1);
+    resetToLevel(2);
   }
 
   void initMessage() {
@@ -72,7 +72,6 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
     message.removeAll();
     message.setText("");
     initMessage();
-//    add(Zombie.initStatus());
     add(Sun.initCountLabel());
     Sun.Count = 0;
     Sun.updateCount(50000 * levelNumber);

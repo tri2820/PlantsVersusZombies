@@ -21,11 +21,13 @@ public class Round3 extends Round2 {
 
     //plant
     plantClasses.add(SunShroom.class);
-    cards.add(new IconButton(gamePanel.visualMode.SunShroomCardIcon, gamePanel.visualMode.GameDim.width * 10 / 90,
+    cards.add(new IconButton(gamePanel.visualMode.SunShroomCardIcon, gamePanel.visualMode.GameDim.width * 52 / 90,
             gamePanel.visualMode.GameDim.height / 67, gamePanel.visualMode.SunShroomImage, gamePanel));
 
     plantClasses.add(PuffShroom.class);
     cards.add(new IconButton(gamePanel.visualMode.PuffShroomCardIcon, gamePanel.visualMode.GameDim.width * 46 / 90,
             gamePanel.visualMode.GameDim.height / 67, gamePanel.visualMode.PuffShroomImage, gamePanel));
+
+    MAX_ZOMBIES = 80;
   }
 }

@@ -44,6 +44,6 @@ public class Round1 extends Level {
       lawnmowers.add(new Lawnmower(0, lane));
     }
 
-    MAX_ZOMBIES = 1;
+    MAX_ZOMBIES = 30;
   }
 }

@@ -25,7 +25,7 @@ public class KillSun extends Sun {
 
     @Override
     public void SpecialMoves() {
-//        LoopCounter++;
+        LoopCounter++;
         if (position.x <= 0 || position.x + getImage().getWidth(null) >= visualMode.GameDim.width) {
             dx *= -1;
 //            dy = rand.nextInt(bound) - bound * 1.0 / 2;
