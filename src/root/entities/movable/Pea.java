@@ -20,21 +20,28 @@ public class Pea extends MovableObjects {
     super(x, startY);
     this.endY = endY;
     dx = 20;
-    dy = 10 * Integer.compare(endY, startY);
+    dy = Integer.compare(endY, startY);
   }
 
   public int getEndY() {
     return endY;
   }
 
+  private void validatePosY() {
+    for (int time = 0; time < 30; time++) {
+      position.y += dy;
+      if (Math.abs(endY - position.y) <= 5) {
+        dy = 0;
+        return;
+      }
+    }
+  }
 
   @Override
   public void actions() {
     move();
 
-    if (Math.abs(endY - position.y) <= Math.abs(dy) && dy != 0) {
-      dy = 0;
-    }
+    validatePosY();
 
     if (position.x > visualMode.GameDim.getWidth()) {
       outOfGame = true;
