@@ -15,12 +15,11 @@ public class ThreePeaShooter extends PeaShooter {
   public Point stuffShooter = new Point(getBounds().width * 5 / 7, getBounds().height / 8);
   private ArrayList<Integer> lane_indexes = new ArrayList<>(3);
   private Map<Integer, Integer> LoopCounters = new HashMap<>(3);
-  private Map<Integer, ArrayList<Pea>> stuffsOnLane = new HashMap<>(3);
 
   public ThreePeaShooter(int x, int y) {
     super(x, y);
     setLanes();
-    price = 375;
+    price = 325;
     health = 200;
   }
 
@@ -48,7 +47,6 @@ public class ThreePeaShooter extends PeaShooter {
     }
 
     for (int lane_index : lane_indexes) {
-      stuffsOnLane.put(lane_index, new ArrayList<>());
       LoopCounters.put(lane_index, 0);
     }
   }
@@ -56,7 +54,6 @@ public class ThreePeaShooter extends PeaShooter {
   public void shoot(int lane_index) {
     Pea p = new Pea(position.x + stuffShooter.x, position.y + stuffShooter.y, CellsManager.lanes[lane_index] + stuffShooter.y);
     Stuffs.add(p);
-    stuffsOnLane.get(lane_index).add(p);
   }
 
   public void dealWithZom(int lane_index) {
@@ -76,9 +73,8 @@ public class ThreePeaShooter extends PeaShooter {
   public void actions() {
     for (int lane_index : lane_indexes) {
       LoopCounters.put(lane_index, LoopCounters.get(lane_index) + 1);
-      stuffsOnLane.get(lane_index).removeIf(pea -> pea.hitted || pea.outOfGame);
       if (!zomOnLane(lane_index).isEmpty()) {
-        if (stuffsOnLane.get(lane_index).isEmpty() && LoopCounters.get(lane_index) % 32 == 0) {
+        if (LoopCounters.get(lane_index) % 12 == 0) {
           shoot(lane_index);
         }
         dealWithZom(lane_index);

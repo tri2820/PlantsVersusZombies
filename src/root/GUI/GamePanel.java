@@ -49,7 +49,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
     addMouseMotionListener(this);
     setLayout(null);
     setPreferredSize(visualMode.GameDim);
-    resetToLevel(1);
+    resetToLevel(3);
   }
 
   void initMessage() {
@@ -169,13 +169,16 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
         level.addZombie(visualMode);
       }
     } else {
-      if (level.zombies.isEmpty()) {
+      if (level.zombieKilled >= level.MAX_ZOMBIES) {
         popup_loop_counter = LoopCounter;
         message.setText("Well done! You passed round " + levelNumber);
-        visualMode = Level.getVisualMode(levelNumber + 1);
-        Level new_level = Level.getRound(levelNumber++, this);
-        if (new_level != null) {
-          resetToLevel(levelNumber);
+        VisualMode new_visualMode = Level.getVisualMode(levelNumber + 1);
+        if (new_visualMode != null) {
+          visualMode = new_visualMode;
+          Level new_level = Level.getRound(levelNumber++, this);
+          if (new_level != null) {
+            resetToLevel(levelNumber);
+          }
         } else {
           /* ---- YOU WIN ---- */
           message.setFont(visualMode.PvZUI_FONT.deriveFont(100f));

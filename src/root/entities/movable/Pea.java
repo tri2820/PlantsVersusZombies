@@ -31,7 +31,7 @@ public class Pea extends MovableObjects {
   public void actions() {
     move();
 
-    dy = (endY - position.y) / 10.0;
+    dy = (endY - position.y) / 6.0;
 
     if (position.x > visualMode.GameDim.getWidth()) {
       outOfGame = true;
