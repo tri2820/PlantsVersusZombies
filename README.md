@@ -6,51 +6,29 @@ It serves as the final project for our OOP course in HCMIU-VN.
 - Java Development Kit 11
 
 # Download
+Download the latest release and extract it, which contains 3 things:
+* Resources
+* PlantsVersusZombies.jar
+* Executable scripts:
+    * RunPvZ.cmd ( ***Windows*** ) 
+    * RunPvZ.sh ( ***MacOS*** and ***Linux*** ) 
+
+# Run using executable script:
+1. Go to the extracted folder
+2. You may have to give the script executable permission ( ***MacOS*** and ***Linux*** )
+3. Double click the script to run it
+
+
+# Run using CLI
+In your favorite shell, cd to the extracted folder and run the command:
+```
+java -jar PlantsVersusZombies.jar 
+```
+
+# Build from source
+* Clone the project
 ```
 git clone https://github.com/tri2820/PlantsVersusZombies
 ```
-
-# Run
-
-## Windows
-* Go to project directory
-* Double click RunPvZ.cmd
-
-or by using command line:
-```
-REM cd \PATH\TO\PROJECT
-.\RunPvZ.cmd
-```
-
-## Linux
-### ***First way***: JAR executable
-* Go to project directory
-* Give executable permission to PlantsVersusZombies.jar
-* Execute PlantsVersusZombies.jar
-
-or by using command line:
-```
-#!/bin/bash
-# cd /PATH/TO/PROJECT
-chmod +x PlantsVersusZombies.jar
-java -jar PlantsVersusZombies.jar 
-```
-### ***Second way***: Executable script
-* Go to project directory
-* Give executable permission to RunPvZ.sh
-* Execute RunPvZ.sh
-
-or by using command line:
-```
-#!/bin/bash
-# cd /PATH/TO/PROJECT
-chmod +x RunPvZ.sh
-./RunPvZ.sh
-```
-
-
-
-# Build from source
-* Use an IDE ( preferably JetBrains' Intellij IDEA )
-* Clone the project
-* Build with the main class in PlantsVersusZombies.java
+* ***Recommended***: Use an IDE ( preferably JetBrains' Intellij IDEA ) to build
+* Main class: root.PlantsVersusZombies

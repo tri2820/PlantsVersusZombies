@@ -49,7 +49,7 @@ public class GamePanel extends JPanel implements Runnable, MouseInputListener, C
     addMouseMotionListener(this);
     setLayout(null);
     setPreferredSize(visualMode.GameDim);
-    resetToLevel(3);
+    resetToLevel(1);
   }
 
   void initMessage() {
