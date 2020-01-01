@@ -1,2 +1,2 @@
-REM cd \PATH\TO\PROJECT
+#!/bin/bash
 java -jar PlantsVersusZombies.jar
