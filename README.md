@@ -2,6 +2,8 @@
 This is an attempt to clone the famous Plants vs. Zombies© game originally made by PopCap Games. 
 It serves as the final project for our OOP course in HCMIU-VN.
 
+Here is our [Report](http://bit.ly/2SJR6cQ)
+
 # Dependencies
 - Java Development Kit 11
 
